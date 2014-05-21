@@ -15,9 +15,10 @@ Install the dependencies:
 
     $ pip install -r requirements.txt
 
-Setup the wsgi file:
+Setup the wsgi & manage files:
 
     $ cp bde_eurecom/setup/wsgi.py bde_eurecom/
+    $ cp bde_eurecom/setup/manage.py bde_eurecom/
 
 Setup the dev database:
 

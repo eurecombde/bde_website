@@ -1,7 +1,10 @@
-*~
-*.pyc
 bde_eurecom/settings/prod.py
 requirements/prod.txt
 __pycache__
 dev_db.sqlite
 bde_eurecom/wsgi.py
+manage.py
+
+*~
+*.pyc
+*nohup.out
