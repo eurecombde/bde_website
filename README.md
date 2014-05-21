@@ -23,8 +23,8 @@ Setup the wsgi & manage files:
 Setup the dev database:
 
     $ cd bde_eurecom/setup
-    $ chmod a+x script.sh
-    $ ./script.sh
+    $ chmod a+x setup.sh
+    $ ./setup.sh
 
 Start the devserver:
 
