@@ -1,0 +1,28 @@
+Things left to do
+X : done
+A : almost done
+* : priority for production
+
+* - Reorganize data presentation (vague but many things to do, to be precised)
+- prevent the description of photos when none on gallery
+* - Write a script to add contributors from a file containing student list (such a file added in setup directory)
+X - Change search form to avoid manual input.
+X - Resize and reorganize search form to make more space for the map
+- Add a map in Location tab of a house
+- Present informations on rooms
+* - Present student contacts (infos on contributors) 
+- URL containing the name of the house instead of the id
+* - Https with certificate ?
+- bigger thumbnail for search page
+A - add "price per person" automagically computed for the database (because it is the relevant criterion for search)
+* - Fix the update process after login (update button not working in "account")
+* - In account : possibility to create a house
+A - input errors feedback for the update forms
+X - Feedback after update button is pressed
+* - Redirect or refresh page options on update button pressed
+- Add update time in model (or dealt with promo of contributor ?)
+* - Create folder for each house photos or will be a big mess
+* - Limit the number of characters in user forms so that it doesn't exceed the max of the model
+* - Give a clear indication of which fields are mandatory (maybe with automatic javascript)
+* - Switch django langage to English, enough with the "envoyer" buttons
+

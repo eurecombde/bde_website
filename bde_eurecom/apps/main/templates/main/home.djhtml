@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Eurecom Housing{% endblock %}</title> 
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/housing-favicon.ico" >
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui/jquery-ui-1.10.4.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <!-- 
+      <h1>
+	Eurecom Housing
+	<img src="{{STATIC_URL}}img/house2picto.png"/>
+      </h1>
+      -->
+      <div id="header_img"></div>
+      <nav> 
+	<a href="{% url 'bde_eurecom.apps.housing.views.search_form' %}">search</a> | 
+	<a href="{% url 'bde_eurecom.apps.housing.views.account' %}">account</a> | 
+	<input id="quick_search" type="text" placeholder="Quick search by name..."/>
+      </nav>
+    </header>
+
+    
+
+    <section id="main">
+      {% block main %}
+	<h2>Welcome!</h2>
+	<p>BDE Eurecom website</p>
+	<p>Link to the <a href="{% url 'bde_eurecom.apps.housing.views.home' %}">housing application </a></p>
+      {% endblock %}
+    </section>
+    
+    <footer>
+      <br>
+      <p>
+	WTFO Company 2014
+      </p>
+      <p>
+        Sponsored by SexOnTheBED
+      </p>
+    </footer>
+  </body>
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.4.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/quick_search.js"></script>
+  <script type="text/javascript">
+   var STATIC_URL = "{{STATIC_URL}}";
+   var quick_search_url = '{% url 'bde_eurecom.apps.housing.views.quick_search' %}';
+   var house_url = '{% url 'bde_eurecom.apps.housing.views.house' 0 %}'; 
+  </script>
+  {% block scripts %}
+  {% endblock %}
+</html>
+
+

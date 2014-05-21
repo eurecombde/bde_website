@@ -1,0 +1,31 @@
+{% extends "housing/layout.djhtml" %}
+
+{% block main %}
+
+  {% if added %} 
+    <h2>House added!</h2>
+  {% else  %}
+  <h2>Create your house</h2>
+  <p>Thank you for contributing. Thanks to your effort, futur students will have the possibility to get the informations you add about your accomodation. It will certainly help them to find what they need.</p>
+  <p>This first page will create your house in the database, you will then be redirected to the update page to give the other informations. All information you enter here is modifiable afterwards.</p>
+    <form enctype="multipart/form-data" action="" method="post">
+      {% csrf_token %}
+      <fieldset>
+        <legend>First infos</legend>
+        {{ house_form.as_p }}
+      </fieldset>
+      <input type="submit" />
+    </form>
+  {% endif %}
+
+{% endblock %}
+{% block scripts %}
+  <script>
+     // local variables used in following scripts
+
+  </script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/helptext.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.fileupload.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.ui.widget.js"></script>
+{% endblock %}

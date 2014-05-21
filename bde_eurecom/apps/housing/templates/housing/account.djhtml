@@ -1,0 +1,18 @@
+{% extends "housing/layout.djhtml" %}
+
+{% block main %}
+  <h1>Welcome {{ user.username }} !</h1>
+  <button onclick="window.location='{% url 'bde_eurecom.apps.housing.views.user_logout' %}'">Logout</button>
+  {% if contributor %}
+    {% if houses %}
+      <p>Houses you contribute to : </p>
+      {% for house in houses %}
+	<p> {{ house }} - <button onclick="window.location='{% url 'bde_eurecom.apps.housing.views.house_update' house.id %}'">Update</button></p>
+      {% endfor %}
+    {% else %}
+      <p>You contribute to no houses</p>
+    {% endif %}
+  {% else %}
+    <p> You are not a contributor :(</p>
+  {% endif %}
+{% endblock %}

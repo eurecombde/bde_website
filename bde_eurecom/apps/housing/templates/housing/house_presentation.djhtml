@@ -1,0 +1,241 @@
+{% extends "housing/layout.djhtml" %}
+
+{% block main %}
+  {% if can_update %}
+    <button style="float:right" onclick="window.location='{% url 'bde_eurecom.apps.housing.views.house_update' house.id %}'">Update</button>
+  {% endif %}
+  <h1>{{ house.accomodation_name }}</h1>
+  
+  {% comment %}
+  ** Gallery
+  * 
+  {% endcomment %}
+  <section id="gallery_info">
+    <article id="gallery"> 
+      <div id="galleryContainer">
+	<div id=sliderContainer>
+          <img src="{{STATIC_URL}}img/left-arrow-transp.png" id="previousButton" class="galleryButton" onClick="loadPrevious();">
+          <div id=photoContainer>
+            <img src="{{MEDIA_URL}}{{ photos.0.img }}"/> 
+            <div id="photoDescr">{{ photos.0.descr }}</div>
+          </div>
+          <img src="{{STATIC_URL}}img/right-arrow-transp.png" id="nextButton" class="galleryButton" onClick="loadNext();">
+	</div>
+
+	<ul id="thumbnails">
+          {% for photo in photos %}
+            <li>
+              <img src="{{MEDIA_URL}}{{ photo.thumbnail }}" alt="{{ photo.descr }}" id="thumbnail{{photo.pos|add:'-1'}}" onClick="loadphoto({{photo.pos|add:'-1'}});"/>
+            </li>
+          {% empty %}
+            <p>no photo</p>
+          {% endfor %}
+	</ul>
+      </div>
+    </article>
+
+    <aside id="general">
+      <h3>General Information</h3>
+      <!--
+      <table>
+	<tbody>
+	  <tr>
+	    <td>Type</td>
+	    <td>{{ house.get_accomodation_type_display }}</td>
+	  </tr>
+	  <tr>
+	    <td>Rent (with service charges)</td>
+	    <td>{{ house.price.rent_with_service_charge }} €</td>
+	  </tr>
+	  <tr>
+	    <td>Surface</td>
+	    <td>{{ house.surface }} m²</td>
+	  </tr>
+	  <tr>
+	    <td>Number of persons</td>
+	    <td>{{ house.number_persons }}</td>
+	  </tr>
+	  <tr>
+	    <td>Address</td>
+	    <td>{{ house.location.address }}, {{ house.location.city }}</td>
+	  </tr>
+	  <tr>
+	    <td>Distance to Eurecom</td>
+	    <td>{{ house.location.distance_eurecom }} km</td>
+	  </tr>
+	</tbody>
+      </table>
+      -->
+        <div>
+          <p class="general_info_left">Type</p>
+          <p class="general_info_right">{{ house.get_accomodation_type_display }}</p>
+          <p class="general_info_left">Rent (with service charges)</p>
+          <p class="general_info_right">{{ house.price.rent_with_service_charge }} €</p>
+          <p class="general_info_left">Surface</p>
+          <p class="general_info_right">{{ house.surface }} m²</p>
+          <p class="general_info_left">Number of persons</p>
+          <p class="general_info_right">{{ house.number_persons }}</p>
+          <p class="general_info_left">Address</p>
+          <p class="general_info_right">{{ house.location.address }}, {{ house.location.city }}</p>
+          <p class="general_info_left">Distance to Eurecom</p>
+          <p class="general_info_right">{{ house.location.distance_eurecom }} km</p>
+        </div>
+    </aside>
+
+  </section>
+  <section id="information">
+    <ul>
+      <li><a href="#house">General</a></li>
+      <li><a href="#additional_info">Additional</a></li>
+      <li><a href="#price">Price</a></li>
+      <li><a href="#furniture">Furniture</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <article id="house">
+    
+    {% if house.appreciation %}
+        <h3>General Description</h3>
+        {% if house.appreciation.general_description %}
+            <p>{{ house.appreciation.general_description|linebreaks }}</p>
+        {% else %}
+        <p><i>No general description</i></p>
+        {% endif %}
+        <div id="strong_points" class="S_W_points">
+            <h3>Strong points</h3>
+            {% if house.appreciation.strong_points %}
+                <p>{{ house.appreciation.strong_points|linebreaks }}</p>
+            {% else %}
+            <p><i>Empty strong points</i></p>
+            {% endif %}
+        </div>
+        <div id="weak_points" class="S_W_points">
+            <h3>Weak points</h3>
+            {% if house.appreciation.weak_points %}
+                <p>{{ house.appreciation.weak_points|linebreaks }}</p>
+            {% else %}
+            <p><i>Empty weak points</i></p>
+            {% endif %}
+        </div>
+    {% else %}
+    <h1>No information given</h1>
+    {% endif %}
+
+    {% comment %}
+      {% for field in house_form %}
+	{% if field.name != 'accomodation_name' and field.value %}
+	  {% if field.name == 'accomodation_type' %}
+	    <p> {{ field.label }} : {{ house.get_accomodation_type_display }} </p>
+	  {% else %}
+	    <p> {{ field.label }} : {{ field.value }} </p>
+	  {% endif %}
+	{% endif %}
+        {% endfor %}
+    {% endcomment %}
+      
+    </article>
+    <article id="additional_info">
+      
+      {% for field in additional_info_form %}
+	{% if field.value %}
+	  {% if field.name == 'heating_type' %}
+	    <p> {{ field.label }} : {{ additionalinfo.get_heating_type_display }} </p>
+	  {% elif field.name == 'furniture_appreciation' %}
+	    <p> {{ field.label }} : {{ additionalinfo.get_furniture_appreciation_display }} </p>
+	  {% else %}
+	    <p> {{ field.label }} : {{ field.value }} </p>
+	  {% endif %}
+	{% endif %}
+      {% endfor %}
+      
+    </article>
+    <article id="price">
+
+    <p>Price per person : {{house.price.rent_charge_per_person}}</p>
+
+      
+      {% for field in price_form %}
+	{% if field.value == True %}
+	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}/img/true_icon.png"/> </p>
+	{% elif field.value == False %}
+	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}/img/false_icon.png"/> </p>
+	{% else %}
+	  <p> {{ field.label }} : {{ field.value }} </p>
+	{% endif %}
+      {% endfor %}
+      
+    </article>
+    <article id="furniture">
+      
+      <table>
+	<tbody>
+	  {% for field in furniture_form %}
+	    {% cycle '<tr>' '' '' '' %}
+	    <td {% if not field.value %} style="text-decoration:line-through" {% endif %}> {{ field.label }}</td>
+	    {% cycle '' '' '' '</tr>' %}
+	  {% endfor %}
+	</tbody>
+      </table>
+      
+    </article>
+    <article id="location">
+      
+      {% for field in location_form %}
+	{% if field.value %}
+	  <p> {{ field.label }} : {{ field.value }} </p>
+	{% endif %}
+      {% endfor %}
+      
+    </article>
+    <article id="travel">
+      
+      {% for field in travel_form %}
+	{% if field.value %}
+	  <p> {{ field.label }} : {{ field.value }} </p>
+	{% endif %}
+      {% endfor %}
+      
+    </article>
+    <article id="contact">
+      
+      {% for field in contact_form %}
+	{% if field.value %}
+	  <p> {{ field.label }} : {{ field.value }} </p>
+	{% endif %}
+      {% endfor %}
+      
+    </article>
+    {% comment %}
+    <article id="appreciation">
+      
+      {% for field in appreciation_form %}
+	{% if field.value %}
+	  <p> {{ field.label }} : {{ field.value }} </p>
+	{% else %}
+	  <p> {{ field.label }} : No information </p>
+	{% endif %}
+      {% endfor %}
+    </article>
+    {% endcomment %}
+  </section>
+  
+{% endblock %}
+
+{% block scripts %}
+  <script> 
+   var photoRef = new Array();
+   var photoDescr = new Array();
+   {% for photo in photos %}
+   photoRef[{{ photo.pos|add:'-1' }}]="{{ MEDIA_URL }}{{ photo.img }}";
+   photoDescr[{{ photo.pos|add:'-1' }}]="{{ photo.descr }}";
+   {% empty %}
+   {% endfor %}
+   var numberphotos=photoRef.length;
+   var STATIC_URL = {{STATIC_URL}};
+  </script>
+
+  <script src="{{STATIC_URL}}js/jquery.cacheimage.js"></script>
+  <script src="{{STATIC_URL}}js/gallery.js"></script>
+  <script src="{{STATIC_URL}}js/house_presentation.js"></script>
+{% endblock %}

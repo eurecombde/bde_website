@@ -1,0 +1,27 @@
+{% extends "housing/layout.djhtml" %}
+
+{% block main %}
+<form enctype="multipart/form-data" action="" method="post">
+  {% csrf_token %}
+  <input id="id_img" type="file" name="img" data-url="{% url 'bde_eurecom.apps.housing.views.add_photo' house.id %}" multiple>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+// local variables used in following scripts
+$(function () {
+    $('#id_img').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
+});
+</script>
+<script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.ui.widget.js"></script>
+{% endblock %}

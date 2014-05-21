@@ -1,0 +1,63 @@
+{% extends "housing/layout.djhtml" %}
+
+{% block main %}
+  <section id="criteria_search">
+      {% comment %}
+        <table>
+          {{ search_form.as_table }}
+      </table>
+      change for a custom html
+      {% endcomment %}
+     
+      <p>{{ search_form.accomodation_type }}</p>
+
+      <p>{{ search_form.price__rent_charge_per_person__lte }}</p>
+
+      <p>{{ search_form.number_persons.label }} <br>
+      {{ search_form.number_persons }}</p>
+
+      <p>{{ search_form.additionalinfo__need_car.label }} <br>
+      {{ search_form.additionalinfo__need_car }}</p>
+
+      <p>{{ search_form.order_by.label }} <br>
+      {{ search_form.order_by }}</p>
+
+      <p>{{ search_form.order.label }} <br>
+      {{ search_form.order }}</p>
+
+      <button id="search">Search</button>
+      </section>
+
+  <section id="search_map">
+    <div id='map_canvas'>
+    </div>
+  </section>
+  <section id="house_list">
+    <table>
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>N° Persons</th>
+          <th>Surface</th>
+          <th>City</th>
+          <th>To Eurecom</th>
+          <th>Price/person</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript">
+     var search_url = '{% url 'bde_eurecom.apps.housing.views.search' %}';
+     var house_url = '{% url 'bde_eurecom.apps.housing.views.house' 0 %}';     
+  </script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery.ui.map.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/search.js"></script>
+{% endblock %}

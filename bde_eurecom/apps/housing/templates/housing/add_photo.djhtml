@@ -1,0 +1,12 @@
+<ul id="sortable">
+  {% for photo in photos %}
+    <li data-id="{{ photo.id }}" data-pos="{{ photo.pos }}">
+      <div class="photo" data-id="{{ photo.id }}">
+	<img src="{{ MEDIA_URL }}{{ photo.thumbnail }}" alt="{{ photo.descr }}"/>
+        <label for="">Description</label><input id="descr" name="descr" data-type="set_photo_descr" data-id="{{ photo.id }}" value="{{ photo.descr }}" />
+        <button data-type="delete_photo" data-id="{{ photo.id }}">X</button>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+

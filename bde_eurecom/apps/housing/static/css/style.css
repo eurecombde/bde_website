@@ -1,0 +1,395 @@
+* {
+    font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+}
+
+body {
+    overflow:scroll;
+    font-family:Lucida Grande,​Lucida Sans,​Arial,​sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    margin:auto;
+    margin-bottom:15px;
+    padding:1px;
+    background-color: #239CD3;
+    color: white;
+    height:100px;
+    width:1000px;
+}
+
+header h1 {
+    display:inline;
+}
+
+#button_update {
+    margin-top:10px;
+    float:right;
+}
+
+#main h1 {
+    text-align:center;
+    font-variant:small-caps;
+    font-size:200%;
+    font-weight:bold;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+#header_img {
+    background-image:url('../img/header.png');
+    width:600px;
+    height:100px;
+    float:left;
+}
+
+nav {
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-variant:small-caps;
+    font-size:120%;
+    width:400px;
+    margin-top:50px;
+    margin-left:600px;
+}
+
+#gallery_info {
+    margin-bottom:20px;
+}
+
+/*
+nav ul {
+    list-style: none;
+    width:200px;
+    
+}
+
+nav ul li{
+    display: inline-block;
+    font-size:20px;
+    margin: 10px 20px 10px 20px;
+}
+*/
+
+footer {
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px
+}
+
+aside {
+    /*margin-left:680px;
+    height:512px;*/
+    margin-left:720px;
+    height:538px;
+    border:1px solid #239CD3;
+    border-radius:3px;
+    background-color:#F2F5F7;
+    color:#362B36;
+}
+
+aside h3 {
+    margin-top:0px;
+    text-align:center;
+    border-bottom:1px solid #239CD3;
+    padding-bottom:10px;
+    padding-top:10px;
+    background-color:#239CD3;
+    color:#ffffff;
+}
+
+aside div {
+    padding: 0px 10px 0px 10px;
+}
+
+aside table {
+    font-weight:bold;
+}
+
+.general_info_left {
+    font-weight:bold;
+    /*margin-left:20px;*/
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.general_info_right {
+    /*margin-right:20px;*/
+    margin-bottom:25px;
+    text-align: center;
+    margin-top: 8px;
+
+}
+
+#gallery {
+    float:left;
+}
+
+#information {
+    clear:both;
+}
+
+.S_W_points {
+    display: inline-block;
+    width : 400px;
+    vertical-align: top;
+    padding: 0px 15px 0px 15px;
+    border-radius: 3px;
+    margin-top: 15px;
+}
+
+#strong_points {
+    background-color: #D1F9D3;
+}
+
+#weak_points {
+    background-color: #F9D1D1;
+    margin-left: 26px;
+}
+
+#main {
+    display:block;
+    margin:auto;
+    width:950px;
+    padding:15px 25px 25px 25px;
+    background-color:#eeeeee;
+}
+
+#form label {
+    vertical-align: top;
+}
+
+#thumbnails {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#galleryContainer {
+    border: 1px solid #239CD3;
+    border-radius: 3px;
+    background-color: #F2F5F7;
+    padding: 10px;
+    width: 678px;
+    /*width: 639px;*/
+}
+
+#sliderContainer {
+    position: relative;
+}
+
+#photoContainer {
+    background-color: #eeeeee;
+    /*width: 639px;
+    height: 426px;*/
+    width: 678px;
+    height: 452px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#photoContainer img {
+    display: block;
+    margin: auto;
+    position: absolute;
+}
+
+#loader {
+    position:absolute;
+    left:50%; 
+    top:50%; 
+    margin:-15px 0 0 -15px;
+}
+
+#thumbnails li {
+    display: inline-block;
+}
+
+#thumbnails img {
+    border: 3px solid #cdcdcd;
+    cursor: pointer;
+}
+    
+#thumbnails .active {
+    border: 3px solid #239CD3;
+}
+    
+.galleryButton {
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -34px;
+}
+
+#nextButton {
+    right: 30px;
+}
+
+#previousButton {
+    left: 30px;
+} 
+
+#photoDescr {
+    font-size: 15px;
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    border-radius: 2px;
+    bottom: 0;
+    color: #FFFFFF;
+    font-weight: bold;
+    left: 0;
+    padding: 25px 13px 13px;
+    position: absolute;
+    right: 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+fieldset {
+    margin-bottom:25px;
+}
+
+#sortable {
+    list-style:none;    
+}
+
+.photo {
+    border:1px solid #aaaaaa;
+    padding:15px;
+    margin-top:5px;
+    background-color:#dddddd;
+}
+
+#criteria_search {
+    width: 200px;
+    height: 400px;
+    background-color:#F2F5F7;
+    border:1px solid #239CD3;
+    border-radius:3px;
+    padding:10px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+#criteria_search th {
+    text-align:right;
+}
+
+#criteria_search button {
+    position: absolute;
+    right: 20px;
+    margin-top:20px;
+}
+
+#criteria_search select {
+    width: 160px;
+}
+
+#map_canvas {
+    width: 692px;
+    height: 400px;
+}
+
+#search_map {
+    padding:10px;
+    width:692px;
+    margin-left:10px;
+    background-color:#F2F5F7;
+    border:1px solid #239CD3;
+    border-radius:3px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+table {
+    border-collapse:collapse;
+    margin:auto;
+}
+
+thead {
+    background-color:#239CD3;
+    color:#ffffff;
+}
+
+td {
+    padding:10px;
+}
+
+#house_list {
+    margin-top:20px;
+    text-align:center;
+    width:950px;
+}
+
+#house_list table {
+    width:950px;
+}
+
+#house_list th {
+    border:1px solid #239CD3;
+    padding:10px;
+    font-size:120%;
+}
+
+#house_list td {
+    border:1px solid #239CD3;
+    padding:10px;
+    background-color:#F2F5F7;
+}
+
+#furniture p {
+    display:inline-block;
+    /* margin-right:30px; */
+}
+
+fieldset {
+    margin-top:20px;
+    background-color:#ffffff;
+    border: 2px solid #239CD3;
+    border-radius:5px;
+}
+
+legend {
+    font-size:120%;
+    border-radius:5px;
+    padding:3px;
+    background-color:#239CD3;
+    color:#efefef;
+}
+
+#add_room_form {
+    background-color: #EEEEEE;
+    border: 1px solid #239CD3;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+.helptext {
+    display:none;
+}
+
+.error {
+    font-style: italic;
+    margin-left: 10px;
+    color: #D44B4B;
+}
+
+.error_input {
+    background-color:#D44B4B;
+    color:#FFFFFF;
+}
+
+#info {
+    text-align:center;
+}

@@ -1,0 +1,141 @@
+{% extends "housing/layout.djhtml" %}
+
+{% block main %}
+
+  {% if added %} 
+    <h2>House added!</h2>
+  {% else  %}
+    {% if updated %}
+      <h2>House updated!</h2>
+    {% endif %}
+
+    <h1>Update the house</h1>
+    <form id="form">
+      {% csrf_token %}
+      <div id="accordion" enctype="multipart/form-data" action="" method="post">
+	
+	<!-- 
+	<ul>
+	<li><a href="#house">General</a></li>
+	<li><a href="#additional_info">Additional</a></li>
+	<li><a href="#price">Price</a></li>
+	<li><a href="#furniture">Furniture</a></li>
+	<li><a href="#location">Location</a></li>
+	<li><a href="#travel">Travel</a></li>
+	<li><a href="#contact">Contact</a></li>
+	<li><a href="#appreciation">Appreciation</a></li>
+	<li><a href="#photo">Photo</a></li>
+	<li><a href="#contributor">Contributor</a></li>
+	</ul>
+	-->
+         
+        <div>
+            <h3>General</h3>
+            <div id="house">
+              {{ house_form.as_p }}
+            </div>
+        </div>
+        <div>
+            <h3>Additional</h3>
+            <div id="additional_info">
+
+              {{ additional_info_form.as_p }}
+            </div>
+        </div>
+        <div>
+            <h3>Price</h3>
+            <div id="price">
+              {{ price_form.as_p }}
+            </div>
+        </div>
+        <div>
+            <h3>Rooms</h3>
+            <div id="room" data-type="room">
+              {% include "housing/add_room.djhtml" %}
+            </div>
+        </div>
+        <div>
+            <h3>Furniture</h3>
+            <div id="furniture">
+              {{ furniture_form.as_p }}
+            </div>
+        </div>
+        <div>
+            <h3>Location</h3>      
+            <div id="location">
+              {{ location_form.as_p }}
+              <p>Click on the map to precise the position of your accomodation :</p>
+              <button type="button" id='center_button'>Center the map on your address</button>
+              <div id="map_canvas"></div>
+            </div>
+        </div>
+        <div>
+            <h3>Travel</h3>
+            <div id="travel">
+              {{ travel_form.as_p }}
+            </div>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <div id="contact">
+              {{ contact_form.as_p }}
+            </div>
+        </div>
+        <div>
+            <h3>Appreciation</h3>
+            <div id="appreciation">
+              {{ appreciation_form.as_p }}
+            </div>
+        </div>
+            
+            <!-- <form enctype="multipart/form-data" action="" method="post"></form>  -->
+        <div>
+            <h3>Photos</h3>
+            <div id="photo">
+              <div  data-type="photo">
+                {% include "housing/add_photo.djhtml" %}
+              </div>
+              <p><label for="id_img">Add photos </label><input id="id_img" type="file" accept="image/*" name="img" data-url="/housing/house/add_photo/1" multiple /></p>
+            </div>
+        </div>
+        <div>
+            <h3>Contributors</h3>
+            <div id="contributor" data-type="contributor">
+              {% include "housing/add_contributor.djhtml" %}
+            </div>
+        </div>
+      </div>
+      <button id="button_update" data-type="update">Update</button>
+    </form>    
+
+
+
+  {% endif %}
+
+{% endblock %}
+{% block scripts %}
+  <script type="text/javascript">
+   
+   // local variables used in following scripts
+   var house_id = {{ house.id }};
+   var add_room_url = '{% url 'bde_eurecom.apps.housing.views.add_room' house.id %}';
+   var delete_room_url = '{% url 'bde_eurecom.apps.housing.views.delete_room' house.id %}';
+   var add_photo_url = '{% url 'bde_eurecom.apps.housing.views.add_photo' house.id %}';
+   var delete_photo_url = '{% url 'bde_eurecom.apps.housing.views.delete_photo' house.id %}';
+   var get_photo_url = '{% url 'bde_eurecom.apps.housing.views.get_photo' house.id %}';
+   var sort_photo_url = '{% url 'bde_eurecom.apps.housing.views.sort_photo' house.id %}';
+   var set_photo_descr_url = '{% url 'bde_eurecom.apps.housing.views.set_photo_descr' house.id %}';
+   var add_contributor_url = '{% url 'bde_eurecom.apps.housing.views.add_contributor' house.id %}';
+   var delete_contributor_url = '{% url 'bde_eurecom.apps.housing.views.delete_contributor' house.id %}';
+   var house_update_url = '{% url 'bde_eurecom.apps.housing.views.house_update' house.id %}';
+
+  </script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/helptext.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/house_update.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.fileupload.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery.ui.map.js"></script>
+  <script src="{{STATIC_URL}}js/precisePosition.js"></script>
+{% endblock %}

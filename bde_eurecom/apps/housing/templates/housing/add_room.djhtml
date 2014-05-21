@@ -1,0 +1,21 @@
+<p>Add all the rooms of your accomodation, with their type.</p> 
+<ul id="rooms">
+  {% for room in rooms %}
+    <li data-type="room" data-id="{{ room.id }}">
+      {{ room.get_room_type_display }}
+      {% if room.other_type %}
+	({{ room.other_type }})
+      {% endif %}
+
+      {% if room.room_surface %}
+	: {{ room.room_surface }} m² 
+      {% endif %}
+      <button data-type="delete_room">X</button>
+    </li>
+  {% endfor %}
+</ul>
+<div id="add_room_form">
+    {{ room_form.as_p }}
+    <button data-type="add_room">Add</button>
+</div>
+
