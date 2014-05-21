@@ -4,7 +4,8 @@ __pycache__
 dev_db.sqlite
 bde_eurecom/wsgi.py
 manage.py
-
+venv
+bde_eurecom/media
 *~
 *.pyc
 *nohup.out
