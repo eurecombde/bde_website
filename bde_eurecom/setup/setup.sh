@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
 # Sets up the database for the project with few datas
-echo -e '\n[-- CLEANED DATABASES --]\n'
-rm ../../dev_db.sqlite
+echo -e '\n[-- CLEANING DATABASES --]\n'
+if [ -e ../../dev_db.sqlite ]; then
+    rm ../../dev_db.sqlite
+fi
+
+echo -e '\n[-- CREATING TABLES --]\n'
 python ../../manage.py syncdb --noinput
-echo -e '\n[-- CREATED TABLES --]\n'
+
+echo -e '\n[-- FILLING TABLES --]\n'
 python ../../manage.py shell < database.py > /dev/null
-echo -e '\n[-- FILLED TABLES --]\n'
 mv dev_db.sqlite ../../
