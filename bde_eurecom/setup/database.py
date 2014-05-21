@@ -36,6 +36,7 @@ ap1.save()
 contact1 = Contact(house=h1, landlord_first_name="Roxanna", landlord_last_name="Draycott", landlord_email="draycottr@aol.com", landlord_phone_number="+44 208 954 3818", landlord_comment_field="The landlord lives in London. She is super nice and always disposed to help us with anything we need. It's really a pleasure to have her as landlord.")
 contact1.save()
 
+"""
 p11 = Photo(img="housing/TCup-1.jpg", thumbnail="housing/thumbnails/TCup-1.jpg", descr="Living Room", house=h1, pos=2)
 p11.save()
 p12 = Photo(img="housing/TCup-2.jpg", thumbnail="housing/thumbnails/TCup-2.jpg", house=h1, pos=3)
@@ -48,6 +49,7 @@ p15 = Photo(img="housing/TCup-5.jpg", thumbnail="housing/thumbnails/TCup-5.jpg",
 p15.save()
 p16 = Photo(img="housing/TCup-6.jpg", thumbnail="housing/thumbnails/TCup-6.jpg", descr="Patio", house=h1, pos=1)
 p16.save()
+"""
 
 # Adding permission to contributor
 content_type = ContentType.objects.get(app_label='housing', model='house')
@@ -106,9 +108,9 @@ for num in range (20):
     latitude=random.gauss(43.614252, 0.08)
     longitude=random.gauss(7.072984, 0.08)
     Location(house=h_rand, address="Somewhere", city=cities[city], postal_code="00000", distance_eurecom=distance, latitude=latitude, longitude=longitude).save()
-    
+   """ 
     p16 = Photo(img="housing/TCup-6.jpg", thumbnail="housing/thumbnails/TCup-6.jpg", descr="Patio", house=h_rand, pos=1).save()
-
+   """
 """
 h2 = House(accomodation_name="Antibes", surface=95, price=2995)
 h2.save()
