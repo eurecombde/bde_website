@@ -1,20 +1,8 @@
-"""
-Django settings for bde_eurecom project.
+from common import *
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
+DEBUG = True
 
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-ADMINS = (
-    ('nobu42', 'achard@eurecom.fr'),
-    ('gd', 'dudragne@eurecom.fr'),
-)
+TEMPLATE_DEBUG = True
 
 DATABASES = {
     'default': {

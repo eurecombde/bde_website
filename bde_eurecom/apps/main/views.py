@@ -6,4 +6,4 @@ def home(request):
 
     """
 
-    return render(request, 'home/home.djhtml')
+    return render(request, 'main/home.djhtml')
