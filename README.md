@@ -1,7 +1,7 @@
-logement
-========
+EURECOM BDE Website
+===================
 
-Git pour le site du logement
+Here are developped main apps of the EURECOM BDE Website, including housing app.
 
 Development
 -----------
