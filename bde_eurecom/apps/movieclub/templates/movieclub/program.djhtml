@@ -2,10 +2,12 @@
 
 {% block content %}
     {% for screening in screenings %}
-      <h2>
-        {{ screening.movie_name }}
-        <small>({{ screening.time|date:"d-m-Y" }})</small>
-      </h2>
+      <a href="{% url 'movieclub:screening_details' screening_id=screening.id %}">
+        <h2>
+          {{ screening.movie_name }}
+          <small>({{ screening.time|date:"d-m-Y" }})</small>
+        </h2>
+      </a>
 
       <a href="{{ screening.movie_link }}">
         <img src="{{ screening.image.url }}" alt="{{ screening.movie_name }} artwork">

@@ -1,0 +1,14 @@
+{% extends 'movieclub/base.djhtml' %}
+
+{% block content %}
+    <h2>
+        {{ screening.movie_name }}
+        <small>({{ screening.time|date:"d-m-Y" }})</small>
+    </h2>
+
+    <a href="{{ screening.movie_link }}">
+        <img src="{{ screening.image.url }}" alt="{{ screening.movie_name }} artwork">
+    </a>
+
+    {{ screening.description|safe }}
+{% endblock %}

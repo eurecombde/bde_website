@@ -38,13 +38,6 @@ a {
   text-decoration: none;
 }
 
-a small {
-  font-size: 11px;
-  color: #777;
-  margin-top: -0.6em;
-  display: block;
-}
-
 .wrapper {
   width: 860px;
   margin: 0 auto;
@@ -260,4 +253,14 @@ footer {
     font-size: 12pt;
     color: #444;
   }
+}
+
+.nav-justified > li > a.pseudo-active {
+    border: 1px solid #ddd;
+}
+
+@media print, screen and (min-width: 768px) {
+    .nav-justified > li > a.pseudo-active {
+        border-bottom: 1px solid #fff;
+    }
 }
