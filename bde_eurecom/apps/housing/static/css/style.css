@@ -349,8 +349,11 @@ td {
 }
 
 #furniture p {
-    display:inline-block;
-    /* margin-right:30px; */
+    background-color: #EEEEEE;
+    border: 1px solid #239CD3;
+    display: inline-block;
+    margin-right: 25px;
+    padding: 5px;
 }
 
 fieldset {
@@ -377,6 +380,10 @@ legend {
 
 .helptext {
     display:none;
+}
+
+.asterisk {
+    color: red;
 }
 
 .error {

@@ -9,7 +9,8 @@
       <h2>House updated!</h2>
     {% endif %}
 
-    <h1>Update the house</h1>
+    <h1>Update the accomodation</h1>
+    <p>On this page you can update any of the informations about your accomodation. Required fields are marked by an asterisk.</p>
     <form id="form">
       {% csrf_token %}
       <div id="accordion" enctype="multipart/form-data" action="" method="post">
@@ -72,6 +73,7 @@
         <div>
             <h3>Travel</h3>
             <div id="travel">
+                <p>With your experience of this accomodation, give the times required to travel to Eurecom. Max time being for bad days with traffic jam, and min time for good days. If you don't use the mean of tranport indicated, leave empty.</p> 
               {{ travel_form.as_p }}
             </div>
         </div>
@@ -92,15 +94,18 @@
         <div>
             <h3>Photos</h3>
             <div id="photo">
+                <p>Here you can add the photos of your accomodation, try to give as much as possible for students.</p>
               <div  data-type="photo">
                 {% include "housing/add_photo.djhtml" %}
-              </div>
+            </div>
               <p><label for="id_img">Add photos </label><input id="id_img" type="file" accept="image/*" name="img" data-url="/housing/house/add_photo/1" multiple /></p>
+              <p>You can then drag the photos to reorder the way they will appear in the presentation. The first photo will be used as thumbnail.</p>
             </div>
         </div>
         <div>
             <h3>Contributors</h3>
             <div id="contributor" data-type="contributor">
+                <p>Add your roomates to the accomodation, so that there contact informations are available and that they can modify the accomodation</p> 
               {% include "housing/add_contributor.djhtml" %}
             </div>
         </div>

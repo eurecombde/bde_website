@@ -25,4 +25,5 @@ X - Feedback after update button is pressed
 * - Limit the number of characters in user forms so that it doesn't exceed the max of the model
 * - Give a clear indication of which fields are mandatory (maybe with automatic javascript)
 * - Switch django langage to English, enough with the "envoyer" buttons
+* - Prevent a contributor from deleting himself as contributor of his house
 

@@ -5,6 +5,7 @@ dev_db.sqlite
 bde_eurecom/wsgi.py
 manage.py
 
+*.swp
 *~
 *.pyc
 *nohup.out

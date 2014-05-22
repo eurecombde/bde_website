@@ -3,11 +3,15 @@ from django import forms
 from bde_eurecom.apps.housing.models import House, AdditionalInfo, Price, Room, Furniture, Location, Travel, Contact, Appreciation, Photo, Contributor
 
 class HouseForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = House
 
 
 class AdditionalInfoForm(forms.ModelForm):
+    required_css_class = 'required'
+    
     class Meta:
         model = AdditionalInfo
         exclude = ('house',)
@@ -19,6 +23,8 @@ class AdditionalInfoForm(forms.ModelForm):
         }   
 
 class PriceForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Price
         exclude = ('house',)
@@ -40,6 +46,8 @@ class FurnitureForm(forms.ModelForm):
 
 
 class LocationForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Location
         exclude = ('house', )#'latitude', 'longitude', )
@@ -49,6 +57,8 @@ class LocationForm(forms.ModelForm):
         }   
 
 class TravelForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Travel
         exclude = ('house',)
@@ -59,6 +69,8 @@ class TravelForm(forms.ModelForm):
 
 
 class ContactForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Contact
         exclude = ('house',)
@@ -69,23 +81,29 @@ class ContactForm(forms.ModelForm):
 
 
 class AppreciationForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Appreciation
         exclude = ('house',)
         widgets = { 
             'strong_points': forms.Textarea(attrs={'maxlength': model._meta.get_field('strong_points').max_length}),
             'weak_points': forms.Textarea(attrs={'maxlength': model._meta.get_field('weak_points').max_length}),
-            'general_description': forms.Textarea(attrs={'maxlength': model._meta.get_field('general_description').max_length}),
+            'general_description': forms.Textarea(attrs={'maxlength': model._meta.get_field('general_description').max_length, 'cols':80}),
         }   
 
         
 class ContributorForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Contributor
         exclude = ('houses',)
 
 
 class PhotoForm(forms.ModelForm):
+    required_css_class = 'required'
+
     class Meta:
         model = Photo
         exclude = ('house','descr',)

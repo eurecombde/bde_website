@@ -246,4 +246,7 @@ $(document).ready(function() {
             $otherFormField.hide();
         }
     });
+
+    $(".required > label").append("<span class='asterisk'> *</span>")
+
 });

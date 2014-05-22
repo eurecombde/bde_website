@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 
         
 class House(models.Model):
-    accomodation_name = models.CharField(max_length=30, verbose_name="Accomodation Name", help_text="If you don't know what to put, you can write something including the accomodation type and the name of the landlord, like \"Apartment Smith\"", unique=True, null=True, blank=True)
+    accomodation_name = models.CharField(max_length=30, verbose_name="Accomodation Name", help_text="If you don't know what to put, you can write something including the accomodation type and the name of the landlord, like \"Apartment Smith\"", unique=True)
     
     #principal characteristics
-    surface = models.PositiveSmallIntegerField(verbose_name="Surface Area *", help_text="in m2")
+    surface = models.PositiveSmallIntegerField(verbose_name="Surface Area", help_text="in m2")
     ACCOMODATION_TYPES = ((1,"House"), (2,"Apartment"), (3,"Studio"), (4,"Home stay (vie chez l'habitant)"), (5,"Student residence"), (0,"Other"))
-    accomodation_type = models.PositiveSmallIntegerField(verbose_name="Accomodation type *", choices=ACCOMODATION_TYPES)
+    accomodation_type = models.PositiveSmallIntegerField(verbose_name="Accomodation type", choices=ACCOMODATION_TYPES)
     accomodation_type_other = models.CharField(max_length=20, verbose_name="Other", help_text="Precise your accomodation type here if you have chosen other", null=True, blank=True)
-    number_persons = models.PositiveSmallIntegerField(verbose_name="Number of persons *", help_text="Number of persons the house can accomodate")
+    number_persons = models.PositiveSmallIntegerField(verbose_name="Number of persons", help_text="Number of persons the house can accomodate")
      
     
     def __unicode__(self):
@@ -33,16 +33,16 @@ class AdditionalInfo(models.Model):
 
     #general secondary
 
-    floor = models.PositiveSmallIntegerField(verbose_name="Floor *", help_text="Floor of the entrance door, considering that the street is on floor 0")
+    floor = models.PositiveSmallIntegerField(verbose_name="Floor", help_text="Floor of the entrance door, considering that the street is on floor 0")
     disabled_persons = models.BooleanField(verbose_name="Access for disabled persons")
     need_car = models.BooleanField(verbose_name="Need for at least one car")
     parking = models.BooleanField(verbose_name="Parking")
     HEATING_TYPES = ((1,"electricity"), (2,"gas"), (3,"fuel"), (4,"other"))
-    heating_type = models.PositiveSmallIntegerField(verbose_name="Type of heating *", choices=HEATING_TYPES)
+    heating_type = models.PositiveSmallIntegerField(verbose_name="Type of heating", choices=HEATING_TYPES)
     climatisation = models.BooleanField(verbose_name="Climatisation")
     furniture_included = models.BooleanField(verbose_name="Furniture included in the accomodation")
     APPRECIATIONS = ((1,"poor"), (2,"fair"), (3,"good"), (4,"excellent"))
-    furniture_appreciation = models.PositiveSmallIntegerField(verbose_name="Furniture appreciation *", choices=APPRECIATIONS)
+    furniture_appreciation = models.PositiveSmallIntegerField(verbose_name="Furniture appreciation", choices=APPRECIATIONS)
 
     #around the accomodation
     noise_comment = models.CharField(max_length=300, verbose_name="Noise comment", help_text="Comment the noise atmosphere arround the accomodation (quiet, unexpected noise...)", null=True, blank=True)
@@ -65,9 +65,9 @@ class Price(models.Model):
     #price category
     rent_only = models.PositiveSmallIntegerField(verbose_name="Rent only", null=True, blank=True, help_text="Total rent (not divided by the number of persons), in euros")
     service_charge_only = models.PositiveSmallIntegerField(verbose_name="Service charge only (charges)", null=True, blank=True, help_text="Total, in euros")
-    rent_with_service_charge = models.PositiveSmallIntegerField(verbose_name="Rent with service charge *", help_text="In euros. This field is only in case you don't have the detail of the rent and the service charge, leave it empty if you filled \"Rent only\" and \"Service charge only\" fields")
+    rent_with_service_charge = models.PositiveSmallIntegerField(verbose_name="Rent with service charge", help_text="In euros. This field is only in case you don't have the detail of the rent and the service charge, leave it empty if you filled \"Rent only\" and \"Service charge only\" fields")
     rent_charge_per_person = models.PositiveSmallIntegerField(verbose_name="Rent with service charge per person", editable=False)
-    council_tax = models.PositiveSmallIntegerField(verbose_name="Council tax (taxe d'habitation) *")
+    council_tax = models.PositiveSmallIntegerField(verbose_name="Council tax (taxe d'habitation)")
     through_agency = models.BooleanField(verbose_name="Rent through an agency")
     agency_fees = models.PositiveSmallIntegerField(verbose_name="Angency fees", default=0)
     apl = models.PositiveSmallIntegerField(verbose_name="APL (Housing Benefits)", null=True, blank=True, help_text="APL in euro, for 1 person (you only)")
@@ -127,9 +127,6 @@ class Furniture(models.Model):
 
     #Living room
     tv = models.BooleanField(verbose_name="TV", default=False)
-    # Don't look relevant enough as it is
-    #couches = models.BooleanField(verbose_name="Couches", default=False)
-    #seats = models.BooleanField(verbose_name="Seats", default=False)
     
 
     def __unicode__(self):
@@ -142,10 +139,10 @@ class Location(models.Model):
     house = models.OneToOneField(House)
 
     #address
-    address = models.CharField(max_length=30, verbose_name="Address *")
-    city = models.CharField(max_length=30, verbose_name="City *")
-    postal_code = models.CharField(max_length=5, verbose_name="Postal code *")
-    distance_eurecom = models.FloatField(verbose_name="Distance to travel from the accomodation to Eurecom (in km)", help_text="Auto-generate it by clicking your position on the map", null=True, blank=True)
+    address = models.CharField(max_length=30, verbose_name="Address")
+    city = models.CharField(max_length=30, verbose_name="City")
+    postal_code = models.CharField(max_length=5, verbose_name="Postal code")
+    distance_eurecom = models.FloatField(verbose_name="Distance to travel from the accomodation to Eurecom (in km)", help_text="Auto-generate it by clicking your position on the map")
     #coordinates
     latitude = models.FloatField(verbose_name="latitude", help_text="Auto-generate it by clicking your position on the map")
     longitude = models.FloatField(verbose_name="longitude", help_text="Auto-generate it by clicking your position on the map")
