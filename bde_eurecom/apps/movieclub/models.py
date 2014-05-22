@@ -13,7 +13,7 @@ from datetime import datetime
 
 def upload_blog_post_image(instance, filename):
     original_extension = path.splitext(filename)[1]
-    filename = '%s-%s.%s' % (instance.time_published.date(), instance.slug, original_extension)
+    filename = '%s-%s%s' % (instance.time_published.date(), instance.slug, original_extension)
     return path.join('movieclub', filename)
 
 
@@ -50,7 +50,7 @@ class BlogPost(models.Model):
 
 
 def upload_screening_image(instance, orig_filename):
-    filename = '%s-%s.%s' % (instance.time.date(), instance.slug, path.splitext(orig_filename)[1])
+    filename = '%s-%s%s' % (instance.time.date(), instance.slug, path.splitext(orig_filename)[1])
     return path.join('movieclub', filename)
 
 
