@@ -41,8 +41,10 @@
       </p>
     </footer>
   </body>
-  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.4.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script> -->
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.4.js"></script> -->
   <script type="text/javascript" src="{{STATIC_URL}}js/quick_search.js"></script>
   <script type="text/javascript">
    var STATIC_URL = "{{STATIC_URL}}";

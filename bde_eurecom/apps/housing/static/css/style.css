@@ -53,6 +53,11 @@ nav {
     margin-left:600px;
 }
 
+nav a {
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
 #gallery_info {
     margin-bottom:20px;
 }
@@ -394,4 +399,8 @@ legend {
 
 #info {
     text-align:center;
+}
+
+.ui-autocomplete-loading { 
+    background:#FFFFFF url('../img/loading.gif') no-repeat right center;
 }

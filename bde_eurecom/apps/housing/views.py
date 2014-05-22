@@ -437,23 +437,23 @@ def add_photo(request, id_house):
             photo.save()
 
             # Image resizing
-            # image = Image.open(photo.img)
-            # image.thumbnail((settings.IMG_MAX_WIDTH, settings.IMG_MAX_HEIGHT), Image.ANTIALIAS)
-            # image.save(os.path.join(settings.MEDIA_ROOT, 'housing/%s-%s.jpg'%(house.accomodation_name, photo.pos)), 'JPEG', quality=90)
-            new_path = os.path.join(settings.MEDIA_ROOT, 'housing/%s-%s.jpg'%(house.accomodation_name, photo.pos))
-            thumbnail_path = os.path.join(settings.MEDIA_ROOT, 'housing/thumbnails/%s-%s.jpg'%(house.accomodation_name, photo.pos))
+            idir = os.path.join(settings.MEDIA_ROOT, 'housing', 'houses_pictures', str(house.id))
+            tdir = os.path.join(idir, 'thumbnails')
+            
+            if not os.path.exists(idir):
+                os.makedirs(idir)
+            if not os.path.exists(tdir):
+                os.makedirs(tdir)
+            
+            new_path = os.path.join(idir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
+            thumbnail_path = os.path.join(tdir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
             resize_and_crop(photo.img, new_path, thumbnail_path);
-            # Thumbnail creation
-            # image.thumbnail((settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_HEIGHT), Image.ANTIALIAS)
-            # image.save(os.path.join(settings.MEDIA_ROOT, 'housing/thumbnails/%s-%s.jpg'%(house.accomodation_name, photo.pos)), 'JPEG', quality=90)
-            # name = os.path.join(settings.MEDIA_ROOT, 'housing/thumbnails/%s-%s.jpg'%(house.accomodation_name, photo.pos))
-            # resize_and_crop(photo.img, name, (settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_HEIGHT), 'middle');
-            # Directly remove initial uploaded image
+            
             os.unlink(os.path.join(settings.MEDIA_ROOT, str(photo.img)))
             
             # Set paths to images
-            photo.img = 'housing/%s-%s.jpg'%(house.accomodation_name, photo.pos)
-            photo.thumbnail = 'housing/thumbnails/%s-%s.jpg'%(house.accomodation_name, photo.pos)
+            photo.img = 'housing/houses_pictures/%s/%s-%s.jpg'%(house.id, house.accomodation_name, photo.pos)
+            photo.thumbnail = 'housing/houses_pictures/%s/thumbnails/%s-%s.jpg'%(house.id, house.accomodation_name, photo.pos)
             
             photo.save()
             
@@ -487,7 +487,7 @@ def delete_photo(request, id_house):
                 os.unlink(os.path.join(settings.MEDIA_ROOT, str(photo.img)))
                 os.unlink(os.path.join(settings.MEDIA_ROOT, str(photo.thumbnail)))
             except:
-                    print "File %s could not be deleted locally"%os.path.join(settings.MEDIA_ROOT, str(photo.img))
+                print "File %s could not be deleted locally"%os.path.join(settings.MEDIA_ROOT, str(photo.img))
 
             photo.delete()
             for photo in house.photo_set.all():
