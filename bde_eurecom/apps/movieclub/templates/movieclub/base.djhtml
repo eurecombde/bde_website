@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <title>Eurecom Movie Club</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'movieclub/css/styles.css' %}">
   <link rel="alternate" href="{% url 'movieclub:blog_feed' %}" type="application/rss+xml">
   {% if page.feed %}
@@ -32,10 +33,22 @@
         Amphi.
       </p>
 
-      <a href="{% url 'movieclub:program' %}">Program</a>
     </header>
 
     <section>
+
+      <ul class="nav nav-tabs nav-justified" role="navigation">
+        <li{% if active == 'blog' %} class="active"{% endif %}>
+            <a href="{% url 'movieclub:blog' %}"{% if active == 'post_details' %} class="pseudo-active"{% endif %}>
+                {{ blog_nav_text|default:"Blog"|safe }}
+            </a>
+        </li>
+        <li{% if active == 'program' %} class="active"{% endif %}>
+            <a href="{% url 'movieclub:program' %}"{% if active == 'screening_details' %} class="pseudo-active"{% endif %}>
+                {{ program_nav_text|default:"Program"|safe }}
+            </a>
+        </li>
+      </ul>
 
       <h1>{{ title }}</h1>
 

@@ -49,3 +49,9 @@ class MovieClubProgramTest(TestCase):
         response = self.client.get('/movieclub/program/')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('<strong>super awesome</strong>' in response.content.decode('utf-8'))
+
+
+    def test_screening_details(self):
+        response = self.client.get('/movieclub/program/1')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('<strong>super awesome</strong>' in response.content.decode('utf-8'))
