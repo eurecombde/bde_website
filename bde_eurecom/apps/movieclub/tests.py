@@ -39,10 +39,15 @@ class MovieClubProgramTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.testimage = tempfile.NamedTemporaryFile(delete=False)
-        Screening.objects.create(movie_name='Test Movie 1', description_md='**super awesome**.',
+        self.screening1 = Screening.objects.create(movie_name='Test Movie 1', description_md='**super awesome**.',
             time=tz_france.localize(datetime.now()), image=File(self.testimage))
-        Screening.objects.create(movie_name="It's a Wonderful Life", description_md='also *pretty cool*.',
+        self.screening2 = Screening.objects.create(movie_name="It's a Wonderful Life", description_md='also *pretty cool*.',
             time=tz_france.localize(datetime.now()), image=File(self.testimage))
+
+
+    def tearDown(self):
+        self.screening1.image.delete()
+        self.screening2.image.delete()
 
 
     def test_program(self):
