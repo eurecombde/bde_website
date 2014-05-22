@@ -38,6 +38,10 @@ a {
   text-decoration: none;
 }
 
+p {
+    margin: 10px 0 20px;
+}
+
 .wrapper {
   width: 860px;
   margin: 0 auto;
