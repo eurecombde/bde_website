@@ -28,7 +28,7 @@
     <section id="main">
       {% block main %}
 	<h2>Welcome!</h2>
-	<p>BDE Eurecom website</p>
+    <p>The movieclub can be found <a href="{% url 'movieclub:home' %}">here</a>.
 	<p>Link to the <a href="{% url 'bde_eurecom.apps.housing.views.home' %}">housing application </a></p>
       {% endblock %}
     </section>

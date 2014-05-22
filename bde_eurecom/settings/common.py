@@ -11,8 +11,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
     'bde_eurecom.apps.main',
     'bde_eurecom.apps.housing',
+    'bde_eurecom.apps.movieclub',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -18,13 +18,12 @@ Install the dependencies:
 Setup the wsgi & manage files:
 
     $ cp bde_eurecom/setup/wsgi.py bde_eurecom/
-    $ cp bde_eurecom/setup/manage.py bde_eurecom/
+    $ cp bde_eurecom/setup/manage.py .
 
 Setup the dev database:
 
     $ cd bde_eurecom/setup
-    $ chmod a+x script.sh
-    $ ./script.sh
+    $ ./setup.sh
 
 Start the devserver:
 

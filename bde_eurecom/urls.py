@@ -10,9 +10,10 @@ urlpatterns = patterns('',
     url(r'^$', 'bde_eurecom.apps.main.views.home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^housing/', include('bde_eurecom.apps.housing.urls')),
+    url(r'^movieclub/', include('bde_eurecom.apps.movieclub.urls', namespace='movieclub')),
     url(r'^login/$', 'bde_eurecom.apps.housing.views.user_login', name='login'),
     url(r'^logout/$', 'bde_eurecom.apps.housing.views.user_logout', name='logout'),
-) 
+)
 
 if settings.DEBUG == True:
     #to use media files in developpement

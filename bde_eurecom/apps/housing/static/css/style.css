@@ -7,11 +7,6 @@ body {
     font-family:Lucida Grande,​Lucida Sans,​Arial,​sans-serif;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
 header {
     margin:auto;
     margin-bottom:15px;
