@@ -16,7 +16,7 @@
   <div class="wrapper">
 
     {# hide the header on small displays if we're not on the main page{% endcomment #}
-    <header{% if title != "Blog" %} class="hidden-s"{% endif %}>
+    <aside{% if title != "Blog" %} class="hidden-s"{% endif %}>
       <h1>Eurecom Movie Club</h1>
 
       <p>
@@ -31,7 +31,16 @@
         Amphi.
       </p>
 
-    </header>
+      <p>
+        Subscribe to our feeds to stay up to date:
+      </p>
+
+      <ul>
+        <li><a href="{% url 'movieclub:blog_feed' %}">Blog posts</a></li>
+        <li><a href="{% url 'movieclub:screenings_feed' %}">Screenings</a></li>
+      </ul>
+
+    </aside>
 
     <section>
 
