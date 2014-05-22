@@ -1,10 +1,11 @@
 from . import tz_france
 from .models import BlogPost, Screening
 
+from django.http import Http404
 from django.core.urlresolvers import reverse
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from datetime import datetime
 
 def blog(request):
@@ -68,7 +69,13 @@ def program(request):
 
 
 def post_details(request, post_slug):
-    post = get_object_or_404(BlogPost, slug=post_slug)
+    try:
+        post = get_object_or_404(BlogPost, slug=post_slug)
+    except Http404:
+        if post_slug[-1] == '/':
+            return redirect(request.path[:-1], permanent=True)
+        else:
+            raise
     context = {
         'post': post,
         'active': 'post_details',
