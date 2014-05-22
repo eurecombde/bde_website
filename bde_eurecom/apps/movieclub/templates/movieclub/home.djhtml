@@ -1,0 +1,23 @@
+{% extends 'movieclub/base.djhtml' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    {% for post in posts %}
+
+      <article>
+        <h2>{{ post.title }}</h2>
+
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }} illustration.">
+        {% endif %}
+
+        {{ post.text|safe }}
+
+        <p class="byline">
+          Written by {{ post.author.username }} on {{ post.time_published|date:"d-m-Y H:i" }}. <a href="{% url 'movieclub:post_details' post_slug=post.slug %}">Permalink</a>
+        </p>
+      </article>
+
+    {% endfor %}
+{% endblock %}

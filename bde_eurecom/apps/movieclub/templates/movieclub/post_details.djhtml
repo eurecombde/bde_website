@@ -1,0 +1,14 @@
+{% extends 'movieclub/base.djhtml' %}
+
+{% block content %}
+
+    <article>
+
+      {{ post.text|safe }}
+
+      <p class="byline">
+        Written by {{ post.author.username }} on {{ post.time_published|date:"d-m-Y H:i" }}.
+      </p>
+    </article>
+
+{% endblock %}

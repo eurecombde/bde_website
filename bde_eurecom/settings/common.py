@@ -13,6 +13,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bde_eurecom.apps.main',
     'bde_eurecom.apps.housing',
+    'bde_eurecom.apps.movieclub',
     'south',
 )
 
