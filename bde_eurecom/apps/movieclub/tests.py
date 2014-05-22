@@ -34,6 +34,12 @@ class MovieClubBlogTest(TestCase):
         self.assertTrue('This is <strong>markdown</strong>' in response.content.decode('utf-8'))
 
 
+    def test_blog_feed(self):
+        response = self.client.get('/movieclub/blog.atom')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('Test blog post' in response.content.decode('utf-8'))
+
+
 class MovieClubProgramTest(TestCase):
 
     def setUp(self):
@@ -60,3 +66,9 @@ class MovieClubProgramTest(TestCase):
         response = self.client.get('/movieclub/program/1')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('<strong>super awesome</strong>' in response.content.decode('utf-8'))
+
+
+    def test_screenings_feed(self):
+        response = self.client.get('/movieclub/program.atom')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('super awesome' in response.content.decode('utf-8'))
