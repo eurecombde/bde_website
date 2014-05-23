@@ -38,6 +38,10 @@ class BlogPostFeed(Feed):
         return item.text
 
 
+    def item_pubdate(self, item):
+        return item.time_published
+
+
 class ScreeningsFeed(Feed):
     feed_type = Atom1Feed
     title = 'Eureom Movie Club - Screenings'
@@ -57,6 +61,10 @@ class ScreeningsFeed(Feed):
 
     def item_description(self, item):
         return item.description
+
+
+    def item_pubdate(self, item):
+        return item.added_date
 
 
 def program(request):
