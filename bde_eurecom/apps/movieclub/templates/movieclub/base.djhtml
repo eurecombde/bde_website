@@ -8,17 +8,15 @@
   <title>Eurecom Movie Club</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'movieclub/css/styles.css' %}">
-  <link rel="alternate" href="{% url 'movieclub:blog_feed' %}" type="application/rss+xml">
-  {% if page.feed %}
-    <link rel="alternate" href="{{ page.feed }}" type="application/rss+xml">
-  {% endif %}
+  <link rel="alternate" href="{% url 'movieclub:blog_feed' %}" type="application/atom+xml" title="Blog posts">
+  <link rel="alternate" href="{% url 'movieclub:screenings_feed' %}" type="application/atom+xml" title="Screenings">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
   <div class="wrapper">
 
     {# hide the header on small displays if we're not on the main page{% endcomment #}
-    <header{% if title != "Blog" %} class="hidden-s"{% endif %}>
+    <aside{% if title != "Blog" %} class="hidden-s"{% endif %}>
       <h1>Eurecom Movie Club</h1>
 
       <p>
@@ -33,7 +31,16 @@
         Amphi.
       </p>
 
-    </header>
+      <p>
+        Subscribe to our feeds to stay up to date:
+      </p>
+
+      <ul>
+        <li><a href="{% url 'movieclub:blog_feed' %}">Blog posts</a></li>
+        <li><a href="{% url 'movieclub:screenings_feed' %}">Screenings</a></li>
+      </ul>
+
+    </aside>
 
     <section>
 
@@ -61,7 +68,7 @@
       <p>Site maintained by <a href="https://github.com/thusoy">Tarjei Husøy</a></p>
       <p>Movie artwork from <a href="http://www.themoviedb.org">The Movie Database (TMDb)</a>
       <p>
-        <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
+        <small>Theme based on <a href="https://github.com/orderedlist">orderedlist</a></small>
       </p>
     </footer>
 

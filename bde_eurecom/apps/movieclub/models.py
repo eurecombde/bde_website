@@ -76,6 +76,10 @@ class Screening(models.Model):
         return super(Screening, self).save(*args, **kwargs)
 
 
+    def get_absolute_url(self):
+        return reverse('movieclub:screening_details', kwargs={'screening_id': self.id})
+
+
     @property
     def slug(self):
         return slugify(self.movie_name)

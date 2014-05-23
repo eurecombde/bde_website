@@ -34,15 +34,26 @@ class MovieClubBlogTest(TestCase):
         self.assertTrue('This is <strong>markdown</strong>' in response.content.decode('utf-8'))
 
 
+    def test_blog_feed(self):
+        response = self.client.get('/movieclub/blog.atom')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('Test blog post' in response.content.decode('utf-8'))
+
+
 class MovieClubProgramTest(TestCase):
 
     def setUp(self):
         self.client = Client()
         self.testimage = tempfile.NamedTemporaryFile(delete=False)
-        Screening.objects.create(movie_name='Test Movie 1', description_md='**super awesome**.',
+        self.screening1 = Screening.objects.create(movie_name='Test Movie 1', description_md='**super awesome**.',
             time=tz_france.localize(datetime.now()), image=File(self.testimage))
-        Screening.objects.create(movie_name="It's a Wonderful Life", description_md='also *pretty cool*.',
+        self.screening2 = Screening.objects.create(movie_name="It's a Wonderful Life", description_md='also *pretty cool*.',
             time=tz_france.localize(datetime.now()), image=File(self.testimage))
+
+
+    def tearDown(self):
+        self.screening1.image.delete()
+        self.screening2.image.delete()
 
 
     def test_program(self):
@@ -55,3 +66,9 @@ class MovieClubProgramTest(TestCase):
         response = self.client.get('/movieclub/program/1')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('<strong>super awesome</strong>' in response.content.decode('utf-8'))
+
+
+    def test_screenings_feed(self):
+        response = self.client.get('/movieclub/program.atom')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('super awesome' in response.content.decode('utf-8'))

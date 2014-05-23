@@ -10,7 +10,7 @@
       </a>
 
       <a href="{{ screening.movie_link }}">
-        <img src="{{ screening.image.url }}" alt="{{ screening.movie_name }} artwork">
+        <img src="{{ screening.image.url }}" alt="{{ screening.movie_name }} artwork" width="{{ screening.image.width }}" height="{{ screening.image.height }}">
       </a>
 
       {{ screening.description|safe }}

@@ -1,6 +1,7 @@
+from .legacy_urls import legacy_patterns
+
 from django.conf import settings
 from django.conf.urls import patterns, include, url
-from django.conf import settings
 from django.contrib import admin
 import bde_eurecom
 # from housing.forms import LoginForm
@@ -20,3 +21,4 @@ if settings.DEBUG == True:
     from django.conf.urls.static import static #to use media and static files during developpement
     urlpatterns += static(bde_eurecom.settings.common.MEDIA_URL, document_root=bde_eurecom.settings.common.MEDIA_ROOT, show_indexes=True) + static(bde_eurecom.settings.common.STATIC_URL, document_root=bde_eurecom.settings.common.STATIC_ROOT, show_indexes=True)
 
+urlpatterns += legacy_patterns
