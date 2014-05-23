@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>{% block title %}Eurecom Housing{% endblock %}</title> 
-    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/housing-favicon.ico" >
-    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" />
-    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui/jquery-ui-1.10.4.css" type="text/css" />
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}housing/img/housing-favicon.ico" >
+    <link rel="stylesheet" href="{{STATIC_URL}}housing/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}housing/css/jquery-ui/jquery-ui-1.10.4.css" type="text/css" />
   </head>
   <body>
     <header>
       <!-- 
       <h1>
 	Eurecom Housing
-	<img src="{{STATIC_URL}}img/house2picto.png"/>
+	<img src="{{STATIC_URL}}housing/img/house2picto.png"/>
       </h1>
       -->
       <div id="header_img"></div>
@@ -42,10 +42,10 @@
     </footer>
   </body>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script> -->
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}housing/js/jquery-1.11.0.js"></script> -->
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  <!-- <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.4.js"></script> -->
-  <script type="text/javascript" src="{{STATIC_URL}}js/quick_search.js"></script>
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}housing/js/jquery-ui-1.10.4.js"></script> -->
+  <script type="text/javascript" src="{{STATIC_URL}}housing/js/quick_search.js"></script>
   <script type="text/javascript">
    var STATIC_URL = "{{STATIC_URL}}";
    var quick_search_url = '{% url 'bde_eurecom.apps.housing.views.quick_search' %}';

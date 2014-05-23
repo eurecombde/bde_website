@@ -14,12 +14,12 @@
     <article id="gallery"> 
       <div id="galleryContainer">
 	<div id=sliderContainer>
-          <img src="{{STATIC_URL}}img/left-arrow-transp.png" id="previousButton" class="galleryButton" onClick="loadPrevious();">
+          <img src="{{STATIC_URL}}housing/img/left-arrow-transp.png" id="previousButton" class="galleryButton" onClick="loadPrevious();">
           <div id=photoContainer>
             <img src="{{MEDIA_URL}}{{ photos.0.img }}"/> 
             <div id="photoDescr">{{ photos.0.descr }}</div>
           </div>
-          <img src="{{STATIC_URL}}img/right-arrow-transp.png" id="nextButton" class="galleryButton" onClick="loadNext();">
+          <img src="{{STATIC_URL}}housing/img/right-arrow-transp.png" id="nextButton" class="galleryButton" onClick="loadNext();">
 	</div>
 
 	<ul id="thumbnails">
@@ -235,7 +235,7 @@
    var STATIC_URL = {{STATIC_URL}};
   </script>
 
-  <script src="{{STATIC_URL}}js/jquery.cacheimage.js"></script>
-  <script src="{{STATIC_URL}}js/gallery.js"></script>
-  <script src="{{STATIC_URL}}js/house_presentation.js"></script>
+  <script src="{{STATIC_URL}}housing/js/jquery.cacheimage.js"></script>
+  <script src="{{STATIC_URL}}housing/js/gallery.js"></script>
+  <script src="{{STATIC_URL}}housing/js/house_presentation.js"></script>
 {% endblock %}

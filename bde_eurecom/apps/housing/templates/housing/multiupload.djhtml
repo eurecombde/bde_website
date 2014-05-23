@@ -21,7 +21,7 @@ $(function () {
     });
 });
 </script>
-<script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.fileupload.js"></script>
-<script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="{{STATIC_URL}}js/fileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}housing/js/fileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}housing/js/fileupload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}housing/js/fileupload/jquery.ui.widget.js"></script>
 {% endblock %}
