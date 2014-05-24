@@ -52,7 +52,7 @@
   <script type="text/javascript">
    var STATIC_URL = "{{STATIC_URL}}";
    var quick_search_url = '{% url 'bde_eurecom.apps.housing.views.quick_search' %}';
-   var house_url = '{% url 'bde_eurecom.apps.housing.views.house' 0 %}'; 
+   var house_url = '{% url 'bde_eurecom.apps.housing.views.house_presentation' 0 %}'; 
   </script>
   {% block scripts %}
   {% endblock %}

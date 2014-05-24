@@ -14,14 +14,14 @@
     <article id="gallery"> 
       <div id="galleryContainer">
 	<div id=sliderContainer>
-          <img src="{{STATIC_URL}}housing/img/left-arrow-transp.png" id="previousButton" class="galleryButton" onClick="loadPrevious();">
-          <div id=photoContainer>
             {% if photos %}
-                <img src="{{MEDIA_URL}}{{ photos.0.img }}"/> 
-                <div id="photoDescr">{{ photos.0.descr }}</div>
-            {% endif %}
-          </div>
-          <img src="{{STATIC_URL}}housing/img/right-arrow-transp.png" id="nextButton" class="galleryButton" onClick="loadNext();">
+            <img src="{{STATIC_URL}}housing/img/left-arrow-transp.png" id="previousButton" class="galleryButton" onClick="loadPrevious();">
+                <div id=photoContainer>
+                    <img src="{{MEDIA_URL}}{{ photos.0.img }}"/> 
+                    <div id="photoDescr">{{ photos.0.descr }}</div>
+                </div>
+            <img src="{{STATIC_URL}}housing/img/right-arrow-transp.png" id="nextButton" class="galleryButton" onClick="loadNext();">
+          {% endif %}
 	</div>
 
 	<ul id="thumbnails">
@@ -159,9 +159,9 @@
       
       {% for field in price_form %}
 	{% if field.value == True %}
-	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}/img/true_icon.png"/> </p>
+	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}housing/img/true_icon.png"/> </p>
 	{% elif field.value == False %}
-	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}/img/false_icon.png"/> </p>
+	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}housing/img/false_icon.png"/> </p>
 	{% else %}
 	  <p> {{ field.label }} : {{ field.value }} </p>
 	{% endif %}

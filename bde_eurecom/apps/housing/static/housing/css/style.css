@@ -42,6 +42,11 @@ header h1 {
     float:left;
 }
 
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
 nav {
     color: white;
     font-family:Arial, Helvetica, sans-serif;
@@ -55,7 +60,6 @@ nav {
 
 nav a {
     color:#FFFFFF;
-    text-decoration:none;
 }
 
 #gallery_info {
@@ -183,6 +187,8 @@ aside table {
 
 #sliderContainer {
     position: relative;
+    width: 678px;
+    height: 452px;
 }
 
 #photoContainer {
@@ -297,13 +303,13 @@ fieldset {
 }
 
 #map_canvas {
-    width: 692px;
+    width: 690px;
     height: 400px;
 }
 
 #search_map {
     padding:10px;
-    width:692px;
+    width:690px;
     margin-left:10px;
     background-color:#F2F5F7;
     border:1px solid #239CD3;
@@ -346,6 +352,10 @@ td {
     border:1px solid #239CD3;
     padding:10px;
     background-color:#F2F5F7;
+}
+
+#house_list a {
+    text-decoration: underline;
 }
 
 #furniture p {

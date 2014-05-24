@@ -212,6 +212,15 @@ $(document).ready(function() {
 		    text.push("</p>");
 		});
 		$info.html(text.join(""));
+                $info.dialog({
+                    modal: true,
+                    buttons: {
+                        "OK": function() {
+                                $(this).dialog("destroy");
+                        }
+                    },
+                    width: 400,
+                });
 		
 	    }
 	    else {
@@ -222,9 +231,9 @@ $(document).ready(function() {
                         "Continue to edit": function() {
                                 $(this).dialog("destroy");
                         },
-                        "See Result [TODO]": function() {
+                        "See Result": function() {
                             window.onbeforeunload = null;
-                            //window.location.href = "TODO: add URL";
+                            window.location.href = house_url.replace('0', house_id);
                         }
                     },
                     width: 400,

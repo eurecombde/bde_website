@@ -163,7 +163,7 @@ def quick_search(request):
 ########################################
 
 @login_required
-def house_present(request, id_house):
+def house_presentation(request, id_house):
     """
 
     """

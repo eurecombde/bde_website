@@ -7,6 +7,7 @@ class HouseForm(forms.ModelForm):
 
     class Meta:
         model = House
+        exclude = ('available',)
 
 
 class AdditionalInfoForm(forms.ModelForm):

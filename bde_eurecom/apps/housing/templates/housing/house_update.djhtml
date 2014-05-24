@@ -141,5 +141,6 @@
   <script type="text/javascript" src="{{STATIC_URL}}housing/js/fileupload/jquery.iframe-transport.js"></script>
   <script type="text/javascript" src="{{STATIC_URL}}housing/js/fileupload/jquery.ui.widget.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}housing/js/jquery.ui.map.j<script type="text/javascript" src="{{STATIC_URL}}housing/js/precisePosition.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}housing/js/jquery.ui.map.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}housing/js/precisePosition.js"></script>
 {% endblock %}
