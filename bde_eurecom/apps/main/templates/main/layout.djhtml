@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {% block title %}
+	Eurecom BDE
+      {% endblock %}
+    </title> 
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}main/img/favicon.ico" >
+    <link rel="stylesheet" href="{{STATIC_URL}}main/css/style.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+	Eurecom BDE
+      </h1>
+      <nav>
+	<ul>
+	  <li><a href="housing">Housing</a></li>
+	  <li><a href="movieclub">Movie Club</a></li>
+	</ul>
+      </nav>
+    </header>
+
+    <section id="main">
+      {% block main %}
+
+      {% endblock %}
+    </section>
+    
+    <footer>
+      <br>
+      <p>
+	WTFO Company 2014
+      </p>
+      <p>
+        Sponsored by SexOnTheBED
+      </p>
+    </footer>
+  </body>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}main/js/jquery-1.11.0.js"></script> -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> -->
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}main/js/jquery-ui-1.10.4.js"></script> -->
+  <!-- <script type="text/javascript" src="{{STATIC_URL}}main/js/quick_search.js"></script> -->
+  <script type="text/javascript">
+   var STATIC_URL = "{{STATIC_URL}}";
+  </script>
+  {% block scripts %}
+  {% endblock %}
+</html>
+
+

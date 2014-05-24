@@ -7,5 +7,5 @@
 
 
 {% block main %}
-  <h1>Welcome {{ user.username }} !</h1>
+  <h2>Welcome {{ user.username }} !</h2>
 {% endblock %}

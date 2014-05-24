@@ -1,0 +1,70 @@
+/*
+
+Main Eurecom BDE application
+CSS
+
+*/
+
+* {
+
+}
+
+body {
+    font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#646e73;
+}
+
+header {
+    width:800px;
+    height:150px;
+    margin:auto;
+    margin-bottom:50px;
+    text-align:right;
+    background:#FFFFFF url('../img/logo.png') no-repeat left center;
+}
+
+header h1 {
+    font-size:50px;
+}
+
+nav {
+
+}
+
+nav ul {
+    list-style:none;
+}
+
+nav ul li {
+    display:inline;
+    margin-left:20px;
+}
+
+nav ul li a {
+    text-decoration:none;
+    font-variant:small-caps;
+    font-size:120%;
+    color:#009ee0;
+}
+
+#main {
+    width:800px;
+    margin:auto;
+    text-align:justify;
+    font-size:110%;
+
+}
+
+#main a {
+    text-decoration:none;
+    font-weight:bold;
+    color:#009ee0;
+}
+
+footer {
+    width:800px;
+    margin:auto;
+    font-size:20px;
+    text-align:center;
+    color:#c5c6c8;
+}

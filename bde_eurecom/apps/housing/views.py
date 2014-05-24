@@ -43,7 +43,8 @@ def home(request):
 
     """
 
-    return render(request, 'housing/home.djhtml')
+    # return render(request, 'housing/home.djhtml')
+    return redirect('bde_eurecom.apps.housing.views.search_form')
 
 ########################################
 #                                      #
@@ -802,7 +803,7 @@ def user_login(request):
         if 'next' in request.GET:
             next = request.GET['next']
         else:
-            next = "/login/"
+            next = "/housing"
 
     return render(request, 'housing/user_login.djhtml', locals())
 

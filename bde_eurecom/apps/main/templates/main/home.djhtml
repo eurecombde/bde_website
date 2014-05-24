@@ -1,58 +1,27 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>{% block title %}Eurecom Housing{% endblock %}</title> 
-    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/housing-favicon.ico" >
-    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" />
-    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui/jquery-ui-1.10.4.css" type="text/css" />
-  </head>
-  <body>
-    <header>
-      <!-- 
-      <h1>
-	Eurecom Housing
-	<img src="{{STATIC_URL}}img/house2picto.png"/>
-      </h1>
-      -->
-      <div id="header_img"></div>
-      <nav> 
-	<a href="{% url 'bde_eurecom.apps.housing.views.search_form' %}">search</a> | 
-	<a href="{% url 'bde_eurecom.apps.housing.views.account' %}">account</a> | 
-	<input id="quick_search" type="text" placeholder="Quick search by name..."/>
-      </nav>
-    </header>
+{% extends "main/layout.djhtml" %}
 
-    
+{% block main %}
 
-    <section id="main">
-      {% block main %}
-	<h2>Welcome!</h2>
-    <p>The movieclub can be found <a href="{% url 'movieclub:blog' %}">here</a>.
-	<p>Link to the <a href="{% url 'bde_eurecom.apps.housing.views.home' %}">housing application </a></p>
-      {% endblock %}
-    </section>
-    
-    <footer>
-      <br>
-      <p>
-	WTFO Company 2014
-      </p>
-      <p>
-        Sponsored by SexOnTheBED
-      </p>
-    </footer>
-  </body>
-  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.4.js"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}js/quick_search.js"></script>
-  <script type="text/javascript">
-   var STATIC_URL = "{{STATIC_URL}}";
-   var quick_search_url = '{% url 'bde_eurecom.apps.housing.views.quick_search' %}';
-   var house_url = '{% url 'bde_eurecom.apps.housing.views.house' 0 %}'; 
-  </script>
-  {% block scripts %}
-  {% endblock %}
-</html>
+  <h2>
+    Welcome to Eurecom BDE website!
+  </h2>
+  <p>
+    Here you can find the <a href="housing/">Eurecom Housing</a> application
+    and the <a href="movieclub">Movie Club</a> site.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at ligula purus. Quisque scelerisque velit velit, non porta lacus pretium in. Sed massa lectus, fringilla et lacus nec, dictum vestibulum dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum viverra orci, eu hendrerit sapien bibendum at. Maecenas fringilla risus eu elit gravida mollis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec volutpat dictum mi, non convallis risus pharetra quis.
 
+    Vivamus at malesuada urna. Mauris eu est faucibus, porta eros in, varius ipsum. Proin at turpis vel tortor semper sollicitudin. Vivamus dictum viverra ipsum, vel vestibulum massa iaculis sed. Ut tincidunt aliquet ipsum. Sed consectetur fringilla leo. Nulla interdum vestibulum risus in auctor. Quisque consectetur tempus diam, accumsan ullamcorper metus accumsan a. Phasellus porttitor magna nec erat semper, vel blandit sapien tincidunt. Cras pharetra nulla porta malesuada commodo. Ut ut eleifend orci, lobortis luctus sem. Fusce vitae quam vel mauris laoreet placerat a vitae tortor. Suspendisse faucibus fermentum pulvinar.
 
+    Praesent dictum velit vel tempus egestas. Phasellus aliquam neque eros. Proin rhoncus euismod erat ac semper. Aliquam at dui nec sapien laoreet facilisis. Morbi pharetra laoreet volutpat. In eu arcu et lacus mollis congue non in nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis non consectetur libero. Quisque at nisi tortor. Nulla eget rutrum lacus.
+
+    Donec a tortor quis urna consectetur adipiscing tristique eget elit. Phasellus consequat mattis fringilla. Aliquam in vehicula sapien, pretium dictum quam. Aliquam molestie dui ac ornare viverra. Fusce varius urna nec convallis luctus. Nullam semper erat vitae fermentum congue. Sed magna tellus, semper vitae commodo quis, interdum id risus. Morbi ut augue eu ligula venenatis pellentesque ut eget leo. Proin molestie arcu dolor, sit amet aliquet nibh ullamcorper at. Sed at tortor enim. Fusce aliquam arcu at commodo fermentum.
+
+    Nullam vel rutrum libero, eget aliquet sapien. Vivamus et justo non augue porttitor posuere. Phasellus arcu purus, pretium ac est ut, imperdiet semper est. Donec a lorem turpis. Nunc laoreet massa nec ipsum sollicitudin, eu laoreet eros semper. Mauris ullamcorper accumsan tortor, ac scelerisque enim hendrerit at. Nullam ullamcorper iaculis tincidunt. Cras vehicula ut enim ut sagittis. Maecenas a suscipit mi. Vestibulum at ligula neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce sit amet euismod lectus. In id scelerisque orci. Proin vitae quam neque. Integer quis eleifend quam. 
+  </p>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
