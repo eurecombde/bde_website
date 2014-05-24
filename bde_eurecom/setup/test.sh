@@ -11,4 +11,5 @@ python ../../manage.py syncdb --noinput
 python ../../manage.py migrate --noinput bde_eurecom.apps.housing
 
 echo -e '\n[-- FILLING TABLES --]\n'
-python ../../manage.py shell < database.py > /dev/null
+echo "import bde_eurecom.setup.database" | python ../../manage.py shell > /dev/null
+

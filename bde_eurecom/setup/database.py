@@ -1,5 +1,3 @@
-# -*- coding: utf8 -*-
-
 from bde_eurecom.apps.housing.models import House, AdditionalInfo, Price, Room, Furniture, Location, Travel, Contact, Appreciation, Photo, Contributor
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
@@ -36,20 +34,20 @@ ap1.save()
 contact1 = Contact(house=h1, landlord_first_name="Roxanna", landlord_last_name="Draycott", landlord_email="draycottr@aol.com", landlord_phone_number="+44 208 954 3818", landlord_comment_field="The landlord lives in London. She is super nice and always disposed to help us with anything we need. It's really a pleasure to have her as landlord.")
 contact1.save()
 
-"""
-p11 = Photo(img="housing/TCup-1.jpg", thumbnail="housing/thumbnails/TCup-1.jpg", descr="Living Room", house=h1, pos=2)
-p11.save()
-p12 = Photo(img="housing/TCup-2.jpg", thumbnail="housing/thumbnails/TCup-2.jpg", house=h1, pos=3)
-p12.save()
-p13 = Photo(img="housing/TCup-3.jpg", thumbnail="housing/thumbnails/TCup-3.jpg", house=h1, pos=4)
-p13.save()
-p14 = Photo(img="housing/TCup-4.jpg", thumbnail="housing/thumbnails/TCup-4.jpg", descr="Kitchen", house=h1, pos=5)
-p14.save()
-p15 = Photo(img="housing/TCup-5.jpg", thumbnail="housing/thumbnails/TCup-5.jpg", house=h1, pos=6)
-p15.save()
-p16 = Photo(img="housing/TCup-6.jpg", thumbnail="housing/thumbnails/TCup-6.jpg", descr="Patio", house=h1, pos=1)
-p16.save()
-"""
+
+#p11 = Photo(img="housing/TCup-1.jpg", thumbnail="housing/thumbnails/TCup-1.jpg", descr="Living Room", house=h1, pos=2)
+#p11.save()
+#p12 = Photo(img="housing/TCup-2.jpg", thumbnail="housing/thumbnails/TCup-2.jpg", house=h1, pos=3)
+#p12.save()
+#p13 = Photo(img="housing/TCup-3.jpg", thumbnail="housing/thumbnails/TCup-3.jpg", house=h1, pos=4)
+#p13.save()
+#p14 = Photo(img="housing/TCup-4.jpg", thumbnail="housing/thumbnails/TCup-4.jpg", descr="Kitchen", house=h1, pos=5)
+#p14.save()
+#p15 = Photo(img="housing/TCup-5.jpg", thumbnail="housing/thumbnails/TCup-5.jpg", house=h1, pos=6)
+#p15.save()
+#p16 = Photo(img="housing/TCup-6.jpg", thumbnail="housing/thumbnails/TCup-6.jpg", descr="Patio", house=h1, pos=1)
+#p16.save()
+
 
 # Adding permission to contributor
 content_type = ContentType.objects.get(app_label='housing', model='house')
@@ -85,11 +83,10 @@ Room(house=h1, room_type=6, room_surface=3).save()
 Room(house=h1, room_type=6, room_surface=7).save()
 Room(house=h1, room_type=7).save()
 
-
 # Random houses for search
 cities=["Antibes", "Nice", "Cannes", "Valbonne", "Mougins", "Biot", "Roquefort-les-Pins"]
 
-for num in range (20):
+for num in range (10):
     num_persons = randint(1,6)
     surface_per_person = randint(10,30)
     name = "RandHouse"+str(num)
@@ -108,5 +105,3 @@ for num in range (20):
     latitude=random.gauss(43.614252, 0.08)
     longitude=random.gauss(7.072984, 0.08)
     Location(house=h_rand, address="Somewhere", city=cities[city], postal_code="00000", distance_eurecom=distance, latitude=latitude, longitude=longitude).save()
-   
-   # p16 = Photo(img="housing/TCup-6.jpg", thumbnail="housing/thumbnails/TCup-6.jpg", descr="Patio", house=h_rand, pos=1).save()
