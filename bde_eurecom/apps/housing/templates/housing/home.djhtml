@@ -1,5 +1,11 @@
 {% extends "housing/layout.djhtml" %}
 
+
+{% block head %}
+    <meta http-equiv="refresh" content="3;url={% url 'bde_eurecom.apps.housing.views.search_form' %}" />
+{% endblock %}
+
+
 {% block main %}
   <h1>Welcome {{ user.username }} !</h1>
 {% endblock %}

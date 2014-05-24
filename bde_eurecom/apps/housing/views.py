@@ -162,7 +162,7 @@ def quick_search(request):
 ########################################
 
 @login_required
-def house(request, id_house):
+def house_present(request, id_house):
     """
 
     """

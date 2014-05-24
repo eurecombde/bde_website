@@ -1,7 +1,7 @@
 {% extends "housing/layout.djhtml" %}
 
 {% block main %}
-  <h1>Welcome {{ user.username }} !</h1>
+  <h1>Account : {{ user.username }}</h1>
   <button onclick="window.location='{% url 'bde_eurecom.apps.housing.views.user_logout' %}'">Logout</button>
   {% if contributor %}
     {% if houses %}

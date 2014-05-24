@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{% block title %}Eurecom Housing{% endblock %}</title> 
+    <title>Eurecom Housing</title> 
     <link rel="icon" type="image/png" href="{{STATIC_URL}}img/housing-favicon.ico" >
     <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" />
     <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui/jquery-ui-1.10.4.css" type="text/css" />
+    {% block head %}
+    {% endblock %}
   </head>
   <body>
     <header>
@@ -45,6 +47,7 @@
   <!-- <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script> -->
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <!-- <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.4.js"></script> -->
+  <script type="text/javascript" src="{{STATIC_URL}}js/escape_html.js"></script>
   <script type="text/javascript" src="{{STATIC_URL}}js/quick_search.js"></script>
   <script type="text/javascript">
    var STATIC_URL = "{{STATIC_URL}}";

@@ -14,7 +14,7 @@ class AdditionalInfoForm(forms.ModelForm):
     
     class Meta:
         model = AdditionalInfo
-        exclude = ('house',)
+        exclude = ('house', 'available',)
         widgets = { 
             'noise_comment': forms.Textarea(attrs={'maxlength': model._meta.get_field('noise_comment').max_length}),
             'proximity_shops': forms.Textarea(attrs={'maxlength': model._meta.get_field('proximity_shops').max_length}),

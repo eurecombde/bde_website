@@ -16,8 +16,10 @@
 	<div id=sliderContainer>
           <img src="{{STATIC_URL}}img/left-arrow-transp.png" id="previousButton" class="galleryButton" onClick="loadPrevious();">
           <div id=photoContainer>
-            <img src="{{MEDIA_URL}}{{ photos.0.img }}"/> 
-            <div id="photoDescr">{{ photos.0.descr }}</div>
+            {% if photos %}
+                <img src="{{MEDIA_URL}}{{ photos.0.img }}"/> 
+                <div id="photoDescr">{{ photos.0.descr }}</div>
+            {% endif %}
           </div>
           <img src="{{STATIC_URL}}img/right-arrow-transp.png" id="nextButton" class="galleryButton" onClick="loadNext();">
 	</div>
@@ -223,19 +225,20 @@
 {% endblock %}
 
 {% block scripts %}
-  <script> 
-   var photoRef = new Array();
-   var photoDescr = new Array();
-   {% for photo in photos %}
-   photoRef[{{ photo.pos|add:'-1' }}]="{{ MEDIA_URL }}{{ photo.img }}";
-   photoDescr[{{ photo.pos|add:'-1' }}]="{{ photo.descr }}";
-   {% empty %}
-   {% endfor %}
-   var numberphotos=photoRef.length;
-   var STATIC_URL = {{STATIC_URL}};
-  </script>
-
-  <script src="{{STATIC_URL}}js/jquery.cacheimage.js"></script>
-  <script src="{{STATIC_URL}}js/gallery.js"></script>
   <script src="{{STATIC_URL}}js/house_presentation.js"></script>
+  {% if photos %}
+  <script> 
+       var photoRef = new Array();
+       var photoDescr = new Array();
+       {% for photo in photos %}
+       photoRef[{{ photo.pos|add:'-1' }}]="{{ MEDIA_URL }}{{ photo.img }}";
+       photoDescr[{{ photo.pos|add:'-1' }}]=escapeHtml("{{ photo.descr }}");
+       {% empty %}
+       {% endfor %}
+       var numberphotos=photoRef.length;
+       var STATIC_URL = {{STATIC_URL}};
+      </script>
+      <script src="{{STATIC_URL}}js/jquery.cacheimage.js"></script>
+      <script src="{{STATIC_URL}}js/gallery.js"></script>
+  {% endif %}
 {% endblock %}

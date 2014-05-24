@@ -88,14 +88,14 @@ $(document).ready(function() {
             $.each(data, function(i, item) {
                 $("#house_list table tbody").append([
                     '<tr>',
-                    '<td>',item.result_rank,'</td>',
-                    '<td>','<img src="',item.thumbnail,'"/>','</td>',
-                    '<td><a href="',house_url.replace('0', item.id),'"><b>',item.name,'</b></a></td>',
-                    '<td>',item.number_persons,'</td>',
-                    '<td>',item.surface,' m²</td>',
-                    '<td>',item.city,'</td>',
-                    '<td>',item.distance,' km</td>',
-                    '<td><b>',item.price,' €</b></td>',
+                    '<td>',escapeHtml(item.result_rank),'</td>',
+                    '<td>','<img src="',escapeHtml(item.thumbnail),'"/>','</td>',
+                    '<td><a href="',house_url.replace('0', item.id),'"><b>',escapeHtml(item.name),'</b></a></td>',
+                    '<td>',escapeHtml(item.number_persons),'</td>',
+                    '<td>',escapeHtml(item.surface),' m²</td>',
+                    '<td>',escapeHtml(item.city),'</td>',
+                    '<td>',escapeHtml(item.distance),' km</td>',
+                    '<td><b>',escapeHtml(item.price),' €</b></td>',
                     '</tr>'
                     ].join(''));
 

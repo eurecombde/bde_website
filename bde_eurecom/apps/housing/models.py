@@ -11,8 +11,9 @@ class House(models.Model):
     surface = models.PositiveSmallIntegerField(verbose_name="Surface Area", help_text="in m2")
     ACCOMODATION_TYPES = ((1,"House"), (2,"Apartment"), (3,"Studio"), (4,"Home stay (vie chez l'habitant)"), (5,"Student residence"), (0,"Other"))
     accomodation_type = models.PositiveSmallIntegerField(verbose_name="Accomodation type", choices=ACCOMODATION_TYPES)
-    accomodation_type_other = models.CharField(max_length=20, verbose_name="Other", help_text="Precise your accomodation type here if you have chosen other", null=True, blank=True)
+    accomodation_type_other = models.CharField(max_length=30, verbose_name="Other", help_text="Precise your accomodation type here if you have chosen other", null=True, blank=True)
     number_persons = models.PositiveSmallIntegerField(verbose_name="Number of persons", help_text="Number of persons the house can accomodate")
+    available = models.BooleanField(verbose_name="Accomodation available", default=True)
      
     
     def __unicode__(self):
@@ -37,16 +38,12 @@ class AdditionalInfo(models.Model):
     disabled_persons = models.BooleanField(verbose_name="Access for disabled persons")
     need_car = models.BooleanField(verbose_name="Need for at least one car")
     parking = models.BooleanField(verbose_name="Parking")
-    HEATING_TYPES = ((1,"electricity"), (2,"gas"), (3,"fuel"), (4,"other"))
+    furniture_included = models.BooleanField(verbose_name="Furniture included in the accomodation")
+    APPRECIATIONS = ((1,"Poor"), (2,"Fair"), (3,"Good"), (4,"Excellent"))
+    furniture_appreciation = models.PositiveSmallIntegerField(verbose_name="Furniture appreciation", choices=APPRECIATIONS)
+    HEATING_TYPES = ((1,"Electricity"), (2,"Gas"), (3,"Fuel"), (4,"Other"))
     heating_type = models.PositiveSmallIntegerField(verbose_name="Type of heating", choices=HEATING_TYPES)
     climatisation = models.BooleanField(verbose_name="Climatisation")
-    furniture_included = models.BooleanField(verbose_name="Furniture included in the accomodation")
-    APPRECIATIONS = ((1,"poor"), (2,"fair"), (3,"good"), (4,"excellent"))
-    furniture_appreciation = models.PositiveSmallIntegerField(verbose_name="Furniture appreciation", choices=APPRECIATIONS)
-
-    #around the accomodation
-    noise_comment = models.CharField(max_length=300, verbose_name="Noise comment", help_text="Comment the noise atmosphere arround the accomodation (quiet, unexpected noise...)", null=True, blank=True)
-    proximity_shops = models.CharField(max_length=300, verbose_name="Proximity shops", help_text="Comment about the shops arround the (advantages of near shops, or drawbacks)", null=True, blank=True)
 
     #internet
     internet_connexion = models.BooleanField(verbose_name="Internet connexion provided in the accomodation")
@@ -56,6 +53,10 @@ class AdditionalInfo(models.Model):
     swimming_pool = models.BooleanField(verbose_name="Swimming pool")
     garden = models.BooleanField(verbose_name="Garden")
     outside_equipment_comment = models.CharField(max_length= 400, verbose_name="Outside equipment", help_text="Precise any other out-door equipment or infrastructure (e.g.: ping-pong, tennis...), or add here your comments on the garden and the swimming pool", null=True, blank=True)
+
+    #around the accomodation
+    noise_comment = models.CharField(max_length=300, verbose_name="Noise comment", help_text="Comment the noise atmosphere arround the accomodation (quiet, unexpected noise...)", null=True, blank=True)
+    proximity_shops = models.CharField(max_length=300, verbose_name="Proximity shops", help_text="Comment about the shops arround the (advantages of near shops, or drawbacks)", null=True, blank=True)
 
 
 class Price(models.Model):
@@ -96,7 +97,7 @@ class Room(models.Model):
 
     ROOM_TYPES = ((1,"Bedroom"), (2,"Living room"), (3,"Kitchen"), (4,"Studio all-in-one (main room with kitchen)"), (5,"Bathroom without toilets"), (6,"Bathroom with toilets"), (7,"Toilets alone"), (8,"Garage"), (9,"Storeroom"), (10,"Other"))
     room_type = models.PositiveSmallIntegerField(verbose_name="Room type", choices=ROOM_TYPES)
-    other_type =  models.CharField(max_length=20, verbose_name="other", null=True, blank=True, help_text="Precise if you selected \"other\" as room type")
+    other_type =  models.CharField(max_length=30, verbose_name="Other", null=True, blank=True, help_text="Precise if you selected \"other\" as room type")
     room_surface = models.PositiveSmallIntegerField(verbose_name="Estimation of surface area (if relevent)", null=True, blank=True)
 
     class Meta:
@@ -139,13 +140,13 @@ class Location(models.Model):
     house = models.OneToOneField(House)
 
     #address
-    address = models.CharField(max_length=30, verbose_name="Address")
-    city = models.CharField(max_length=30, verbose_name="City")
+    address = models.CharField(max_length=50, verbose_name="Address")
+    city = models.CharField(max_length=50, verbose_name="City")
     postal_code = models.CharField(max_length=5, verbose_name="Postal code")
     distance_eurecom = models.FloatField(verbose_name="Distance to travel from the accomodation to Eurecom (in km)", help_text="Auto-generate it by clicking your position on the map")
     #coordinates
-    latitude = models.FloatField(verbose_name="latitude", help_text="Auto-generate it by clicking your position on the map")
-    longitude = models.FloatField(verbose_name="longitude", help_text="Auto-generate it by clicking your position on the map")
+    latitude = models.FloatField(verbose_name="Latitude", help_text="Auto-generate it by clicking your position on the map")
+    longitude = models.FloatField(verbose_name="Longitude", help_text="Auto-generate it by clicking your position on the map")
 
 
     def __unicode__(self):
@@ -157,14 +158,14 @@ class Travel(models.Model):
     house = models.OneToOneField(House)
 
     #time of travels (leave empty if unknown values or impossible)
-    time_by_car_max = models.PositiveSmallIntegerField(verbose_name="max time by car", null=True, blank=True) 
-    time_by_car_min = models.PositiveSmallIntegerField(verbose_name="min time by car", null=True, blank=True) 
-    time_by_bus_max = models.PositiveSmallIntegerField(verbose_name="max time by bus", null=True, blank=True) 
-    time_by_bus_min = models.PositiveSmallIntegerField(verbose_name="min time by bus", null=True, blank=True) 
-    time_by_bike_max = models.PositiveSmallIntegerField(verbose_name="max time by bike", null=True, blank=True) 
-    time_by_bike_min = models.PositiveSmallIntegerField(verbose_name="min time by bike", null=True, blank=True) 
-    time_by_foot_max = models.PositiveSmallIntegerField(verbose_name="max time by foot", null=True, blank=True) 
-    time_by_foot_min = models.PositiveSmallIntegerField(verbose_name="min time by foot", null=True, blank=True) 
+    time_by_car_max = models.PositiveSmallIntegerField(verbose_name="Max time by car", null=True, blank=True) 
+    time_by_car_min = models.PositiveSmallIntegerField(verbose_name="Min time by car", null=True, blank=True) 
+    time_by_bus_max = models.PositiveSmallIntegerField(verbose_name="Max time by bus", null=True, blank=True) 
+    time_by_bus_min = models.PositiveSmallIntegerField(verbose_name="Min time by bus", null=True, blank=True) 
+    time_by_bike_max = models.PositiveSmallIntegerField(verbose_name="Max time by bike", null=True, blank=True) 
+    time_by_bike_min = models.PositiveSmallIntegerField(verbose_name="Min time by bike", null=True, blank=True) 
+    time_by_foot_max = models.PositiveSmallIntegerField(verbose_name="Max time by foot", null=True, blank=True) 
+    time_by_foot_min = models.PositiveSmallIntegerField(verbose_name="Min time by foot", null=True, blank=True) 
 
     #bus lines
     bus_line_eurecom = models.CharField(max_length=300, verbose_name="Which bus line to go to Eurecom, and any comment about it. Precise if it's not possible to go by bus", null=True, blank=True)
@@ -178,12 +179,12 @@ class Contact(models.Model):
     #landlord contact
     landlord_first_name = models.CharField(max_length=30, verbose_name="Landlord's first name", null=True, blank=True)
     landlord_last_name = models.CharField(max_length=30, verbose_name="Landlord's last name", null=True, blank=True)
-    landlord_email = models.CharField(max_length=40, verbose_name="Landlord's email", null=True, blank=True)
+    landlord_email = models.CharField(max_length=70, verbose_name="Landlord's email", null=True, blank=True)
     landlord_phone_number = models.CharField(max_length=25, verbose_name="Landlord's phone number", null=True, blank=True)
     landlord_comment_field = models.CharField(max_length=600, verbose_name="Comment about the landlord", null=True, blank=True)
     
     #agency
-    agency_name = models.CharField(max_length=40, verbose_name="Agency name", null=True, blank=True)
+    agency_name = models.CharField(max_length=50, verbose_name="Agency name", null=True, blank=True)
     agency_comment_field = models.CharField(max_length=600, verbose_name="Comment about the agency", null=True, blank=True)
 
 

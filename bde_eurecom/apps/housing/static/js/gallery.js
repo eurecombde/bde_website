@@ -63,13 +63,13 @@ function loadphoto(photoNumber){
     thumbnails.removeClass("active");
     $("#thumbnail"+photoNumber).addClass("active");
 
-    $('<img src="'+target+'" alt="'+photoDescr[photoNumber]+'" />').load(function(){
+    $('<img src="'+target+'" alt="'+escapeHtml(photoDescr[photoNumber])+'" />').load(function(){
             photoContainer.prepend($(this));
             bigPhoto.fadeOut(250, function(){
                 $(this).remove();
             });
             bigPhoto = photoContainer.children("img");
-            $photoDescr.html(photoDescr[photoNumber]);
+            $photoDescr.text(photoDescr[photoNumber]);
     });
 
     if (photoNumber==0) {

@@ -216,20 +216,20 @@ $(document).ready(function() {
 	    }
 	    else {
 		$info.html("The house has just been updated!");		
-	    }
-	    $info.dialog({
-		modal: true,
-		buttons: {
-		    "Continue to edit": function() {
-			    $(this).dialog("destroy");
-		    },
-                    "See Result [TODO]": function() {
+                $info.dialog({
+                    modal: true,
+                    buttons: {
+                        "Continue to edit": function() {
+                                $(this).dialog("destroy");
+                        },
+                        "See Result [TODO]": function() {
+                            window.onbeforeunload = null;
                             //window.location.href = "TODO: add URL";
-                    }
-		},
-		width: 400,
-	    });
-
+                        }
+                    },
+                    width: 400,
+                });
+	    }
 	});
 	
 	return false;
@@ -250,3 +250,7 @@ $(document).ready(function() {
     $(".required > label").append("<span class='asterisk'> *</span>")
 
 });
+
+window.onbeforeunload = function() {
+    return "You're leaving the update page, make sure that you clicked on the Updtate button.";
+};

@@ -10,7 +10,7 @@
     {% endif %}
 
     <h1>Update the accomodation</h1>
-    <p>On this page you can update any of the informations about your accomodation. Required fields are marked by an asterisk.</p>
+    <p>On this page you can update any of the informations about your accomodation. Required fields are marked by an asterisk. Don't forget to hit the Update button at the bottom of the page, or your changes won't be taken into account.</p>
     <form id="form">
       {% csrf_token %}
       <div id="accordion" enctype="multipart/form-data" action="" method="post">
