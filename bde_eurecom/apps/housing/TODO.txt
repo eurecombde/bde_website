@@ -6,18 +6,23 @@ A : almost done
 * - Reorganize data presentation (vague but many things to do, to be precised)
 * - Present student contacts (infos on contributors) 
 * - Write a script to add contributors from a file containing student list (such a file added in setup directory)
-* - In account : possibility to create a house
 * - Redirect or refresh page options on update button pressed
 * - Add update time in model (or dealt with promo of contributor ?)
 * - Limit the number of characters in user forms so that it doesn't exceed the max of the model
 * - Switch django langage to English, enough with the "envoyer" buttons
-* - Prevent a contributor from deleting himself as contributor of his house
+
 A * - input errors feedback for the update forms
+
 - prevent the description of photos when none on gallery
 - Add a map in Location tab of a house
 - Present informations on rooms
 - URL containing the name of the house instead of the id
 - bigger thumbnail for search page
+
+X * available field only for admin
+X * - In account : possibility to create a house
+X * - redirection when creating done
+X * - Prevent a contributor from deleting himself as contributor of his house
 X * - Create folder for each house photos or will be a big mess
 X * - Fix the update process after login (update button not working in "account")
 X - Feedback after update button is pressed

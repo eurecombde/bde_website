@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*
 from django import forms
 from bde_eurecom.apps.housing.models import House, AdditionalInfo, Price, Room, Furniture, Location, Travel, Contact, Appreciation, Photo, Contributor
+from django.contrib.auth.models import User
 
 class HouseForm(forms.ModelForm):
     required_css_class = 'required'
 
     class Meta:
         model = House
-        exclude = ('available',)
-
+        
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(HouseForm, self).__init__(*args, **kwargs)
+        if not user.is_superuser:
+            del self.fields['available']
 
 class AdditionalInfoForm(forms.ModelForm):
     required_css_class = 'required'
@@ -94,12 +99,10 @@ class AppreciationForm(forms.ModelForm):
         }   
 
         
-class ContributorForm(forms.ModelForm):
-    required_css_class = 'required'
-
-    class Meta:
-        model = Contributor
-        exclude = ('houses',)
+class ContributorForm(forms.Form):
+    contributors = Contributor.objects.all()
+    CONTRIBUTORS = [(c.user.id, c.user.username) for c in contributors]
+    contributor = forms.ChoiceField(choices=CONTRIBUTORS)
 
 
 class PhotoForm(forms.ModelForm):
@@ -131,4 +134,24 @@ class SearchForm(forms.Form):
     additionalinfo__need_car = forms.ChoiceField(label="Need for a car", choices=BOOLEAN)
     order_by = forms.ChoiceField(label="Order by", choices=ORDER_BY)
     order = forms.ChoiceField(choices=ORDER)
-    
+
+class AccountUserForm(forms.ModelForm):
+    required_css_class = 'required'
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
+
+class AccountContributorForm(forms.ModelForm):
+    required_css_class = 'required'
+
+    class Meta:
+        model = Contributor
+        exclude = ('user','houses')
+
+# class AccountForm(forms.Form):
+#     user__first_name = forms.CharField(label="First name", max_length=30)
+#     user__last_name = forms.CharField(label="Last name", max_length=30)
+#     user__email = forms.CharField(label="E-mail", max_length=100)
+#     promo  = forms.IntegerField(label="Promotion", min_value=2013, max_value=2030)

@@ -49,6 +49,7 @@
   <!-- <script type="text/javascript" src="{{STATIC_URL}}housing/js/jquery-ui-1.10.4.js"></script> -->
   <script type="text/javascript" src="{{STATIC_URL}}housing/js/escape_html.js"></script>
   <script type="text/javascript" src="{{STATIC_URL}}housing/js/quick_search.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}housing/js/common.js"></script>
   <script type="text/javascript">
    var STATIC_URL = "{{STATIC_URL}}";
    var quick_search_url = '{% url 'bde_eurecom.apps.housing.views.quick_search' %}';

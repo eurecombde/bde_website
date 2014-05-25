@@ -8,7 +8,7 @@ $(document).ready(function() {
     // Photo multiupload
     //
     
-    $('#id_img').fileupload({
+    $('#id_add_photo').fileupload({
         url: add_photo_url,
 	dataType: 'json',
         sequentialUploads: true,
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		    );
 		    $("#sortable").find("li[data-id=" + data.id + "]").find("button").button();
 		    
-		    var overallProgress = $('#id_img').fileupload('progress');
+		    var overallProgress = $('#id_add_photo').fileupload('progress');
 		    per = Math.round(100*overallProgress.loaded/overallProgress.total);
 		    if(per == 100) {
 			$("#info").dialog("destroy");
@@ -156,7 +156,7 @@ $(document).ready(function() {
     
     $('body').on('click', "button[data-type=add_contributor]", function() {
 	
-	var user = $("#id_user").val();
+	var user = $("#id_contributor").val();
 	var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
 	
 	callWhenPostValid(add_contributor_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, user:user}, function(data) {
@@ -267,7 +267,6 @@ $(document).ready(function() {
 	$.post(house_update_url, form, function(data) {
 	    
 	    $(".error").each(function() {
-		console.log($(this));
 		$(this).prev().removeClass("error_input");
 		$(this).remove();
 		
@@ -277,7 +276,6 @@ $(document).ready(function() {
 		var text = ['<h3>There are errors in the form!<h3/>'];
 		$.each(data, function(i, item) {
 		    $div = $("#id_" + i);
-		    console.log($div);
 		    $div.addClass("error_input");
 		    $div.after(
 			['<span class="error">',item,'</span>'].join("")
@@ -334,56 +332,6 @@ $(document).ready(function() {
     });
 
     $(".required > label").append("<span class='asterisk'> *</span>")
-
-    /**
-     *
-     * This function POST data postData to url and wait for a response 
-     * from the server with two parameters : 
-     *  - valid : if the action is valid
-     *  - content : feedback to the user
-     * A dialog is created with a loading bar,
-     * when POST returns, content is shown to the user in the dialog,
-     * if valid is set to true, callbackWhenValid function is called
-     * callbackWhenValid can access to data return by POST
-     *
-     */
-
-
-    function callWhenPostValid(url, postData, callbackWhenValid, dialogId = "info") {
-
-	$("body").append('<div id="' + dialogId + '"></div>');
-
-	var $info = $("#" + dialogId);
-
-	$info.html('<div id="' + dialogId + '_loading"><div class="progress-label">Loading</div></div>');
-
-	$("#loading").progressbar({
-	    value:false,
-	});
-
-	$info.dialog({
-            modal: true,
-            width: 400,
-	});
-	
-	$.post(url, postData, function(data) {
-	    
-	    $info.text(data.content);
-	    $info.dialog({
-		modal: true,
-		buttons: {
-                    "OK": function() {
-			$(this).dialog("destroy");
-                    }
-		},
-		width: 400,
-            });
-	    
-	    if(data.valid) {
-		callbackWhenValid(data);
-	    }
-	});
-    }
 
 });
 

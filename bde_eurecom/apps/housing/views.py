@@ -14,7 +14,7 @@ from django.views.generic import CreateView
 from django.utils import simplejson
 import json
 from bde_eurecom.apps.housing.models import House, AdditionalInfo, Price, Room, Furniture, Location, Travel, Contact, Appreciation, Photo, Contributor
-from bde_eurecom.apps.housing.forms import HouseForm, AdditionalInfoForm, PriceForm, RoomForm, FurnitureForm, LocationForm, TravelForm, ContactForm, AppreciationForm, PhotoForm, ContributorForm, LoginForm, SearchForm
+from bde_eurecom.apps.housing.forms import HouseForm, AdditionalInfoForm, PriceForm, RoomForm, FurnitureForm, LocationForm, TravelForm, ContactForm, AppreciationForm, PhotoForm, ContributorForm, LoginForm, SearchForm, AccountUserForm, AccountContributorForm
 import os
 from django.conf import settings
 # For thumbnails generation
@@ -208,8 +208,11 @@ def house_presentation(request, id_house):
         appreciation = house.appreciation
     except ObjectDoesNotExist:
         appreciation = Appreciation()
-        
-    house_form = HouseForm(instance=house)
+    
+    
+    user = request.user
+    
+    house_form = HouseForm(instance=house, user=user)
 
     additional_info_form = AdditionalInfoForm(instance=additionalinfo)
     price_form = PriceForm(instance=price)
@@ -219,7 +222,6 @@ def house_presentation(request, id_house):
     contact_form = ContactForm(instance=contact)
     appreciation_form = AppreciationForm(instance=appreciation)
     
-    user = request.user
     if user.has_perm('housing.update_house_{0}'.format(id_house)):
         can_update = True
 
@@ -234,7 +236,7 @@ def house_create(request):
     if request.method == 'POST': 
 
         user = request.user
-        house_form = HouseForm(request.POST, instance=House())
+        house_form = HouseForm(request.POST, instance=House(), user=user)
                 
         if house_form.is_valid():
             
@@ -264,10 +266,10 @@ def house_create(request):
             except:
                 raise Http404
 
-            added = True
+            return redirect('bde_eurecom.apps.housing.views.house_update', house.id)
 
     else:
-        house_form = HouseForm()
+        house_form = HouseForm(user=request.user)
 
     return render(request, 'housing/house_create.djhtml', locals())
 
@@ -316,7 +318,7 @@ def house_update(request, id_house):
         except ObjectDoesNotExist:
             appreciation = Appreciation()
         
-        house_form = HouseForm(request.POST, instance=house)
+        house_form = HouseForm(request.POST, instance=house, user=request.user)
         onetoone_forms = []
         
         onetoone_forms.append(AdditionalInfoForm(request.POST, instance=additionalinfo))
@@ -392,7 +394,7 @@ def house_update(request, id_house):
         except ObjectDoesNotExist:
             appreciation = Appreciation()
 
-        house_form = HouseForm(instance=house)
+        house_form = HouseForm(instance=house, user=request.user)
 
         additional_info_form = AdditionalInfoForm(instance=additionalinfo)
         price_form = PriceForm(instance=price)
@@ -765,9 +767,38 @@ def account(request):
     try:
         contributor = user.contributor
         houses = contributor.houses.all()
+        for house in houses:
+            if house.photo_set.all():  #check if there are photos
+                house.thumbnail_url = house.photo_set.get(pos=1).thumbnail.url
+        account_user_form = AccountUserForm(instance=user)
+        account_contributor_form = AccountContributorForm(instance=contributor)
+
     except:
         contributor = None
+
     return render(request, 'housing/account.djhtml', locals())
+
+@ensure_csrf_cookie
+@login_required
+def account_update(request):
+    """
+
+    """
+    if request.method == 'POST':
+        user = request.user
+        contributor = get_object_or_404(Contributor, user=user)
+        account_user_form = AccountUserForm(request.POST, instance=user)
+        account_contributor_form = AccountContributorForm(request.POST, instance=contributor)
+        if account_user_form.is_valid() and account_contributor_form.is_valid():
+            user = account_user_form.save()
+            contributor = account_contributor_form.save()
+            result = {'valid':'true', 'content':'Your profile has been updated!'}
+        else:
+            result = {'valid':'false', 'content':'The form is not valid!'}
+    else:
+        result = {'valid':'false', 'content':'Not authenticated'}
+
+    return HttpResponse(simplejson.dumps(result), mimetype='application/json')
 
 ########################################
 #                                      #

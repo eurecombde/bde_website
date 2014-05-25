@@ -4,15 +4,66 @@
   <h1>Account : {{ user.username }}</h1>
   <button onclick="window.location='{% url 'bde_eurecom.apps.housing.views.user_logout' %}'">Logout</button>
   {% if contributor %}
+    <h2> Profile </h2>
+    <form id="profile_form">
+    {% csrf_token %}
+    {% comment %}
+      <p><label>Last name</label><input type="text" id="id_user__last_name"/></p>
+      <p><label>First name</label><input type="text" id="id_user__first_name"/></p>
+      <p><label>E-mail address</label><input type="text" id="id_user__email"/></p>
+      <p><label>Promotion</label><input type="text" id="id_promo"/></p>
+    {% endcomment %}
+    {{ account_user_form.as_p }}
+    {{ account_contributor_form.as_p }}
+    <button id="profile_update">Update</button>
+    </form>
     {% if houses %}
-      <p>Houses you contribute to : </p>
-      {% for house in houses %}
-	<p> {{ house }} - <button onclick="window.location='{% url 'bde_eurecom.apps.housing.views.house_update' house.id %}'">Update</button></p>
-      {% endfor %}
+      <h2>Houses you contribute to</h2>
+      <section id="house_list">
+	<table>
+	  <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>N° Persons</th>
+              <th>Surface</th>
+              <th>City</th>
+              <th>To Eurecom</th>
+              <th>Price/person</th>
+            </tr>
+	  </thead>
+	  <tbody>
+	    {% for house in houses %}
+	      <tr>
+		<td>
+		  {% if house.thumbnail_url %}
+		    <img src="{{ house.thumbnail_url }}"/>
+		  {% else %}
+		    No photo
+		  {% endif %}
+		</td>
+		<td><a href="{% url 'bde_eurecom.apps.housing.views.house_update' house.id %}">{{ house.accomodation_name }}</a></td>
+		<td>{{ house.number_persons }}</td>
+		<td>{{ house.surface }} m²</td>
+		<td>{{ house.location.city }}</td>
+		<td>{{ house.location.distance_eurecom }} km</td>
+		<td>{{ house.price.rent_charge_per_person }} €</td>
+	      </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+      </section>
     {% else %}
       <p>You contribute to no houses</p>
     {% endif %}
+    <h2><a href="{% url 'bde_eurecom.apps.housing.views.house_create' %}">Create a new house</a></h2>
   {% else %}
     <p> You are not a contributor :(</p>
   {% endif %}
+{% endblock %}
+{% block scripts %}
+  <script type="text/javascript">
+   account_update_url = "{% url 'bde_eurecom.apps.housing.views.account_update' %}";
+  </script>
+  <script type="text/javascript" src="{{STATIC_URL}}housing/js/account.js"></script>
 {% endblock %}
