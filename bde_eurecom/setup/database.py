@@ -28,10 +28,10 @@ l1.save()
 t1 = Travel(house=h1, bus_line_eurecom="It is possible to go to Eurecom by bus with the line 650, but there are very few buses which go to Eurecom", bus_line_railroad_station="Line 630 to go to the railroad station at Cannes", time_by_car_min=15, time_by_car_max=25, time_by_bus_min=20, time_by_bus_max=40, time_by_bike_min=20, time_by_bike_max=30)
 t1.save()
 
-ap1 = Appreciation(house=h1, general_description="This apartment is attached to a little building but is more like a house as the door opens directly on the outside, and there is an other opening on a patio and a private garden. The accommodation is within a very nice residence which is well maintained. The apartment is in good condition, well balanced and very convivial for collocation. We found a way to go to the school by bike when the weather is good, there are some bike lanes on the major part of the travel.", strong_points="Proximity to the school.\nVery little traffic jam between it and Eurecom.\nVery good infrastructures, large swimming pool and tennis courts.\nMultiple bathrooms", weak_points="Difficulty to park more than one car.")
+ap1 = Appreciation(house=h1, general_description="This apartment is attached to a little building but is more like a house as the door opens directly on the outside, and there is an other opening on a patio and a private garden. The accommodation is within a very nice residence which is well maintained. The apartment is in good condition, well balanced and very convivial for collocation. We found a way to go to the school by bike when the weather is good, there are some bike lanes on the major part of the travel.", strong_points="Proximity to the school.\nVery little traffic jam between the apartment and Eurecom.\nVery good infrastructures, large swimming pool and tennis courts.\nMultiple bathrooms", weak_points="Difficulty to park more than one car.")
 ap1.save()
 
-contact1 = Contact(house=h1, landlord_first_name="Roxanna", landlord_last_name="Draycott", landlord_email="draycottr@aol.com", landlord_phone_number="+44 208 954 3818", landlord_comment_field="The landlord lives in London. She is super nice and always disposed to help us with anything we need. It's really a pleasure to have her as landlord.")
+contact1 = Contact(house=h1, landlord_first_name="Roxanna", landlord_last_name="Draycott", landlord_email="draycottr@aol.com", landlord_phone_number="+44 208 954 3818", landlord_comment_field="She lives in London. She is super nice and always disposed to help us with anything we need. It's really a pleasure to have her as landlord.")
 contact1.save()
 
 
@@ -75,12 +75,13 @@ f1.save()
 
 Room(house=h1, room_type=2, room_surface=25).save()
 Room(house=h1, room_type=3, room_surface=6).save()
-Room(house=h1, room_type=1, room_surface=12).save()
-Room(house=h1, room_type=1, room_surface=12).save()
-Room(house=h1, room_type=1, room_surface=12).save()
+Room(house=h1, room_type=1, room_surface=13).save()
+Room(house=h1, room_type=1, room_surface=10).save()
+Room(house=h1, room_type=1, room_surface=10).save()
+Room(house=h1, room_type=1, room_surface=10).save()
 Room(house=h1, room_type=5, room_surface=3).save()
 Room(house=h1, room_type=6, room_surface=3).save()
-Room(house=h1, room_type=6, room_surface=7).save()
+Room(house=h1, room_type=6, room_surface=6).save()
 Room(house=h1, room_type=7).save()
 
 # Random houses for search

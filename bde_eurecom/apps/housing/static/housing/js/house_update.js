@@ -333,6 +333,8 @@ $(document).ready(function() {
 
     $(".required > label").append("<span class='asterisk'> *</span>")
 
+    $("#id_included_gas").parent().before('<br><h4>Mark the services that are included in the price of rent and service charges</h4>');
+
 });
 
 window.onbeforeunload = function() {
