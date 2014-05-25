@@ -87,10 +87,11 @@
   </section>
   <section id="information">
     <ul>
-      <li><a href="#house">General</a></li>
+      <li><a href="#house">Description</a></li>
       <li><a href="#additional_info">Additional</a></li>
       <li><a href="#price">Price</a></li>
       <li><a href="#furniture">Furniture</a></li>
+      <li><a href="#rooms">Rooms</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#travel">Travel</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -139,6 +140,7 @@
     </article>
     <article id="additional_info">
       
+    {% comment %}
       {% for field in additional_info_form %}
 	{% if field.value %}
 	  {% if field.name == 'heating_type' %}
@@ -150,13 +152,58 @@
 	  {% endif %}
 	{% endif %}
       {% endfor %}
+    {% endcomment %}
+
+      <h3>General</h3>
+      <p>Floor <i>(entrance door, street is at 0)</i> : {{additional_info_form.floor.value}}</p>
+      <p>{{additional_info_form.disabled_persons.label}} : {% if additional_info_form.disabled_persons.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      <p>{{additional_info_form.need_car.label}} : {% if additional_info_form.need_car.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      <p>{{additional_info_form.parking.label}} : {% if additional_info_form.parking.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      <p>{{additional_info_form.furniture_included.label}} : {% if additional_info_form.furniture_included.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      {% if additional_info_form.furniture_included.value %}
+      <p>{{additional_info_form.furniture_appreciation.label}} : {{ additionalinfo.get_furniture_appreciation_display }}</p>
+      {% endif %}
+      <p>{{additional_info_form.heating_type.label}} : {{ house.additionalinfo.get_heating_type_display }}</p>
+      <p>{{additional_info_form.climatisation.label}} : {% if additional_info_form.climatisation.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+
+      <h3>Internet</h3>
+      <p>{{additional_info_form.internet_connexion.label}} : {% if additional_info_form.internet_connexion.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      <p>{{additional_info_form.internet_details.label}} : {{additional_info_form.internet_details.value}}</p>
+      
+
+      <h3>Outside equipment</h3>
+      <p>{{additional_info_form.swimming_pool.label}} : {% if additional_info_form.swimming_pool.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      <p>{{additional_info_form.garden.label}} : {% if additional_info_form.garden.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+      <p>{{additional_info_form.outside_equipment_comment.label}} : {{additional_info_form.outside_equipment_comment.value}}</p>
+
+      <h3>around the accomodation</h3>
+      <p>{{additional_info_form.noise_comment.label}} : {{additional_info_form.noise_comment.value}}</p>
+      <p>{{additional_info_form.proximity_shops.label}} : {{additional_info_form.proximity_shops.value}}</p>
+
       
     </article>
     <article id="price">
 
-    <p>Price per person : {{house.price.rent_charge_per_person}}</p>
-
+    <h3>Money-related infos</h3>
+    <p>{{price_form.rent_with_service_charge.label}} : {{price_form.rent_with_service_charge.value}} € <span style="margin-left:20px">(---&gt; per person : {{house.price.rent_charge_per_person}} €)</span></p>
+    <div id="rent_detail">
+        <p>{{price_form.rent_only.label}} : {{price_form.rent_only.value}} € </p>
+        <p>{{price_form.service_charge_only.label}} : {{price_form.service_charge_only.value}} € </p>
+    </div>
+    <p>{{price_form.council_tax.label}} : {{price_form.council_tax.value}} € </p>
+    <p>{{price_form.through_agency.label}} : {% if price_form.through_agency.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    <p>{{price_form.agency_fees.label}} : {{price_form.agency_fees.value}} € </p>
+    <p>{{price_form.apl.label}} : {{price_form.apl.value}} € </p>
+    <br>
+    <h3>Included in the price of rent and service charges</h3>
+    <p>{{price_form.included_gas.label}} : {% if price_form.included_gas.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    <p>{{price_form.included_electricity.label}} : {% if price_form.included_electricity.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    <p>{{price_form.included_water.label}} : {% if price_form.included_water.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    <p>{{price_form.included_internet.label}} : {% if price_form.included_internet.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    <p>{{price_form.included_telephone.label}} : {% if price_form.included_telephone.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    <p>{{price_form.included_cleaning.label}} : {% if price_form.included_cleaning.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
       
+    {% comment %}
       {% for field in price_form %}
 	{% if field.value == True %}
 	  <p> {{ field.label }} : <img src="{{ STATIC_URL }}housing/img/true_icon.png"/> </p>
@@ -166,47 +213,115 @@
 	  <p> {{ field.label }} : {{ field.value }} </p>
 	{% endif %}
       {% endfor %}
+    {% endcomment %}
       
     </article>
+
     <article id="furniture">
-      
-      <table>
+    <table>
 	<tbody>
 	  {% for field in furniture_form %}
 	    {% cycle '<tr>' '' '' '' %}
-	    <td {% if not field.value %} style="text-decoration:line-through" {% endif %}> {{ field.label }}</td>
+	    <td {% if not field.value %} class="not_included" {% endif %}> {{ field.label }}</td>
 	    {% cycle '' '' '' '</tr>' %}
 	  {% endfor %}
 	</tbody>
       </table>
       
     </article>
+    
+    <article id="rooms">
+        <h3>Detail on the rooms of the accomodation</h3>
+        <p><i>Room surfaces are approximations to give an idea</i></p>
+        <ul id="rooms">
+          {% for room in rooms %}
+            <li data-type="room" data-id="{{ room.id }}">
+              {{ room.get_room_type_display }}
+              {% if room.other_type %}
+                ({{ room.other_type }})
+              {% endif %}
+
+              {% if room.room_surface %}
+                : {{ room.room_surface }} m² 
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    </article>
+
+    
     <article id="location">
-      
+
+    <div>
+        <h3>Infos on location</h3>
+        <p>{{location_form.address.label}} : {{location_form.address.value}} </p>
+        <p>{{location_form.city.label}} : {{location_form.city.value}} </p>
+        <p>{{location_form.postal_code.label}} : {{location_form.postal_code.value}} </p>
+        <p>Distance to Eurecom : {{location_form.distance_eurecom.value}} km </p>
+        <p>GPS coordinates : {{location_form.latitude.value}}  {{location_form.longitude.value}}</p>
+    </div>
+    <div>Insert the map in this div</div>
+
+    {% comment %}
       {% for field in location_form %}
 	{% if field.value %}
 	  <p> {{ field.label }} : {{ field.value }} </p>
 	{% endif %}
       {% endfor %}
+    {% endcomment %}
       
     </article>
     <article id="travel">
       
+    {% comment %}
       {% for field in travel_form %}
 	{% if field.value %}
 	  <p> {{ field.label }} : {{ field.value }} </p>
 	{% endif %}
       {% endfor %}
-      
+    {% endcomment %}
+
+    <h3>Time to travel between the accomodation and Eurecom</h3>
+      {% if house.travel.time_by_car_min and house.travel.time_by_car_max %}
+      <p>By car : {{house.travel.time_by_car_min}} to {{house.travel.time_by_car_max}} min<p>
+      {% endif %}
+
+      {% if house.travel.time_by_bus_min and house.travel.time_by_bus_max %}
+      <p>By bus : {{house.travel.time_by_bus_min}} to {{house.travel.time_by_bus_max}} min<p>
+      {% endif %}
+
+      {% if house.travel.time_by_bike_min and house.travel.time_by_bike_max %}
+      <p>By bike : {{house.travel.time_by_bike_min}} to {{house.travel.time_by_bike_max}} min<p>
+      {% endif %}
+
+      {% if house.travel.time_by_foot_min and house.travel.time_by_foot_max %}
+      <p>By foot : {{house.travel.time_by_foot_min}} to {{house.travel.time_by_foot_max}} min<p>
+      {% endif %}
+
+    <h3>Bus lines</h3>
+      <p>Bus line to Eurecom : {{house.travel.bus_line_eurecom}}<p>
+      <p>Bus line to the nearest railroad station : {{house.travel.bus_line_eurecom}}<p>
+
     </article>
     <article id="contact">
       
-      {% for field in contact_form %}
-	{% if field.value %}
-	  <p> {{ field.label }} : {{ field.value }} </p>
-	{% endif %}
-      {% endfor %}
+    {% if house.contact.landlord_first_name or house.contact.landlord_last_name or house.contact.landlord_email or house.contact.landlord_phone_number or house.contact.landlord_comment_field %}
+    <h3>Landlord</h3>
+    <p>First name : {{house.contact.landlord_first_name}}
+    <p>Last name : {{house.contact.landlord_last_name}}
+    <p>Email : {{house.contact.landlord_email}}
+    <p>Phone number : {{house.contact.landlord_phone_number}}
+    <p>Comment about the landlord : {{house.contact.landlord_comment_field}}
+  {% endif %}
+
+    {% if house.contact.agency_name or house.contact.agency_comment_field %}
+    <h3>Agency</h3>
+    <p>Name : {{house.contact.agency_name}}
+    <p>Comment about the agency : {{house.contact.agency_comment_field}}
+  {% endif %}
       
+    <h3>Students</h3>
+
     </article>
     {% comment %}
     <article id="appreciation">

@@ -16,7 +16,7 @@ $(document).ready(function() {
     loader = $(document.createElement("img")).attr({
 	alt: "chargement en cours",
 	title: "chargement en cours",
-	src: STATIC_URL+"img/loader.gif",
+	src: STATIC_URL+"housing/img/loader.gif",
 	id: "loader"
     });
 
@@ -31,13 +31,13 @@ $(document).ready(function() {
     }
 
     previousButton.hover(
-        function(){this.src=STATIC_URL+"img/left-arrow.png";},
-        function(){this.src=STATIC_URL+"img/left-arrow-transp.png";}
+        function(){this.src=STATIC_URL+"housing/img/left-arrow.png";},
+        function(){this.src=STATIC_URL+"housing/img/left-arrow-transp.png";}
     );
 
     nextButton.hover(
-        function(){this.src=STATIC_URL+"img/right-arrow.png";},
-        function(){this.src=STATIC_URL+"img/right-arrow-transp.png";}
+        function(){this.src=STATIC_URL+"housing/img/right-arrow.png";},
+        function(){this.src=STATIC_URL+"housing/img/right-arrow-transp.png";}
     );
 
     $("#sliderContainer").hover(

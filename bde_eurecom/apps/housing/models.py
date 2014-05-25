@@ -84,9 +84,7 @@ class Price(models.Model):
     other_expenses = models.CharField(max_length=400, verbose_name="Other expenses" , help_text="Precise the price of the service charges that are not included and that you have to pay.", null=True, blank=True)
 
     def save(self):
-        print "custom save method called"
         if self.rent_only!=None and self.service_charge_only!=None:
-            print "Autocomputing rent+service charges"
             self.rent_with_service_charge = self.rent_only + self.service_charge_only
         self.rent_charge_per_person = self.rent_with_service_charge / self.house.number_persons
         super(Price, self).save()
@@ -123,8 +121,8 @@ class Furniture(models.Model):
     baking_tray = models.BooleanField(verbose_name="Baking tray (plaque de cuisson)", default=False)
     
     #bedrooms
-    desk = models.BooleanField(verbose_name="Desk", default=False)
-    desk_chair = models.BooleanField(verbose_name="Desk chair", default=False)
+    desk = models.BooleanField(verbose_name="Desk(s)", default=False)
+    desk_chair = models.BooleanField(verbose_name="Desk chair(s)", default=False)
 
     #Living room
     tv = models.BooleanField(verbose_name="TV", default=False)
@@ -143,7 +141,7 @@ class Location(models.Model):
     address = models.CharField(max_length=50, verbose_name="Address")
     city = models.CharField(max_length=50, verbose_name="City")
     postal_code = models.CharField(max_length=5, verbose_name="Postal code")
-    distance_eurecom = models.FloatField(verbose_name="Distance to travel from the accomodation to Eurecom (in km)", help_text="Auto-generate it by clicking your position on the map")
+    distance_eurecom = models.FloatField(verbose_name="Distance to Eurecom (in km)", help_text="Auto-generate it by clicking your position on the map")
     #coordinates
     latitude = models.FloatField(verbose_name="Latitude", help_text="Auto-generate it by clicking your position on the map")
     longitude = models.FloatField(verbose_name="Longitude", help_text="Auto-generate it by clicking your position on the map")

@@ -62,6 +62,10 @@ nav a {
     color:#FFFFFF;
 }
 
+nav a:hover {
+    text-decoration:underline;
+}
+
 #gallery_info {
     margin-bottom:20px;
 }
@@ -130,12 +134,25 @@ aside table {
 
 }
 
+#main {
+    display:block;
+    margin:auto;
+    width:950px;
+    padding:15px 25px 25px 25px;
+    background-color:#eeeeee;
+}
+
 #gallery {
     float:left;
 }
 
 #information {
     clear:both;
+}
+
+#information img {
+    height: 20px;
+    margin-bottom: -4px;
 }
 
 .S_W_points {
@@ -156,12 +173,10 @@ aside table {
     margin-left: 26px;
 }
 
-#main {
-    display:block;
-    margin:auto;
-    width:950px;
-    padding:15px 25px 25px 25px;
-    background-color:#eeeeee;
+#rent_detail {
+    margin-left: 30px;
+    padding-left: 10px;
+    border-left: 1px solid black;
 }
 
 #form label {
@@ -328,8 +343,14 @@ thead {
     color:#ffffff;
 }
 
-td {
-    padding:10px;
+#furniture td {
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+#furniture .not_included {
+   color: #959595;
+   font-weight: normal;
 }
 
 #house_list {
