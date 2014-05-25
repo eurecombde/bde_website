@@ -109,8 +109,11 @@ $(document).ready(function() {
 	var other_type = $("#id_other_type").val();
 	var room_surface = $("#id_room_surface").val();
         var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
-        $.post(add_room_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, room_type:room_type, other_type:other_type, room_surface:room_surface}, function(data) {
+	
+	callWhenPostValid(add_room_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, room_type:room_type, other_type:other_type, room_surface:room_surface}, function(data) {
+	    
 	    var html;
+
             html = '<li data-type="room" data-id="'+ data.id + '">' + data.name;
             if (data.other) {
                 html += ' (' + data.other + ')';
@@ -119,8 +122,9 @@ $(document).ready(function() {
             if (data.surface) {
                 html += ' : ' + data.surface + ' m² ';
             }
-            html += '<button data-type="delete_room">X</button></li>';
 
+            html += '<button data-type="delete_room">X</button></li>';
+	    
 	    $("#rooms").append(html);
 	    $("#rooms").find("li[data-id=" + data.id + "]").find("button").button();
             
@@ -132,34 +136,94 @@ $(document).ready(function() {
     $('body').on('click', "button[data-type=delete_room]", function() {
 	var room = $(this).parent().data('id');
 	var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
-	$.post(delete_room_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, room:room}, function(data) {
-	    if(data=="VALID") {
-		$("li[data-id=" + room + "]").remove();
-	    }
-	    else {
-		console.log(data);
-	    }
+	
+	callWhenPostValid(delete_room_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, room:room}, function(data) {
+	    $("li[data-id=" + room + "]").remove();
 	});
+
 	return false;
     });
 
+    /********************************/
+    /* CONTRIBUTORS                 */
+    /********************************/
+    
+    /**
+     * Delete a contributor
+     *
+     *
+     */
+    
     $('body').on('click', "button[data-type=add_contributor]", function() {
+	
 	var user = $("#id_user").val();
 	var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
-	$.post(add_contributor_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, user:user}, function(data) {
-	    $("div[data-type=contributor]").html(data);
+	
+	callWhenPostValid(add_contributor_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, user:user}, function(data) {
+	    $("#contributor").find("ul").append(
+		['<li>',data.user,'<button data-type="delete_contributor" data-user="',data.id_user,'">X</button>','</li>'].join("")
+	    );
 	});
+	
+	return false;
+    });
+    
+    /**
+     * Delete a contributor
+     *
+     *
+     */
+    
+    
+    $('body').on('click', "button[data-type=delete_contributor]", function() {
+
+	var $button = $(this);
+	var user = $button.data('user');
+	var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
+	
+	callWhenPostValid(delete_contributor_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, user:user}, function(data) {
+	    $button.parent().remove();
+	});
+	
 	return false;
     });
 
-    $('body').on('click', "button[data-type=delete_contributor]", function() {
-	var user = $(this).data('user');
-	var csrfmiddlewaretoken = $("input[name=csrfmiddlewaretoken]").val();
-	$.post(delete_contributor_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, user:user}, function(data) {
-	    $("div[data-type=contributor]").html(data);
+    /*
+	$("body").append('<div id="info"></div>');
+	var $info = $("#info");
+	$info.html('<div id="loading"><div class="progress-label">Loading</div></div>');
+	$("#loading").progressbar({
+	    value:false,
 	});
-	return false;
-    });
+	$info.dialog({
+            modal: true,
+            width: 400,
+        });
+
+	$.post(delete_contributor_url, {csrfmiddlewaretoken:csrfmiddlewaretoken, user:user}, function(data) {
+	    
+	    $info.text(data.content);
+	    $info.dialog({
+                modal: true,
+                buttons: {
+                    "OK": function() {
+                        $(this).dialog("destroy");
+                    }
+                },
+                width: 400,
+            });
+	    
+	    if(data.valid) {
+		$button.parent().remove();
+	    }
+	});
+    */
+
+    /********************************/
+    /* END CONTRIBUTORS             */
+    /********************************/
+
+
 
     $("#accordion > div").accordion({
         header: "h3",
@@ -171,11 +235,11 @@ $(document).ready(function() {
     /*
     //piece of code to ensure that the user doesn't have to scroll after changing acordion
     $('#accordion h3').bind('click',function(){
-        var self = this;
-        setTimeout(function() {
-            theOffset = $(self).offset();
-            $('body,html').animate({ scrollTop: theOffset.top - 100 });
-        }, 500); // ensure the collapse animation is done
+    var self = this;
+    setTimeout(function() {
+    theOffset = $(self).offset();
+    $('body,html').animate({ scrollTop: theOffset.top - 100 });
+    }, 500); // ensure the collapse animation is done
     });*/
 
     $('body').on('click', "button[data-type=update]", function() {
@@ -187,8 +251,21 @@ $(document).ready(function() {
 	var $info = $("#info");
 	// form.push({name:'model', value:model});
 	// form.push({name:'csrfmiddlewaretoken', value:csrfmiddlewaretoken});
+
+	$info.html('<div id="info_loading"><div class="progress-label">Loading</div></div>');
+
+	$("#loading").progressbar({
+	    value:false,
+	});
+
+	$info.dialog({
+            modal: true,
+            width: 400,
+	});
+	
 	
 	$.post(house_update_url, form, function(data) {
+	    
 	    $(".error").each(function() {
 		console.log($(this));
 		$(this).prev().removeClass("error_input");
@@ -216,7 +293,7 @@ $(document).ready(function() {
                     modal: true,
                     buttons: {
                         "OK": function() {
-                                $(this).dialog("destroy");
+                            $(this).dialog("destroy");
                         }
                     },
                     width: 400,
@@ -229,7 +306,7 @@ $(document).ready(function() {
                     modal: true,
                     buttons: {
                         "Continue to edit": function() {
-                                $(this).dialog("destroy");
+                            $(this).dialog("destroy");
                         },
                         "See Result": function() {
                             window.onbeforeunload = null;
@@ -258,8 +335,59 @@ $(document).ready(function() {
 
     $(".required > label").append("<span class='asterisk'> *</span>")
 
+    /**
+     *
+     * This function POST data postData to url and wait for a response 
+     * from the server with two parameters : 
+     *  - valid : if the action is valid
+     *  - content : feedback to the user
+     * A dialog is created with a loading bar,
+     * when POST returns, content is shown to the user in the dialog,
+     * if valid is set to true, callbackWhenValid function is called
+     * callbackWhenValid can access to data return by POST
+     *
+     */
+
+
+    function callWhenPostValid(url, postData, callbackWhenValid, dialogId = "info") {
+
+	$("body").append('<div id="' + dialogId + '"></div>');
+
+	var $info = $("#" + dialogId);
+
+	$info.html('<div id="' + dialogId + '_loading"><div class="progress-label">Loading</div></div>');
+
+	$("#loading").progressbar({
+	    value:false,
+	});
+
+	$info.dialog({
+            modal: true,
+            width: 400,
+	});
+	
+	$.post(url, postData, function(data) {
+	    
+	    $info.text(data.content);
+	    $info.dialog({
+		modal: true,
+		buttons: {
+                    "OK": function() {
+			$(this).dialog("destroy");
+                    }
+		},
+		width: 400,
+            });
+	    
+	    if(data.valid) {
+		callbackWhenValid(data);
+	    }
+	});
+    }
+
 });
 
 window.onbeforeunload = function() {
     return "You're leaving the update page, make sure that you clicked on the Updtate button.";
 };
+

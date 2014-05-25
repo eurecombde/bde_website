@@ -578,7 +578,9 @@ def add_room(request, id_house):
             room.house = house
             room.save()
             
-            data = {
+            result = {
+                "valid":True,
+                "content":'The room has just been added!',
                 "id" : room.id,
                 "name" : room.get_room_type_display(),
                 "other" : room.other_type,
@@ -586,16 +588,9 @@ def add_room(request, id_house):
             }
             
         else:
-            data = "NOT VALID"
+            result = {'valid':False, 'content':'The room form is not valid!'}
             
-
-        return HttpResponse(json.dumps(data), content_type='application/json')
-
-    # For the template
-    room_form = RoomForm()
-    rooms = house.room_set.all()
-        
-    return render(request, 'housing/add_room.djhtml', locals())
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 @ensure_csrf_cookie
 @user_permission_house  
@@ -610,17 +605,11 @@ def delete_room(request, id_house):
         if id_room:
             room = get_object_or_404(Room, id=id_room)
             room.delete()
-            data = "VALID"
+            result = {'valid':True, 'content':'The room has been deleted!'}
         else:
-            data = "NOT VALID"
-        
-        return HttpResponse(json.dumps(data), content_type='application/json')
-
-    # For the template
-    room_form = RoomForm()
-    rooms = house.room_set.all()
-        
-    return render(request, 'housing/add_room.djhtml', locals())
+            result = {'valid':False, 'content':'The room you try to remove does not exists!'}
+    
+    return HttpResponse(json.dumps(result), mimetype='application/json')
 
 
 ########################################
@@ -649,17 +638,15 @@ def add_contributor(request, id_house):
                 contributor = get_object_or_404(Contributor, user=user)
                 contributor.houses.add(house)
                 contributor.save()
+                result = {'valid':True, 'content':'%s was added to the contributors'%user.username, 'user':user.username, 'id_user':user.id}
+                
             except:
                 raise Http404
 
         else:
-            print "NOT VALID"
-
-    # For the template
-    contributor_form = ContributorForm()
-    contributors = house.contributor_set.all()
-        
-    return render(request, 'housing/add_contributor.djhtml', locals())
+            result = {'valid':False, 'content':'The Contributor is not valid'}
+                
+    return HttpResponse(json.dumps(result), mimetype='application/json')
 
 @ensure_csrf_cookie
 @user_permission_house  
@@ -673,20 +660,31 @@ def delete_contributor(request, id_house):
         
         if id_user:
             user = get_object_or_404(User, id=id_user)
-            permission = Permission.objects.get(codename='update_house_{0}'.format(house.id))
-            user.user_permissions.remove(permission)
-            contributor = get_object_or_404(Contributor, user=user)
-            contributor.houses.remove(house)
-            contributor.save()
+            print "user: %s; del: %s"%(request.user, user)
+            
+            if user != request.user:
+                
+                permission = Permission.objects.get(codename='update_house_{0}'.format(house.id))
+                user.user_permissions.remove(permission)
+                contributor = get_object_or_404(Contributor, user=user)
+                contributor.houses.remove(house)
+                contributor.save()
+                
+                result = {'valid':True, 'content':'%s was deleted from the contributors'%user.username}
+            
+            else:
+                result = {'valid':False, 'content':'You cannot remove yourself from the contributors!'}
         else:
-            print "NOT VALID"
+            result = {'valid':False, 'content':'No contributor was specified for deletion'}
 
+            
+
+    return HttpResponse(json.dumps(result), mimetype='application/json')
+    # return render(request, 'housing/add_contributor.djhtml', locals())
     # For the template
-    contributor_form = ContributorForm()
-    contributors = house.contributor_set.all()
-        
-    return render(request, 'housing/add_contributor.djhtml', locals())
-
+    # contributor_form = ContributorForm()
+    # contributors = house.contributor_set.all()
+    
 
 ########################################
 #                                      #

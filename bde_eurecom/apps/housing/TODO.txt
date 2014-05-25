@@ -9,7 +9,6 @@ A : almost done
 * - In account : possibility to create a house
 * - Redirect or refresh page options on update button pressed
 * - Add update time in model (or dealt with promo of contributor ?)
-* - Create folder for each house photos or will be a big mess
 * - Limit the number of characters in user forms so that it doesn't exceed the max of the model
 * - Switch django langage to English, enough with the "envoyer" buttons
 * - Prevent a contributor from deleting himself as contributor of his house
@@ -19,6 +18,7 @@ A * - input errors feedback for the update forms
 - Present informations on rooms
 - URL containing the name of the house instead of the id
 - bigger thumbnail for search page
+X * - Create folder for each house photos or will be a big mess
 X * - Fix the update process after login (update button not working in "account")
 X - Feedback after update button is pressed
 X * - Https with certificate ?
