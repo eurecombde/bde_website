@@ -3,13 +3,15 @@ X : done
 A : almost done
 * : priority for production
 
-* - Reorganize data presentation (vague but many things to do, to be precised)
+A * - Reorganize data presentation (vague but many things to do, to be precised)
 * - Present student contacts (infos on contributors) 
 * - Write a script to add contributors from a file containing student list (such a file added in setup directory)
-* - Redirect or refresh page options on update button pressed
+A * - Redirect or refresh page options on update button pressed
 * - Add update time in model (or dealt with promo of contributor ?)
 * - Limit the number of characters in user forms so that it doesn't exceed the max of the model
 * - Switch django langage to English, enough with the "envoyer" buttons
+* - Upload photo : resize issue
+* - Upload photo : improve loading information
 
 A * - input errors feedback for the update forms
 
