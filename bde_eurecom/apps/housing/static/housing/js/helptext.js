@@ -4,8 +4,8 @@ $(document).ready(function() {
 	items: "input, textarea, select, checkbox",
 	content: function() {
 	    var element = $(this);
-	    if($(this).next()) {
-		return $(this).next().text();
+	    if($(this).next(".helptext")) {
+		return $(this).siblings(".helptext").first().text();
 	    }
 	    return "No info";
 	},
