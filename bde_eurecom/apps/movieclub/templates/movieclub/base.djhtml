@@ -8,6 +8,7 @@
   <title>Eurecom Movie Club</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'movieclub/css/styles.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'main/img/favicon.ico' %}">
   <link rel="alternate" href="{% url 'movieclub:blog_feed' %}" type="application/atom+xml" title="Blog posts">
   <link rel="alternate" href="{% url 'movieclub:screenings_feed' %}" type="application/atom+xml" title="Screenings">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
