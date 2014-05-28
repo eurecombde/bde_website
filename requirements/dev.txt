@@ -1,2 +1,4 @@
 # dev requirements
 -r common.txt
+
+fabric==1.8.3
