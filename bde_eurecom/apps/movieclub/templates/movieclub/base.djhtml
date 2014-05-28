@@ -2,7 +2,7 @@
 
 <!doctype html>
 <html>
-<head>
+<head prefix="og: http://ogp.me/ns# video: http://ogp.me/ns/video#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <title>Eurecom Movie Club</title>
@@ -11,6 +11,8 @@
   <link rel="alternate" href="{% url 'movieclub:blog_feed' %}" type="application/atom+xml" title="Blog posts">
   <link rel="alternate" href="{% url 'movieclub:screenings_feed' %}" type="application/atom+xml" title="Screenings">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  {% block extrahead %}
+  {% endblock %}
 </head>
 <body>
   <div class="wrapper">

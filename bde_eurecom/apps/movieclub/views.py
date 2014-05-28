@@ -5,7 +5,7 @@ from django.http import Http404
 from django.core.urlresolvers import reverse
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
-from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.shortcuts import render_to_response, get_object_or_404, redirect, render
 from datetime import datetime
 
 def blog(request):
@@ -99,4 +99,4 @@ def screening_details(request, screening_id):
         'active': 'screening_details',
         'program_nav_text': '&larr; Back to program',
     }
-    return render_to_response('movieclub/screening_details.djhtml', context)
+    return render(request, 'movieclub/screening_details.djhtml', context)
