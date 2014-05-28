@@ -4,10 +4,11 @@
     <meta property="og:title" content="{{ screening.time|date:"d.m.y" }}: {{ screening.movie_name }}">
     <meta property="og:type" content="video:movie">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{{ screening.image.url }}">
+    <meta property="og:image" content="{{ image_url }}">
     <meta property="og:image:width" content="{{ screening.image.width }}">
     <meta property="og:image:height" content="{{ screening.image.height }}">
-
+    <meta property="og:description" content="{{ screening.description|striptags }}">
+    <meta property="og:site_name" content="Eurecom Movie Club">
 {% endblock %}
 
 {% block content %}

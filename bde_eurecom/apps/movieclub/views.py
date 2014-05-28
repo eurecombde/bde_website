@@ -98,5 +98,6 @@ def screening_details(request, screening_id):
         'screening': screening,
         'active': 'screening_details',
         'program_nav_text': '&larr; Back to program',
+        'image_url': request.build_absolute_uri(screening.image.url),
     }
     return render(request, 'movieclub/screening_details.djhtml', context)
