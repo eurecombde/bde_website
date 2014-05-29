@@ -66,7 +66,7 @@ class Price(models.Model):
     #price category
     rent_only = models.PositiveSmallIntegerField(verbose_name="Rent only", null=True, blank=True, help_text="Total rent (not divided by the number of persons), in euros")
     service_charge_only = models.PositiveSmallIntegerField(verbose_name="Service charge only (charges)", null=True, blank=True, help_text="Total, in euros")
-    rent_with_service_charge = models.PositiveSmallIntegerField(verbose_name="Rent with service charge", help_text="In euros. This field is only in case you don't have the detail of the rent and the service charge, leave it empty if you filled \"Rent only\" and \"Service charge only\" fields")
+    rent_with_service_charge = models.PositiveSmallIntegerField(verbose_name="Rent with service charge", help_text="In euros. This field is only in case you don't have the detail of the rent and the service charge, leave it if you filled \"Rent only\" and \"Service charge only\" fields")
     rent_charge_per_person = models.PositiveSmallIntegerField(verbose_name="Rent with service charge per person", editable=False)
     council_tax = models.PositiveSmallIntegerField(verbose_name="Council tax (taxe d'habitation)")
     through_agency = models.BooleanField(verbose_name="Rent through an agency")

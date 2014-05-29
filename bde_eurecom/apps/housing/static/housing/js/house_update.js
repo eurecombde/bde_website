@@ -335,6 +335,11 @@ $(document).ready(function() {
 
     $("#id_included_gas").parent().before('<br><h4>Mark the services that are included in the price of rent and service charges</h4>');
 
+    $('#id_rent_only, #id_service_charge_only').change(function(){
+        $('#id_rent_with_service_charge').val(Number($('#id_rent_only').val()) + Number($('#id_service_charge_only').val()));
+    });
+
+
 });
 
 window.onbeforeunload = function() {
