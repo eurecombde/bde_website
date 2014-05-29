@@ -3,13 +3,9 @@ X : done
 A : almost done
 * : priority for production
 
-* - Reorganize data presentation (vague but many things to do, to be precised)
 * - Present student contacts (infos on contributors) 
 * - Write a script to add contributors from a file containing student list (such a file added in setup directory)
-* - Redirect or refresh page options on update button pressed
-* - Add update time in model (or dealt with promo of contributor ?)
-* - Limit the number of characters in user forms so that it doesn't exceed the max of the model
-* - Switch django langage to English, enough with the "envoyer" buttons
+* - Deal with upload of photos when in PORTRAIT (URGENT before launching the website)
 
 A * - input errors feedback for the update forms
 
@@ -18,6 +14,7 @@ A * - input errors feedback for the update forms
 - Present informations on rooms
 - URL containing the name of the house instead of the id
 - bigger thumbnail for search page
+- Switch django langage to English, enough with the "envoyer" buttons
 
 X * available field only for admin
 X * - In account : possibility to create a house
@@ -31,3 +28,7 @@ X - Change search form to avoid manual input.
 X - Resize and reorganize search form to make more space for the map
 X * - Give a clear indication of which fields are mandatory (maybe with automatic javascript)
 X - add "price per person" automagically computed for the database (because it is the relevant criterion for search)
+X * - Redirect or refresh page options on update button pressed
+X * - Limit the number of characters in user forms so that it doesn't exceed the max of the model
+X * - Add update time in model (or dealt with promo of contributor ?)
+X * - Reorganize data presentation (vague but many things to do, to be precised)
