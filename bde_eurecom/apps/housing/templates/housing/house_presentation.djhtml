@@ -260,7 +260,7 @@
         <p>Distance to Eurecom : {{location_form.distance_eurecom.value}} km </p>
         <p>GPS coordinates : {{location_form.latitude.value}}  {{location_form.longitude.value}}</p>
     </div>
-    <div>Insert the map in this div</div>
+    <div></div>
 
     {% comment %}
       {% for field in location_form %}

@@ -36,7 +36,7 @@ class AdditionalInfo(models.Model):
 
     floor = models.PositiveSmallIntegerField(verbose_name="Floor", help_text="Floor of the entrance door, considering that the street is on floor 0")
     disabled_persons = models.BooleanField(verbose_name="Access for disabled persons")
-    need_car = models.BooleanField(verbose_name="Need for at least one car")
+    need_car = models.BooleanField(verbose_name="Strongly advised that at least one person has a car")
     parking = models.BooleanField(verbose_name="Parking")
     furniture_included = models.BooleanField(verbose_name="Furniture included in the accomodation")
     APPRECIATIONS = ((1,"Poor"), (2,"Fair"), (3,"Good"), (4,"Excellent"))
