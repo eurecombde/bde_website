@@ -18,7 +18,9 @@ from bde_eurecom.apps.housing.forms import HouseForm, AdditionalInfoForm, PriceF
 import os
 from django.conf import settings
 # For thumbnails generation
+import rescale
 from PIL import Image
+
 import re
 
 # Decorators
@@ -450,7 +452,7 @@ def add_photo(request, id_house):
             
             new_path = os.path.join(idir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
             thumbnail_path = os.path.join(tdir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
-            resize_and_crop(photo.img, new_path, thumbnail_path);
+            resize_and_thumbnail(photo.img, new_path, thumbnail_path);
             
             os.unlink(os.path.join(settings.MEDIA_ROOT, str(photo.img)))
             
@@ -845,35 +847,18 @@ def user_logout(request):
 
 
 
-def resize_and_crop(img_path, new_path, thumbnail_path):
+def resize_and_thumbnail(img_path, new_path, thumbnail_path):
     """
     Resize and crop an image to fit the specified size.
 
     """
-    # If height is higher we resize vertically, if not we resize horizontally
+
+    size = (settings.IMG_WIDTH, settings.IMG_HEIGHT)
+    thumb_size = (settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_HEIGHT)
+
     img = Image.open(img_path)
-    # Get current and desired ratio for the images
-    img_ratio = img.size[0] / float(img.size[1])
-    ratio = settings.IMG_WIDTH / float(settings.IMG_HEIGHT)
-    #The image is scaled/cropped vertically or horizontally depending on the ratio
-    if ratio > img_ratio:
-        img = img.resize((settings.IMG_WIDTH, settings.IMG_WIDTH * img.size[1] / img.size[0]), Image.ANTIALIAS)
-        box = (0, (img.size[1] - settings.IMG_HEIGHT) / 2, img.size[0], (img.size[1] + settings.IMG_HEIGHT) / 2)
-        img = img.crop(box)
-        img.save(new_path)
-        img = img.resize((settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_WIDTH * img.size[1] / img.size[0]), Image.ANTIALIAS)
-        img.save(thumbnail_path)
-        
-    elif ratio < img_ratio:
-        img = img.resize((settings.IMG_HEIGHT * img.size[0] / img.size[1], settings.IMG_HEIGHT), Image.ANTIALIAS)
-        box = (img.size[0] - settings.IMG_WIDTH / 2, 0, (img.size[0] + settings.IMG_WIDTH) / 2, img.size[1])
-        img = img.crop(box)
-        img.save(new_path)
-        img = img.resize((settings.THUMBNAIL_HEIGHT * img.size[0] / img.size[1], settings.THUMBNAIL_HEIGHT), Image.ANTIALIAS)
-        img.save(thumbnail_path)
+    img = rescale.rescale(img, size)
+    img.save(new_path)
+    img = rescale.rescale(img, thumb_size)
+    img.save(thumbnail_path)
     
-    else :
-        img = img.resize((settings.IMG_WIDTH, settings.IMG_HEIGHT), Image.ANTIALIAS)
-        img.save(new_path)
-        img = img.resize((settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_HEIGHT), Image.ANTIALIAS)
-        img.save(thumbnail_path)

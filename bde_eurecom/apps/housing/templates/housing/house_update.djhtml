@@ -94,7 +94,7 @@
         <div>
             <h3>Photos</h3>
             <div id="photo">
-                <p>Here you can add the photos of your accomodation, try to give as much as possible for students.</p>
+                <p>Here you can add the photos of your accomodation, try to give as much as possible for students. The % will change at each photo successfully uploaded if you upload multiple photos at the time. For big size photos, we advise to do it from Eurecom.</p>
               <div  data-type="photo">
                 {% include "housing/add_photo.djhtml" %}
             </div>

@@ -260,7 +260,7 @@
         <p>Distance to Eurecom : {{location_form.distance_eurecom.value}} km </p>
         <p>GPS coordinates : {{location_form.latitude.value}}  {{location_form.longitude.value}}</p>
     </div>
-    <div>Insert the map in this div</div>
+    <div></div>
 
     {% comment %}
       {% for field in location_form %}
@@ -307,20 +307,23 @@
       
     {% if house.contact.landlord_first_name or house.contact.landlord_last_name or house.contact.landlord_email or house.contact.landlord_phone_number or house.contact.landlord_comment_field %}
     <h3>Landlord</h3>
-    <p>First name : {{house.contact.landlord_first_name}}
-    <p>Last name : {{house.contact.landlord_last_name}}
-    <p>Email : {{house.contact.landlord_email}}
-    <p>Phone number : {{house.contact.landlord_phone_number}}
-    <p>Comment about the landlord : {{house.contact.landlord_comment_field}}
+    <p>Name : {{house.contact.landlord_first_name}} {{house.contact.landlord_last_name|upper}}</p>
+    <p>Email : {{house.contact.landlord_email}}</p>
+    <p>Phone number : {{house.contact.landlord_phone_number}}</p>
+    <p>Comment about the landlord : {{house.contact.landlord_comment_field}}</p>
   {% endif %}
 
     {% if house.contact.agency_name or house.contact.agency_comment_field %}
     <h3>Agency</h3>
-    <p>Name : {{house.contact.agency_name}}
-    <p>Comment about the agency : {{house.contact.agency_comment_field}}
+    <p>Name : {{house.contact.agency_name}}</p>
+    <p>Comment about the agency : {{house.contact.agency_comment_field}}</p>
   {% endif %}
       
-    <h3>Students</h3>
+    <h3>Contributors</h3>
+    {% for contributor in contributors %}
+        <p>Name : {{contributor.user.first_name}} {{contributor.user.last_name|upper}}
+        <br>Email : {{contributor.user.email}} </p>
+    {% endfor %}
 
     </article>
     {% comment %}
