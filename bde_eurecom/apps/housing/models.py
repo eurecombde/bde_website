@@ -212,7 +212,7 @@ class Photo(models.Model):
 
 class Contributor(models.Model):
     user = models.OneToOneField(User)
-    houses = models.ManyToManyField(House)
+    houses = models.ManyToManyField(House, null=True, blank=True)
     promo = models.PositiveSmallIntegerField(verbose_name="Promo", null=True, blank=True)
     # phone_number =  models.CharField(max_length=25, verbose_name="Phone number", null=True, blank=True)
     

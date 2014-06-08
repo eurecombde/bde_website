@@ -58,7 +58,8 @@
     {% endif %}
     <h2><a href="{% url 'bde_eurecom.apps.housing.views.house_create' %}">Create a new house</a></h2>
   {% else %}
-    <p> You are not a contributor :(</p>
+    <h2> You are not a contributor </h2>
+    <p> Ask the administrator to solve this problem </p>    
   {% endif %}
 {% endblock %}
 {% block scripts %}
