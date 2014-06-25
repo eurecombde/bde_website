@@ -1,4 +1,4 @@
-EURECOM BDE Website
+EURECOM BDE Website [![Build Status](https://travis-ci.org/eurecombde/bde_website.svg)](https://travis-ci.org/eurecombde/bde_website)
 ===================
 
 Here are developped main apps of the EURECOM BDE Website, including housing app.
