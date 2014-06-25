@@ -11,7 +11,6 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.contenttypes.models import ContentType
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic import CreateView
-from django.utils import simplejson
 import json
 from bde_eurecom.apps.housing.models import House, AdditionalInfo, Price, Room, Furniture, Location, Travel, Contact, Appreciation, Photo, Contributor
 from bde_eurecom.apps.housing.forms import HouseForm, AdditionalInfoForm, PriceForm, RoomForm, FurnitureForm, LocationForm, TravelForm, ContactForm, AppreciationForm, PhotoForm, ContributorForm, LoginForm, SearchForm, AccountUserForm, AccountContributorForm
@@ -506,7 +505,7 @@ def delete_photo(request, id_house):
     else:
         result = {'valid':'false', 'content':'Not authenticated'}
 
-    return HttpResponse(simplejson.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), mimetype='application/json')
 
 def get_photo(request, id_house):
 
@@ -725,7 +724,7 @@ def mapMarkersAll(request):
         rank+=1
 
     result = {"markers": markers}
-    return HttpResponse(simplejson.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), mimetype='application/json')
 
 @login_required
 def mapMarkers(request, id_house):
@@ -737,8 +736,8 @@ def mapMarkers(request, id_house):
     markers = []
     markers.append({"latitude":location.latitude, "longitude":location.longitude, "content":house.accomodation_name})
     result = {"markers": markers}
-    
-    return HttpResponse(simplejson.dumps(result), mimetype='application/json')
+
+    return HttpResponse(json.dumps(result), mimetype='application/json')
 
 
 ########################################
@@ -800,7 +799,7 @@ def account_update(request):
     else:
         result = {'valid':'false', 'content':'Not authenticated'}
 
-    return HttpResponse(simplejson.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), mimetype='application/json')
 
 ########################################
 #                                      #
