@@ -8,7 +8,16 @@ class ScreeningAdmin(admin.ModelAdmin):
 
 
 class BlogPostAdmin(admin.ModelAdmin):
-    exclude = ('slug', 'text')
+    exclude = ('slug', 'text', 'author')
+
+    def save_model(self, request, instance, form, change):
+        user = request.user
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'author'):
+            instance.author = user
+        instance.save()
+        form.save_m2m()
+        return instance
 
 
 admin.site.register(BlogPost, BlogPostAdmin)
