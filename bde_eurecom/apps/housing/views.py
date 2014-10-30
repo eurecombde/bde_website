@@ -853,12 +853,34 @@ def resize_and_thumbnail(img_path, new_path, thumbnail_path):
 
     """
 
-    size = (settings.IMG_WIDTH, settings.IMG_HEIGHT)
+    wanted_size = (settings.IMG_WIDTH, settings.IMG_HEIGHT)
     thumb_size = (settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_HEIGHT)
-
     img = Image.open(img_path)
-    img = rescale.rescale(img, size)
+
+    img_width = img.size[0]
+    img_height = img.size[1]
+    img_ratio = img_width/float(img_height) 
+    wanted_ratio = wanted_size[0]/float(wanted_size[1])   # width/height
+
+    if img_ratio < 1 :  #portrait image
+        portrait_size=(int(img_ratio*wanted_size[1]), wanted_size[1])
+        img = rescale.rescale(img, portrait_size)
+
+    else:   #landscape image
+        if img_ratio < wanted_ratio:    #image too high
+            to_cut = int((img_height-img_width/wanted_ratio)/2)
+            box = (0, to_cut, img_width, img_height - to_cut)     #(left, top, right, bottom)
+            img = img.crop(box)
+
+
+        elif img_ratio > wanted_ratio:   #image too large
+            to_cut = int((img_width-wanted_ratio*img_height)/2)
+            box = (to_cut, 0, img_width - to_cut, img_height)    #(left, top, right, bottom)
+            img = img.crop(box)
+
+        img = rescale.rescale(img, wanted_size)
+
     img.save(new_path)
     img = rescale.rescale(img, thumb_size)
     img.save(thumbnail_path)
-    
+
