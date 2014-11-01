@@ -54,7 +54,7 @@ content_type = ContentType.objects.get(app_label='housing', model='house')
 permission = Permission.objects.create(codename='update_house_{0}'.format(h1.id),
                                        name='Update house "{0}"'.format(h1.accomodation_name),
                                        content_type=content_type)
-u1 = User(username="Bastien")
+u1 = User(username="Bastien", first_name="Bastien", last_name="Achard", email="Bastien.Achard@eurecom.fr")
 u1.set_password("azerty")
 u1.save()
 u1.user_permissions.add(permission)
@@ -62,7 +62,7 @@ c1 = Contributor(user=u1)
 c1.save()
 c1.houses.add(h1)
 
-u1_2 = User(username="Geoffrey")
+u1_2 = User(username="Geoffrey", first_name="Geoffrey", last_name="Dudragne", email="Geoffrey.Dudragne@eurecom.fr")
 u1_2.set_password("azerty")
 u1_2.save()
 u1_2.user_permissions.add(permission)

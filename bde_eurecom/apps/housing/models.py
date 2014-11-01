@@ -39,9 +39,9 @@ class AdditionalInfo(models.Model):
     need_car = models.BooleanField(verbose_name="Strongly advised that at least one person has a car")
     parking = models.BooleanField(verbose_name="Parking")
     furniture_included = models.BooleanField(verbose_name="Furniture included in the accomodation")
-    APPRECIATIONS = ((1,"Poor"), (2,"Fair"), (3,"Good"), (4,"Excellent"))
+    APPRECIATIONS = ((1,"Poor"), (2,"Fair"), (3,"Good"), (4,"Excellent"), (5,"Unknown"))
     furniture_appreciation = models.PositiveSmallIntegerField(verbose_name="Furniture appreciation", choices=APPRECIATIONS)
-    HEATING_TYPES = ((1,"Electricity"), (2,"Gas"), (3,"Fuel"), (4,"Other"))
+    HEATING_TYPES = ((1,"Electricity"), (2,"Gas"), (3,"Fuel"), (4,"Other"), (5,"Unknown"))
     heating_type = models.PositiveSmallIntegerField(verbose_name="Type of heating", choices=HEATING_TYPES)
     climatisation = models.BooleanField(verbose_name="Climatisation")
 
@@ -68,10 +68,10 @@ class Price(models.Model):
     service_charge_only = models.PositiveSmallIntegerField(verbose_name="Service charge only (charges)", null=True, blank=True, help_text="Total, in euros")
     rent_with_service_charge = models.PositiveSmallIntegerField(verbose_name="Rent with service charge", help_text="In euros. This field is only in case you don't have the detail of the rent and the service charge, leave it if you filled \"Rent only\" and \"Service charge only\" fields")
     rent_charge_per_person = models.PositiveSmallIntegerField(verbose_name="Rent with service charge per person", editable=False)
-    council_tax = models.PositiveSmallIntegerField(verbose_name="Council tax (taxe d'habitation)")
+    council_tax = models.PositiveSmallIntegerField(verbose_name="Council tax (taxe d'habitation)", null=True, blank=True, help_text="The council tax may be included or not in the price you pay for the rent, 0 if you're not asked to pay anything, leave empty if unknown")
     through_agency = models.BooleanField(verbose_name="Rent through an agency")
-    agency_fees = models.PositiveSmallIntegerField(verbose_name="Angency fees", default=0)
-    apl = models.PositiveSmallIntegerField(verbose_name="APL (Housing Benefits)", null=True, blank=True, help_text="APL in euro, for 1 person (you only)")
+    agency_fees = models.PositiveSmallIntegerField(verbose_name="Angency fees", null=True, blank=True, default=0)
+    apl = models.PositiveSmallIntegerField(verbose_name="APL (Housing Benefits)", null=True, blank=True, help_text="APL in euro, for 1 person (you only). Give the APL for the nominal case : student, almost no revenue, and not a scholarship holder (boursier). Leave the field empty if you don't know.")
 
     #included in price of rent+service charge
     included_gas = models.BooleanField(verbose_name="Gas")

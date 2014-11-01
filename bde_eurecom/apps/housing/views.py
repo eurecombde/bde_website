@@ -450,15 +450,15 @@ def add_photo(request, id_house):
             if not os.path.exists(tdir):
                 os.makedirs(tdir)
             
-            new_path = os.path.join(idir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
-            thumbnail_path = os.path.join(tdir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
+            new_path = os.path.join(idir, '%s-%s.jpg'%(house.accomodation_name, photo.id))
+            thumbnail_path = os.path.join(tdir, '%s-%s.jpg'%(house.accomodation_name, photo.id))
             resize_and_thumbnail(photo.img, new_path, thumbnail_path);
             
             os.unlink(os.path.join(settings.MEDIA_ROOT, str(photo.img)))
             
             # Set paths to images
-            photo.img = 'housing/houses_pictures/%s/%s-%s.jpg'%(house.id, house.accomodation_name, photo.pos)
-            photo.thumbnail = 'housing/houses_pictures/%s/thumbnails/%s-%s.jpg'%(house.id, house.accomodation_name, photo.pos)
+            photo.img = 'housing/houses_pictures/%s/%s-%s.jpg'%(house.id, house.accomodation_name, photo.id)
+            photo.thumbnail = 'housing/houses_pictures/%s/thumbnails/%s-%s.jpg'%(house.id, house.accomodation_name, photo.id)
             
             photo.save()
             

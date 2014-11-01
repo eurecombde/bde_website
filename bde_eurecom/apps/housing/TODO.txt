@@ -3,9 +3,7 @@ X : done
 A : almost done
 * : priority for production
 
-* - Present student contacts (infos on contributors) 
 * - Write a script to add contributors from a file containing student list (such a file added in setup directory)
-* - Deal with upload of photos when in PORTRAIT (URGENT before launching the website)
 
 A * - input errors feedback for the update forms
 
@@ -13,9 +11,10 @@ A * - input errors feedback for the update forms
 - Add a map in Location tab of a house
 - Present informations on rooms
 - URL containing the name of the house instead of the id
-- bigger thumbnail for search page
 - Switch django langage to English, enough with the "envoyer" buttons
 
+X * - Deal with upload of photos when in PORTRAIT (URGENT before launching the website)
+X * - Present student contacts (infos on contributors) 
 X * available field only for admin
 X * - In account : possibility to create a house
 X * - redirection when creating done

@@ -187,13 +187,17 @@
     <h3>Money-related infos</h3>
     <p>{{price_form.rent_with_service_charge.label}} : {{price_form.rent_with_service_charge.value}} € <span style="margin-left:20px">(---&gt; per person : {{house.price.rent_charge_per_person}} €)</span></p>
     <div id="rent_detail">
-        <p>{{price_form.rent_only.label}} : {{price_form.rent_only.value}} € </p>
-        <p>{{price_form.service_charge_only.label}} : {{price_form.service_charge_only.value}} € </p>
+        <p>{{price_form.rent_only.label}} : {% ifequal price_form.rent_only.value None %}Unknown {% else %}{{price_form.rent_only.value}} € {% endifequal %}</p>
+        <p>{{price_form.service_charge_only.label}} : {% ifequal price_form.service_charge_only.value None %}Unknown {% else %}{{price_form.service_charge_only.value}} € {% endifequal %}</p>
     </div>
-    <p>{{price_form.council_tax.label}} : {{price_form.council_tax.value}} € </p>
+    <p>{{price_form.council_tax.label}} : {% ifequal price_form.council_tax.value None %}Unknown {% else %}{{price_form.council_tax.value}} € {% endifequal %}</p>
     <p>{{price_form.through_agency.label}} : {% if price_form.through_agency.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
-    <p>{{price_form.agency_fees.label}} : {{price_form.agency_fees.value}} € </p>
-    <p>{{price_form.apl.label}} : {{price_form.apl.value}} € </p>
+    {% if price_form.through_agency.value %}
+        <p>{{price_form.agency_fees.label}} : {{price_form.agency_fees.value}} € </p>
+    {% endif %}
+    <p>{{price_form.apl.label}} : {% ifequal price_form.apl.value None %}Unknown {% else %}{{price_form.apl.value}} € {% endifequal %}</p>
+    <p><i>The APL should be given for the nominal case in which you are student, you have almost no revenue, and you're not a scholarship holder (boursier). Beware that it may vary from case to case.</i></p>
+    
     <br>
     <h3>Included in the price of rent and service charges</h3>
     <p>{{price_form.included_gas.label}} : {% if price_form.included_gas.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
