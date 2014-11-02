@@ -1,395 +1,242 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+from django.conf import settings
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'House'
-        db.create_table(u'housing_house', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('accomodation_name', self.gf('django.db.models.fields.CharField')(max_length=30, unique=True, null=True, blank=True)),
-            ('surface', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('accomodation_type', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('accomodation_type_other', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
-            ('number_persons', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-        ))
-        db.send_create_signal(u'housing', ['House'])
+    dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+    ]
 
-        # Adding model 'AdditionalInfo'
-        db.create_table(u'housing_additionalinfo', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('floor', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('disabled_persons', self.gf('django.db.models.fields.BooleanField')()),
-            ('need_car', self.gf('django.db.models.fields.BooleanField')()),
-            ('parking', self.gf('django.db.models.fields.BooleanField')()),
-            ('heating_type', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('climatisation', self.gf('django.db.models.fields.BooleanField')()),
-            ('furniture_included', self.gf('django.db.models.fields.BooleanField')()),
-            ('furniture_appreciation', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('noise_comment', self.gf('django.db.models.fields.CharField')(max_length=300, null=True, blank=True)),
-            ('proximity_shops', self.gf('django.db.models.fields.CharField')(max_length=300, null=True, blank=True)),
-            ('internet_connexion', self.gf('django.db.models.fields.BooleanField')()),
-            ('internet_details', self.gf('django.db.models.fields.CharField')(max_length=300, null=True, blank=True)),
-            ('swimming_pool', self.gf('django.db.models.fields.BooleanField')()),
-            ('garden', self.gf('django.db.models.fields.BooleanField')()),
-            ('outside_equipment_comment', self.gf('django.db.models.fields.CharField')(max_length=400, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'housing', ['AdditionalInfo'])
-
-        # Adding model 'Price'
-        db.create_table(u'housing_price', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('rent_only', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('service_charge_only', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('rent_with_service_charge', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('rent_charge_per_person', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('council_tax', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('through_agency', self.gf('django.db.models.fields.BooleanField')()),
-            ('agency_fees', self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0)),
-            ('apl', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('included_gas', self.gf('django.db.models.fields.BooleanField')()),
-            ('included_electricity', self.gf('django.db.models.fields.BooleanField')()),
-            ('included_water', self.gf('django.db.models.fields.BooleanField')()),
-            ('included_internet', self.gf('django.db.models.fields.BooleanField')()),
-            ('included_telephone', self.gf('django.db.models.fields.BooleanField')()),
-            ('included_cleaning', self.gf('django.db.models.fields.BooleanField')()),
-            ('other_expenses', self.gf('django.db.models.fields.CharField')(max_length=400, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'housing', ['Price'])
-
-        # Adding model 'Room'
-        db.create_table(u'housing_room', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['housing.House'])),
-            ('room_type', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('other_type', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
-            ('room_surface', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-        ))
-        db.send_create_signal(u'housing', ['Room'])
-
-        # Adding model 'Furniture'
-        db.create_table(u'housing_furniture', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('washing_machine', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('clothes_dryer', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('drying_rack', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('dish_washer', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('fridge', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('oven', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('freezer', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('micro_wave', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('toaster', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('dishes', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('baking_tray', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('desk', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('desk_chair', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('tv', self.gf('django.db.models.fields.BooleanField')(default=False)),
-        ))
-        db.send_create_signal(u'housing', ['Furniture'])
-
-        # Adding model 'Location'
-        db.create_table(u'housing_location', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('address', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('city', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('postal_code', self.gf('django.db.models.fields.CharField')(max_length=5)),
-            ('distance_eurecom', self.gf('django.db.models.fields.FloatField')(null=True, blank=True)),
-            ('latitude', self.gf('django.db.models.fields.FloatField')()),
-            ('longitude', self.gf('django.db.models.fields.FloatField')()),
-        ))
-        db.send_create_signal(u'housing', ['Location'])
-
-        # Adding model 'Travel'
-        db.create_table(u'housing_travel', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('time_by_car_max', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_car_min', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_bus_max', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_bus_min', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_bike_max', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_bike_min', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_foot_max', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('time_by_foot_min', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('bus_line_eurecom', self.gf('django.db.models.fields.CharField')(max_length=300, null=True, blank=True)),
-            ('bus_line_railroad_station', self.gf('django.db.models.fields.CharField')(max_length=300, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'housing', ['Travel'])
-
-        # Adding model 'Contact'
-        db.create_table(u'housing_contact', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('landlord_first_name', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
-            ('landlord_last_name', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
-            ('landlord_email', self.gf('django.db.models.fields.CharField')(max_length=40, null=True, blank=True)),
-            ('landlord_phone_number', self.gf('django.db.models.fields.CharField')(max_length=25, null=True, blank=True)),
-            ('landlord_comment_field', self.gf('django.db.models.fields.CharField')(max_length=600, null=True, blank=True)),
-            ('agency_name', self.gf('django.db.models.fields.CharField')(max_length=40, null=True, blank=True)),
-            ('agency_comment_field', self.gf('django.db.models.fields.CharField')(max_length=600, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'housing', ['Contact'])
-
-        # Adding model 'Appreciation'
-        db.create_table(u'housing_appreciation', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['housing.House'], unique=True)),
-            ('general_description', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
-            ('strong_points', self.gf('django.db.models.fields.CharField')(max_length=600, null=True, blank=True)),
-            ('weak_points', self.gf('django.db.models.fields.CharField')(max_length=600, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'housing', ['Appreciation'])
-
-        # Adding model 'Photo'
-        db.create_table(u'housing_photo', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('house', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['housing.House'])),
-            ('img', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('thumbnail', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('descr', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
-            ('pos', self.gf('django.db.models.fields.PositiveSmallIntegerField')(null=True, blank=True)),
-            ('validated', self.gf('django.db.models.fields.BooleanField')(default=False)),
-        ))
-        db.send_create_signal(u'housing', ['Photo'])
-
-        # Adding model 'Contributor'
-        db.create_table(u'housing_contributor', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
-        ))
-        db.send_create_signal(u'housing', ['Contributor'])
-
-        # Adding M2M table for field houses on 'Contributor'
-        m2m_table_name = db.shorten_name(u'housing_contributor_houses')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('contributor', models.ForeignKey(orm[u'housing.contributor'], null=False)),
-            ('house', models.ForeignKey(orm[u'housing.house'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['contributor_id', 'house_id'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'House'
-        db.delete_table(u'housing_house')
-
-        # Deleting model 'AdditionalInfo'
-        db.delete_table(u'housing_additionalinfo')
-
-        # Deleting model 'Price'
-        db.delete_table(u'housing_price')
-
-        # Deleting model 'Room'
-        db.delete_table(u'housing_room')
-
-        # Deleting model 'Furniture'
-        db.delete_table(u'housing_furniture')
-
-        # Deleting model 'Location'
-        db.delete_table(u'housing_location')
-
-        # Deleting model 'Travel'
-        db.delete_table(u'housing_travel')
-
-        # Deleting model 'Contact'
-        db.delete_table(u'housing_contact')
-
-        # Deleting model 'Appreciation'
-        db.delete_table(u'housing_appreciation')
-
-        # Deleting model 'Photo'
-        db.delete_table(u'housing_photo')
-
-        # Deleting model 'Contributor'
-        db.delete_table(u'housing_contributor')
-
-        # Removing M2M table for field houses on 'Contributor'
-        db.delete_table(db.shorten_name(u'housing_contributor_houses'))
-
-
-    models = {
-        u'auth.group': {
-            'Meta': {'object_name': 'Group'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
-            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
-        },
-        u'auth.permission': {
-            'Meta': {'ordering': "(u'content_type__app_label', u'content_type__model', u'codename')", 'unique_together': "((u'content_type', u'codename'),)", 'object_name': 'Permission'},
-            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['contenttypes.ContentType']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
-        },
-        u'auth.user': {
-            'Meta': {'object_name': 'User'},
-            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
-            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
-            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Group']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
-            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"}),
-            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
-        },
-        u'contenttypes.contenttype': {
-            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
-            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        },
-        u'housing.additionalinfo': {
-            'Meta': {'object_name': 'AdditionalInfo'},
-            'climatisation': ('django.db.models.fields.BooleanField', [], {}),
-            'disabled_persons': ('django.db.models.fields.BooleanField', [], {}),
-            'floor': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'furniture_appreciation': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'furniture_included': ('django.db.models.fields.BooleanField', [], {}),
-            'garden': ('django.db.models.fields.BooleanField', [], {}),
-            'heating_type': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'internet_connexion': ('django.db.models.fields.BooleanField', [], {}),
-            'internet_details': ('django.db.models.fields.CharField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
-            'need_car': ('django.db.models.fields.BooleanField', [], {}),
-            'noise_comment': ('django.db.models.fields.CharField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
-            'outside_equipment_comment': ('django.db.models.fields.CharField', [], {'max_length': '400', 'null': 'True', 'blank': 'True'}),
-            'parking': ('django.db.models.fields.BooleanField', [], {}),
-            'proximity_shops': ('django.db.models.fields.CharField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
-            'swimming_pool': ('django.db.models.fields.BooleanField', [], {})
-        },
-        u'housing.appreciation': {
-            'Meta': {'object_name': 'Appreciation'},
-            'general_description': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'strong_points': ('django.db.models.fields.CharField', [], {'max_length': '600', 'null': 'True', 'blank': 'True'}),
-            'weak_points': ('django.db.models.fields.CharField', [], {'max_length': '600', 'null': 'True', 'blank': 'True'})
-        },
-        u'housing.contact': {
-            'Meta': {'object_name': 'Contact'},
-            'agency_comment_field': ('django.db.models.fields.CharField', [], {'max_length': '600', 'null': 'True', 'blank': 'True'}),
-            'agency_name': ('django.db.models.fields.CharField', [], {'max_length': '40', 'null': 'True', 'blank': 'True'}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'landlord_comment_field': ('django.db.models.fields.CharField', [], {'max_length': '600', 'null': 'True', 'blank': 'True'}),
-            'landlord_email': ('django.db.models.fields.CharField', [], {'max_length': '40', 'null': 'True', 'blank': 'True'}),
-            'landlord_first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
-            'landlord_last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
-            'landlord_phone_number': ('django.db.models.fields.CharField', [], {'max_length': '25', 'null': 'True', 'blank': 'True'})
-        },
-        u'housing.contributor': {
-            'Meta': {'object_name': 'Contributor'},
-            'houses': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['housing.House']", 'symmetrical': 'False'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'})
-        },
-        u'housing.furniture': {
-            'Meta': {'object_name': 'Furniture'},
-            'baking_tray': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'clothes_dryer': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'desk': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'desk_chair': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'dish_washer': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'dishes': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'drying_rack': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'freezer': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'fridge': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'micro_wave': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'oven': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'toaster': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'tv': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'washing_machine': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
-        },
-        u'housing.house': {
-            'Meta': {'object_name': 'House'},
-            'accomodation_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'unique': 'True', 'null': 'True', 'blank': 'True'}),
-            'accomodation_type': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'accomodation_type_other': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'number_persons': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'surface': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
-        },
-        u'housing.location': {
-            'Meta': {'object_name': 'Location'},
-            'address': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'city': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'distance_eurecom': ('django.db.models.fields.FloatField', [], {'null': 'True', 'blank': 'True'}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'latitude': ('django.db.models.fields.FloatField', [], {}),
-            'longitude': ('django.db.models.fields.FloatField', [], {}),
-            'postal_code': ('django.db.models.fields.CharField', [], {'max_length': '5'})
-        },
-        u'housing.photo': {
-            'Meta': {'ordering': "['pos']", 'object_name': 'Photo'},
-            'descr': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
-            'house': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['housing.House']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'img': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'pos': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'thumbnail': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'validated': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
-        },
-        u'housing.price': {
-            'Meta': {'object_name': 'Price'},
-            'agency_fees': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
-            'apl': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'council_tax': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'included_cleaning': ('django.db.models.fields.BooleanField', [], {}),
-            'included_electricity': ('django.db.models.fields.BooleanField', [], {}),
-            'included_gas': ('django.db.models.fields.BooleanField', [], {}),
-            'included_internet': ('django.db.models.fields.BooleanField', [], {}),
-            'included_telephone': ('django.db.models.fields.BooleanField', [], {}),
-            'included_water': ('django.db.models.fields.BooleanField', [], {}),
-            'other_expenses': ('django.db.models.fields.CharField', [], {'max_length': '400', 'null': 'True', 'blank': 'True'}),
-            'rent_charge_per_person': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'rent_only': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'rent_with_service_charge': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
-            'service_charge_only': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'through_agency': ('django.db.models.fields.BooleanField', [], {})
-        },
-        u'housing.room': {
-            'Meta': {'ordering': "['room_type']", 'object_name': 'Room'},
-            'house': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['housing.House']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'other_type': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
-            'room_surface': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'room_type': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
-        },
-        u'housing.travel': {
-            'Meta': {'object_name': 'Travel'},
-            'bus_line_eurecom': ('django.db.models.fields.CharField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
-            'bus_line_railroad_station': ('django.db.models.fields.CharField', [], {'max_length': '300', 'null': 'True', 'blank': 'True'}),
-            'house': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['housing.House']", 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'time_by_bike_max': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_bike_min': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_bus_max': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_bus_min': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_car_max': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_car_min': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_foot_max': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'time_by_foot_min': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True', 'blank': 'True'})
-        }
-    }
-
-    complete_apps = ['housing']
+    operations = [
+        migrations.CreateModel(
+            name='AdditionalInfo',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('floor', models.PositiveSmallIntegerField(help_text=b'Floor of the entrance door, considering that the street is on floor 0', verbose_name=b'Floor')),
+                ('disabled_persons', models.BooleanField(verbose_name=b'Access for disabled persons')),
+                ('need_car', models.BooleanField(verbose_name=b'Strongly advised that at least one person has a car')),
+                ('parking', models.BooleanField(verbose_name=b'Parking')),
+                ('furniture_included', models.BooleanField(verbose_name=b'Furniture included in the accomodation')),
+                ('furniture_appreciation', models.PositiveSmallIntegerField(verbose_name=b'Furniture appreciation', choices=[(1, b'Poor'), (2, b'Fair'), (3, b'Good'), (4, b'Excellent')])),
+                ('heating_type', models.PositiveSmallIntegerField(verbose_name=b'Type of heating', choices=[(1, b'Electricity'), (2, b'Gas'), (3, b'Fuel'), (4, b'Other')])),
+                ('climatisation', models.BooleanField(verbose_name=b'Climatisation')),
+                ('internet_connexion', models.BooleanField(verbose_name=b'Internet connexion provided in the accomodation')),
+                ('internet_details', models.CharField(help_text=b'Comment on the internet service provided (box, phone, TV...)', max_length=300, null=True, verbose_name=b'Internet details', blank=True)),
+                ('swimming_pool', models.BooleanField(verbose_name=b'Swimming pool')),
+                ('garden', models.BooleanField(verbose_name=b'Garden')),
+                ('outside_equipment_comment', models.CharField(help_text=b'Precise any other out-door equipment or infrastructure (e.g.: ping-pong, tennis...), or add here your comments on the garden and the swimming pool', max_length=400, null=True, verbose_name=b'Outside equipment', blank=True)),
+                ('noise_comment', models.CharField(help_text=b'Comment the noise atmosphere arround the accomodation (quiet, unexpected noise...)', max_length=300, null=True, verbose_name=b'Noise comment', blank=True)),
+                ('proximity_shops', models.CharField(help_text=b'Comment about the shops arround the (advantages of near shops, or drawbacks)', max_length=300, null=True, verbose_name=b'Proximity shops', blank=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Appreciation',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('general_description', models.CharField(max_length=1000, null=True, verbose_name=b'Give a general description of the accomodation, anything you want to talk about', blank=True)),
+                ('strong_points', models.CharField(max_length=600, null=True, verbose_name=b'Strong points of the accomodation', blank=True)),
+                ('weak_points', models.CharField(max_length=600, null=True, verbose_name=b'Weak points of the accomodation', blank=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Contact',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('landlord_first_name', models.CharField(max_length=30, null=True, verbose_name=b"Landlord's first name", blank=True)),
+                ('landlord_last_name', models.CharField(max_length=30, null=True, verbose_name=b"Landlord's last name", blank=True)),
+                ('landlord_email', models.CharField(max_length=70, null=True, verbose_name=b"Landlord's email", blank=True)),
+                ('landlord_phone_number', models.CharField(max_length=25, null=True, verbose_name=b"Landlord's phone number", blank=True)),
+                ('landlord_comment_field', models.CharField(max_length=600, null=True, verbose_name=b'Comment about the landlord', blank=True)),
+                ('agency_name', models.CharField(max_length=50, null=True, verbose_name=b'Agency name', blank=True)),
+                ('agency_comment_field', models.CharField(max_length=600, null=True, verbose_name=b'Comment about the agency', blank=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Contributor',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('promo', models.PositiveSmallIntegerField(null=True, verbose_name=b'Promo', blank=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Furniture',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('washing_machine', models.BooleanField(default=False, verbose_name=b'Washing machine')),
+                ('clothes_dryer', models.BooleanField(default=False, verbose_name=b'Clothes dryer')),
+                ('drying_rack', models.BooleanField(default=False, verbose_name=b'Drying rack (etendoir)')),
+                ('dish_washer', models.BooleanField(default=False, verbose_name=b'Dish washer')),
+                ('fridge', models.BooleanField(default=False, verbose_name=b'Fridge')),
+                ('oven', models.BooleanField(default=False, verbose_name=b'Oven')),
+                ('freezer', models.BooleanField(default=False, verbose_name=b'Freezer')),
+                ('micro_wave', models.BooleanField(default=False, verbose_name=b'Micro-wave')),
+                ('toaster', models.BooleanField(default=False, verbose_name=b'Toaster')),
+                ('dishes', models.BooleanField(default=False, verbose_name=b'Dishes')),
+                ('baking_tray', models.BooleanField(default=False, verbose_name=b'Baking tray (plaque de cuisson)')),
+                ('desk', models.BooleanField(default=False, verbose_name=b'Desk(s)')),
+                ('desk_chair', models.BooleanField(default=False, verbose_name=b'Desk chair(s)')),
+                ('tv', models.BooleanField(default=False, verbose_name=b'TV')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='House',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('accomodation_name', models.CharField(help_text=b'If you don\'t know what to put, you can write something including the accomodation type and the name of the landlord, like "Apartment Smith"', unique=True, max_length=30, verbose_name=b'Accomodation Name')),
+                ('surface', models.PositiveSmallIntegerField(help_text=b'in m2', verbose_name=b'Surface Area')),
+                ('accomodation_type', models.PositiveSmallIntegerField(verbose_name=b'Accomodation type', choices=[(1, b'House'), (2, b'Apartment'), (3, b'Studio'), (4, b"Home stay (vie chez l'habitant)"), (5, b'Student residence'), (0, b'Other')])),
+                ('accomodation_type_other', models.CharField(help_text=b'Precise your accomodation type here if you have chosen other', max_length=30, null=True, verbose_name=b'Other', blank=True)),
+                ('number_persons', models.PositiveSmallIntegerField(help_text=b'Number of persons the house can accomodate', verbose_name=b'Number of persons')),
+                ('available', models.BooleanField(default=True, verbose_name=b'Accomodation available')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Location',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('address', models.CharField(max_length=50, verbose_name=b'Address')),
+                ('city', models.CharField(max_length=50, verbose_name=b'City')),
+                ('postal_code', models.CharField(max_length=5, verbose_name=b'Postal code')),
+                ('distance_eurecom', models.FloatField(help_text=b'Auto-generate it by clicking your position on the map', verbose_name=b'Distance to Eurecom (in km)')),
+                ('latitude', models.FloatField(help_text=b'Auto-generate it by clicking your position on the map', verbose_name=b'Latitude')),
+                ('longitude', models.FloatField(help_text=b'Auto-generate it by clicking your position on the map', verbose_name=b'Longitude')),
+                ('house', models.OneToOneField(to='housing.House')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Photo',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('img', models.ImageField(upload_to=b'housing')),
+                ('thumbnail', models.ImageField(null=True, upload_to=b'housing/thumbnails', blank=True)),
+                ('descr', models.CharField(max_length=30, null=True, verbose_name=b'Description', blank=True)),
+                ('pos', models.PositiveSmallIntegerField(null=True, verbose_name=b'Position', blank=True)),
+                ('validated', models.BooleanField(default=False)),
+                ('house', models.ForeignKey(to='housing.House')),
+            ],
+            options={
+                'ordering': ['pos'],
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Price',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('rent_only', models.PositiveSmallIntegerField(help_text=b'Total rent (not divided by the number of persons), in euros', null=True, verbose_name=b'Rent only', blank=True)),
+                ('service_charge_only', models.PositiveSmallIntegerField(help_text=b'Total, in euros', null=True, verbose_name=b'Service charge only (charges)', blank=True)),
+                ('rent_with_service_charge', models.PositiveSmallIntegerField(help_text=b'In euros. This field is only in case you don\'t have the detail of the rent and the service charge, leave it if you filled "Rent only" and "Service charge only" fields', verbose_name=b'Rent with service charge')),
+                ('rent_charge_per_person', models.PositiveSmallIntegerField(verbose_name=b'Rent with service charge per person', editable=False)),
+                ('council_tax', models.PositiveSmallIntegerField(verbose_name=b"Council tax (taxe d'habitation)")),
+                ('through_agency', models.BooleanField(verbose_name=b'Rent through an agency')),
+                ('agency_fees', models.PositiveSmallIntegerField(default=0, verbose_name=b'Angency fees')),
+                ('apl', models.PositiveSmallIntegerField(help_text=b'APL in euro, for 1 person (you only)', null=True, verbose_name=b'APL (Housing Benefits)', blank=True)),
+                ('included_gas', models.BooleanField(verbose_name=b'Gas')),
+                ('included_electricity', models.BooleanField(verbose_name=b'Electricity')),
+                ('included_water', models.BooleanField(verbose_name=b'Water')),
+                ('included_internet', models.BooleanField(verbose_name=b'Internet')),
+                ('included_telephone', models.BooleanField(verbose_name=b'Telephone')),
+                ('included_cleaning', models.BooleanField(verbose_name=b'Cleaning services')),
+                ('other_expenses', models.CharField(help_text=b'Precise the price of the service charges that are not included and that you have to pay.', max_length=400, null=True, verbose_name=b'Other expenses', blank=True)),
+                ('house', models.OneToOneField(to='housing.House')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Room',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('room_type', models.PositiveSmallIntegerField(verbose_name=b'Room type', choices=[(1, b'Bedroom'), (2, b'Living room'), (3, b'Kitchen'), (4, b'Studio all-in-one (main room with kitchen)'), (5, b'Bathroom without toilets'), (6, b'Bathroom with toilets'), (7, b'Toilets alone'), (8, b'Garage'), (9, b'Storeroom'), (10, b'Other')])),
+                ('other_type', models.CharField(help_text=b'Precise if you selected "other" as room type', max_length=30, null=True, verbose_name=b'Other', blank=True)),
+                ('room_surface', models.PositiveSmallIntegerField(null=True, verbose_name=b'Estimation of surface area (if relevent)', blank=True)),
+                ('house', models.ForeignKey(to='housing.House')),
+            ],
+            options={
+                'ordering': ['room_type'],
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Travel',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('time_by_car_max', models.PositiveSmallIntegerField(null=True, verbose_name=b'Max time by car', blank=True)),
+                ('time_by_car_min', models.PositiveSmallIntegerField(null=True, verbose_name=b'Min time by car', blank=True)),
+                ('time_by_bus_max', models.PositiveSmallIntegerField(null=True, verbose_name=b'Max time by bus', blank=True)),
+                ('time_by_bus_min', models.PositiveSmallIntegerField(null=True, verbose_name=b'Min time by bus', blank=True)),
+                ('time_by_bike_max', models.PositiveSmallIntegerField(null=True, verbose_name=b'Max time by bike', blank=True)),
+                ('time_by_bike_min', models.PositiveSmallIntegerField(null=True, verbose_name=b'Min time by bike', blank=True)),
+                ('time_by_foot_max', models.PositiveSmallIntegerField(null=True, verbose_name=b'Max time by foot', blank=True)),
+                ('time_by_foot_min', models.PositiveSmallIntegerField(null=True, verbose_name=b'Min time by foot', blank=True)),
+                ('bus_line_eurecom', models.CharField(max_length=300, null=True, verbose_name=b"Which bus line to go to Eurecom, and any comment about it. Precise if it's not possible to go by bus", blank=True)),
+                ('bus_line_railroad_station', models.CharField(max_length=300, null=True, verbose_name=b"Which bus line to go to the nearest railroad station, and any comment about it. Precise if it's not possible to go by bus", blank=True)),
+                ('house', models.OneToOneField(to='housing.House')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='furniture',
+            name='house',
+            field=models.OneToOneField(to='housing.House'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='contributor',
+            name='houses',
+            field=models.ManyToManyField(to='housing.House', null=True, blank=True),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='contributor',
+            name='user',
+            field=models.OneToOneField(to=settings.AUTH_USER_MODEL),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='contact',
+            name='house',
+            field=models.OneToOneField(to='housing.House'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='appreciation',
+            name='house',
+            field=models.OneToOneField(to='housing.House'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='additionalinfo',
+            name='house',
+            field=models.OneToOneField(to='housing.House'),
+            preserve_default=True,
+        ),
+    ]

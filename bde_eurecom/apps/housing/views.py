@@ -449,15 +449,15 @@ def add_photo(request, id_house):
             if not os.path.exists(tdir):
                 os.makedirs(tdir)
             
-            new_path = os.path.join(idir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
-            thumbnail_path = os.path.join(tdir, '%s-%s.jpg'%(house.accomodation_name, photo.pos))
+            new_path = os.path.join(idir, '%s-%s.jpg'%(house.accomodation_name, photo.id))
+            thumbnail_path = os.path.join(tdir, '%s-%s.jpg'%(house.accomodation_name, photo.id))
             resize_and_thumbnail(photo.img, new_path, thumbnail_path);
             
             os.unlink(os.path.join(settings.MEDIA_ROOT, str(photo.img)))
             
             # Set paths to images
-            photo.img = 'housing/houses_pictures/%s/%s-%s.jpg'%(house.id, house.accomodation_name, photo.pos)
-            photo.thumbnail = 'housing/houses_pictures/%s/thumbnails/%s-%s.jpg'%(house.id, house.accomodation_name, photo.pos)
+            photo.img = 'housing/houses_pictures/%s/%s-%s.jpg'%(house.id, house.accomodation_name, photo.id)
+            photo.thumbnail = 'housing/houses_pictures/%s/thumbnails/%s-%s.jpg'%(house.id, house.accomodation_name, photo.id)
             
             photo.save()
             
@@ -505,7 +505,7 @@ def delete_photo(request, id_house):
     else:
         result = {'valid':'false', 'content':'Not authenticated'}
 
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 def get_photo(request, id_house):
 
@@ -724,7 +724,7 @@ def mapMarkersAll(request):
         rank+=1
 
     result = {"markers": markers}
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 @login_required
 def mapMarkers(request, id_house):
@@ -736,8 +736,8 @@ def mapMarkers(request, id_house):
     markers = []
     markers.append({"latitude":location.latitude, "longitude":location.longitude, "content":house.accomodation_name})
     result = {"markers": markers}
-
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 
 ########################################
@@ -799,7 +799,7 @@ def account_update(request):
     else:
         result = {'valid':'false', 'content':'Not authenticated'}
 
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 ########################################
 #                                      #
@@ -852,12 +852,34 @@ def resize_and_thumbnail(img_path, new_path, thumbnail_path):
 
     """
 
-    size = (settings.IMG_WIDTH, settings.IMG_HEIGHT)
+    wanted_size = (settings.IMG_WIDTH, settings.IMG_HEIGHT)
     thumb_size = (settings.THUMBNAIL_WIDTH, settings.THUMBNAIL_HEIGHT)
-
     img = Image.open(img_path)
-    img = rescale.rescale(img, size)
+
+    img_width = img.size[0]
+    img_height = img.size[1]
+    img_ratio = img_width/float(img_height) 
+    wanted_ratio = wanted_size[0]/float(wanted_size[1])   # width/height
+
+    if img_ratio < 1 :  #portrait image
+        portrait_size=(int(img_ratio*wanted_size[1]), wanted_size[1])
+        img = rescale.rescale(img, portrait_size)
+
+    else:   #landscape image
+        if img_ratio < wanted_ratio:    #image too high
+            to_cut = int((img_height-img_width/wanted_ratio)/2)
+            box = (0, to_cut, img_width, img_height - to_cut)     #(left, top, right, bottom)
+            img = img.crop(box)
+
+
+        elif img_ratio > wanted_ratio:   #image too large
+            to_cut = int((img_width-wanted_ratio*img_height)/2)
+            box = (to_cut, 0, img_width - to_cut, img_height)    #(left, top, right, bottom)
+            img = img.crop(box)
+
+        img = rescale.rescale(img, wanted_size)
+
     img.save(new_path)
     img = rescale.rescale(img, thumb_size)
     img.save(thumbnail_path)
-    
+
