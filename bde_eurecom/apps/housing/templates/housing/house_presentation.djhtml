@@ -193,7 +193,7 @@
     <p>{{price_form.council_tax.label}} : {% ifequal price_form.council_tax.value None %}Unknown {% else %}{{price_form.council_tax.value}} € {% endifequal %}</p>
     <p>{{price_form.through_agency.label}} : {% if price_form.through_agency.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
     {% if price_form.through_agency.value %}
-        <p>{{price_form.agency_fees.label}} : {{price_form.agency_fees.value}} € </p>
+        <p>{{price_form.agency_fees.label}} : {% ifequal price_form.agency_fees.value None %}Unknown {% else %}{{price_form.agency_fees.value}} € {% endifequal %}</p>
     {% endif %}
     <p>{{price_form.apl.label}} : {% ifequal price_form.apl.value None %}Unknown {% else %}{{price_form.apl.value}} € {% endifequal %}</p>
     <p><i>The APL should be given for the nominal case in which you are student, you have almost no revenue, and you're not a scholarship holder (boursier). Beware that it may vary from case to case.</i></p>

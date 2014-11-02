@@ -70,7 +70,7 @@ class Price(models.Model):
     rent_charge_per_person = models.PositiveSmallIntegerField(verbose_name="Rent with service charge per person", editable=False)
     council_tax = models.PositiveSmallIntegerField(verbose_name="Council tax (taxe d'habitation)", null=True, blank=True, help_text="The council tax may be included or not in the price you pay for the rent, 0 if you're not asked to pay anything, leave empty if unknown")
     through_agency = models.BooleanField(verbose_name="Rent through an agency")
-    agency_fees = models.PositiveSmallIntegerField(verbose_name="Angency fees", null=True, blank=True, default=0)
+    agency_fees = models.PositiveSmallIntegerField(verbose_name="Angency fees", null=True, blank=True, help_text="Leave empty if you know there are agency fees, but you don't know how much")
     apl = models.PositiveSmallIntegerField(verbose_name="APL (Housing Benefits)", null=True, blank=True, help_text="APL in euro, for 1 person (you only). Give the APL for the nominal case : student, almost no revenue, and not a scholarship holder (boursier). Leave the field empty if you don't know.")
 
     #included in price of rent+service charge
