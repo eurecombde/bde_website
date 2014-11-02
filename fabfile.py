@@ -23,6 +23,6 @@ def deploy():
     with cd('/var/www/bde_website'):
         sudo('git pull origin master')
         sudo('/opt/virtualenvs/bde_eurecom/bin/pip install -r requirements/prod.txt')
-        sudo('python manage.py migrate housing --settings=bde_eurecom.settings.prod')
-        sudo('python manage.py collectstatic --noinput --settings=bde_eurecom.settings.prod')
+        sudo('/opt/virtualenvs/bde_eurecom/bin/python manage.py migrate housing --settings=bde_eurecom.settings.prod')
+        sudo('/opt/virtualenvs/bde_eurecom/bin/python manage.py collectstatic --noinput --settings=bde_eurecom.settings.prod')
         sudo('service apache2 restart')
