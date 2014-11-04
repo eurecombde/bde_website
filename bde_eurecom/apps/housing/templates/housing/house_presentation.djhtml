@@ -206,6 +206,10 @@
     <p>{{price_form.included_internet.label}} : {% if price_form.included_internet.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
     <p>{{price_form.included_telephone.label}} : {% if price_form.included_telephone.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
     <p>{{price_form.included_cleaning.label}} : {% if price_form.included_cleaning.value %}<img src="{{ STATIC_URL }}housing/img/true_icon.png"/>{% else %}<img src="{{ STATIC_URL }}housing/img/false_icon.png"/>{% endif %}</p>
+    {% if price_form.other_expenses.value %}
+        <h3>Additional expenses, not included in the rent and service charges :</h3>
+        <p>{{price_form.other_expenses.value}}</p>
+    {% endif %}
       
     {% comment %}
       {% for field in price_form %}
