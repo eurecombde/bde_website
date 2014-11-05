@@ -612,7 +612,7 @@ def delete_room(request, id_house):
         else:
             result = {'valid':False, 'content':'The room you try to remove does not exists!'}
     
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 
 ########################################
@@ -649,7 +649,7 @@ def add_contributor(request, id_house):
         else:
             result = {'valid':False, 'content':'The Contributor is not valid'}
                 
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), content_type='application/json')
 
 @ensure_csrf_cookie
 @user_permission_house  
@@ -682,7 +682,7 @@ def delete_contributor(request, id_house):
 
             
 
-    return HttpResponse(json.dumps(result), mimetype='application/json')
+    return HttpResponse(json.dumps(result), content_type='application/json')
     # return render(request, 'housing/add_contributor.djhtml', locals())
     # For the template
     # contributor_form = ContributorForm()
