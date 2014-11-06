@@ -61,7 +61,7 @@ def search(request):
     if request.method == 'GET':
 
         # Dictionary containing the filter
-        filter = {}
+        filter = {'price__isnull':False}
         reverse=False
         order_fields = ["price__rent_charge_per_person"]
 
