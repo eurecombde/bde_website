@@ -10,3 +10,5 @@ bde_eurecom/media
 *~
 *.pyc
 *nohup.out
+bde_eurecom/setup/registration/*.xls
+bde_eurecom/setup/registration/registration.sh
