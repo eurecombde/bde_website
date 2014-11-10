@@ -8,9 +8,9 @@ import re
 import os, random, string
 
 #Parametre promo
-PROMO = 2015
+PROMO = 2016
 #Registration file
-PROMO_FILENAME = "2015.xls"
+PROMO_FILENAME = "2016.xls"
 
 # 3 execution types (TEST_FILE, TEST_MAIL, REGISTER)
 #TEST_FILE first to check if your excel file is correctly formatted to check the outputs
@@ -80,8 +80,8 @@ print sheet_names
 # lecture des donnees dans la première feuille
 sh = wb.sheet_by_name(sheet_names[0])
 
-#for rownum in range(1,sh.nrows):
-for rownum in range(1,4):
+for rownum in range(1,sh.nrows):
+#for rownum in range(1,4):
     print str(rownum)
     line = sh.row_values(rownum)
     name = unicodedata.normalize('NFKD', line[0]).encode('ascii','ignore')
