@@ -67,7 +67,6 @@ def send_mail(mail_text1, mail_text2, subject, to_address, username, password):
     custom_text=mail_text1 + "\n\nUsername : " + username + "\nPassword : " + password +"\n\n" + mail_text2
     #p = os.popen("echo %s | %s -s %s %s" % (custom_text, MAILX, subject,to_address))
     #status = p.close()
-    subprocess.Popen(['echo',custom_text])
     echo = subprocess.Popen(['echo',custom_text], stdout=subprocess.PIPE)
     subprocess.Popen([MAILX, '-s', subject, to_address], stdin=echo.stdout)
     #if status:
