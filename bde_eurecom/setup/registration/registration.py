@@ -5,7 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 import xlrd
 import unicodedata
 import re
-import os, random, string
+import subprocess, random, string
 
 #Parametre promo
 PROMO = 2016
@@ -65,10 +65,13 @@ def gen_password(length):
 
 def send_mail(mail_text1, mail_text2, subject, to_address, username, password):
     custom_text=mail_text1 + "\n\nUsername : " + username + "\nPassword" + password +"\n\n"
-    p = os.popen("echo %s | %s -s %s %s" % (custom_text, MAILX, subject,to_address))
-    status = p.close()
-    if status:
-        print "Sendmail exit status", status
+    #p = os.popen("echo %s | %s -s %s %s" % (custom_text, MAILX, subject,to_address))
+    #status = p.close()
+    subprocess.Popen(['echo',custom_text])
+    echo = subprocess.Popen(['echo',custom_text], stdout=subprocess.PIPE)
+    subprocess.Popen([MAILX, '-s', subject, to_address], stdin=echo.stdout)
+    #if status:
+    #    print "Sendmail exit status", status
 
 # ouverture du fichier Excel
 wb = xlrd.open_workbook(PROMO_FILENAME)
