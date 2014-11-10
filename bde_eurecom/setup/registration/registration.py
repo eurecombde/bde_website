@@ -10,7 +10,7 @@ import os, random, string
 #Parametre promo
 PROMO = 2016
 #Registration file
-PROMO_FILENAME = "2016.xls"
+PROMO_FILENAME = "/var/www/bde_website/bde_eurecom/setup/registration/2016.xls"
 
 # 3 execution types (TEST_FILE, TEST_MAIL, REGISTER)
 #TEST_FILE first to check if your excel file is correctly formatted to check the outputs
@@ -99,11 +99,11 @@ for rownum in range(1,sh.nrows):
         print "First Name : " + first_name + "\t\tLast Name : " + last_name + "\nUser name : "+ username_register +"\t\tPassword : " + password + "\nEmail : " + email + "\nPromo : "+ str(PROMO) + "\n"
 #TEST_MAIL
     elif EXECUTION_MODE == "TEST_MAIL":
-        send_mail(TEXT1, TEXT2, SUBJECT, TEST_EMAIL_ADDRESS, username, password)
+        send_mail(TEXT1, TEXT2, SUBJECT, TEST_EMAIL_ADDRESS, username_register, password)
 #REGISTER
     elif EXECUTION_MODE == "REGISTER":
         add_contributor(username_register, first_name, last_name, email, PROMO, password)
-        send_mail(TEXT1, TEXT2, SUBJECT, email, username, password)
+        send_mail(TEXT1, TEXT2, SUBJECT, email, username_register, password)
 #wrong parameter
     else:
         print "%s is not a valid execution mode" %EXECUTION_MODE
