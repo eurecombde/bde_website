@@ -308,7 +308,7 @@
 
     <h3>Bus lines</h3>
       <p>Bus line to Eurecom : {{house.travel.bus_line_eurecom}}<p>
-      <p>Bus line to the nearest railroad station : {{house.travel.bus_line_eurecom}}<p>
+      <p>Bus line to the nearest railroad station : {{house.travel.bus_line_railroad_station}}<p>
 
     </article>
     <article id="contact">
