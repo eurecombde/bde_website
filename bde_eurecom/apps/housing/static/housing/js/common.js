@@ -12,7 +12,8 @@
  */
 
 
-function callWhenPostValid(url, postData, callbackWhenValid, dialogId = "info") {
+function callWhenPostValid(url, postData, callbackWhenValid, dialogId) {
+    if(typeof(dialogId)==='undefined') dialogId = "info";
 
     $("body").append('<div id="' + dialogId + '"></div>');
 
