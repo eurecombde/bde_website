@@ -266,7 +266,9 @@
         <p>{{location_form.city.label}} : {{location_form.city.value}} </p>
         <p>{{location_form.postal_code.label}} : {{location_form.postal_code.value}} </p>
         <p>Distance to Eurecom : {{location_form.distance_eurecom.value}} km </p>
-        <p>GPS coordinates : {{location_form.latitude.value}}  {{location_form.longitude.value}}</p>
+        <p>GPS coordinates : {{location.latitude}}  {{location.longitude}}</p>
+        <div id='map_canvas'>
+        </div>
     </div>
     <div></div>
 
@@ -363,8 +365,13 @@
        {% endfor %}
        var numberphotos=photoRef.length;
        var STATIC_URL = {{STATIC_URL}};
+       var latitude = {{location.latitude}};
+       var longitude = {{location.longitude}};
       </script>
       <script src="{{STATIC_URL}}housing/js/jquery.cacheimage.js"></script>
       <script src="{{STATIC_URL}}housing/js/gallery.js"></script>
   {% endif %}
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}housing/js/jquery.ui.map.js"></script>
+  <script src="{{STATIC_URL}}housing/js/house_presentation_map.js"></script>
 {% endblock %}

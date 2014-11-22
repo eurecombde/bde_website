@@ -256,7 +256,7 @@ def house_create(request):
             # Adding permission to contributor
             content_type = ContentType.objects.get(app_label='housing', model='House')
             permission = Permission.objects.create(codename='update_house_{0}'.format(house.id),
-                                                   name='Update house "{0}"'.format(house.accomodation_name),
+                                                   name='Update house '+ house.accomodation_name,
                                                    content_type=content_type)
             user.user_permissions.add(permission)
     
