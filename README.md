@@ -62,6 +62,8 @@ Start the devserver:
 
 Notes
 -----------
+The virtual environment is a way to install all the Python and Django dependencies in an special environment that is not changing with system updates, so improve compatibility and reduces OS updates problems.
+
 The difference between Development and Test installation is that : Development is using sqlite and Test is using mysql, but there are no problems to develop on the Test one.
 
 To use mysql for Test, you may have to install libmysqlclient-dev
