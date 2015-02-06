@@ -19,7 +19,7 @@ def test():
 
 
 def deploy():
-    test()
+    #test()
     with cd('/var/www/bde_website'):
         sudo('git pull origin master')
         sudo('/opt/virtualenvs/bde_eurecom/bin/pip install -r requirements/prod.txt')
