@@ -3,23 +3,13 @@
 {% block main %}
 
   <h2>
-    Welcome to Eurecom BDE website!
+    Welcome to EURECOM BDE website!
   </h2>
   <p>
-    Here you can find the <a href="housing/">Eurecom Housing</a> application
+    Here you can find the <a href="housing/">EURECOM Housing</a> application
     and the <a href="movieclub">Movie Club</a> site.
   </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at ligula purus. Quisque scelerisque velit velit, non porta lacus pretium in. Sed massa lectus, fringilla et lacus nec, dictum vestibulum dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum viverra orci, eu hendrerit sapien bibendum at. Maecenas fringilla risus eu elit gravida mollis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec volutpat dictum mi, non convallis risus pharetra quis.
 
-    Vivamus at malesuada urna. Mauris eu est faucibus, porta eros in, varius ipsum. Proin at turpis vel tortor semper sollicitudin. Vivamus dictum viverra ipsum, vel vestibulum massa iaculis sed. Ut tincidunt aliquet ipsum. Sed consectetur fringilla leo. Nulla interdum vestibulum risus in auctor. Quisque consectetur tempus diam, accumsan ullamcorper metus accumsan a. Phasellus porttitor magna nec erat semper, vel blandit sapien tincidunt. Cras pharetra nulla porta malesuada commodo. Ut ut eleifend orci, lobortis luctus sem. Fusce vitae quam vel mauris laoreet placerat a vitae tortor. Suspendisse faucibus fermentum pulvinar.
-
-    Praesent dictum velit vel tempus egestas. Phasellus aliquam neque eros. Proin rhoncus euismod erat ac semper. Aliquam at dui nec sapien laoreet facilisis. Morbi pharetra laoreet volutpat. In eu arcu et lacus mollis congue non in nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis non consectetur libero. Quisque at nisi tortor. Nulla eget rutrum lacus.
-
-    Donec a tortor quis urna consectetur adipiscing tristique eget elit. Phasellus consequat mattis fringilla. Aliquam in vehicula sapien, pretium dictum quam. Aliquam molestie dui ac ornare viverra. Fusce varius urna nec convallis luctus. Nullam semper erat vitae fermentum congue. Sed magna tellus, semper vitae commodo quis, interdum id risus. Morbi ut augue eu ligula venenatis pellentesque ut eget leo. Proin molestie arcu dolor, sit amet aliquet nibh ullamcorper at. Sed at tortor enim. Fusce aliquam arcu at commodo fermentum.
-
-    Nullam vel rutrum libero, eget aliquet sapien. Vivamus et justo non augue porttitor posuere. Phasellus arcu purus, pretium ac est ut, imperdiet semper est. Donec a lorem turpis. Nunc laoreet massa nec ipsum sollicitudin, eu laoreet eros semper. Mauris ullamcorper accumsan tortor, ac scelerisque enim hendrerit at. Nullam ullamcorper iaculis tincidunt. Cras vehicula ut enim ut sagittis. Maecenas a suscipit mi. Vestibulum at ligula neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce sit amet euismod lectus. In id scelerisque orci. Proin vitae quam neque. Integer quis eleifend quam. 
-  </p>
 {% endblock %}
 
 {% block scripts %}
