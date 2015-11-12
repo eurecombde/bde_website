@@ -5,7 +5,7 @@
 <head prefix="og: http://ogp.me/ns# video: http://ogp.me/ns/video#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>Eurecom Movie Club</title>
+  <title>EURECOM Movie Club</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'movieclub/css/styles.css' %}">
   <link rel="icon" type="image/png" href="{% static 'main/img/favicon.ico' %}">
@@ -20,7 +20,7 @@
 
     {# hide the header on small displays if we're not on the main page{% endcomment #}
     <aside{% if title != "Blog" %} class="hidden-s"{% endif %}>
-      <h1>Eurecom Movie Club</h1>
+      <h1>EURECOM Movie Club</h1>
 
       <p>
         This is the homepage for the Eurecom Movie Club, a club for movie loving
@@ -30,7 +30,7 @@
       <p>
         Want to come watch a movie? We'd love to have you with us! The schedule is to show one
         movie every week, on Fridays around 17:00 if no other message is given. It's free to join,
-        but we wont provide you with candy - bring your own! All movies are shown at the Eurecom
+        but we wont provide you with candy - bring your own! All movies are shown at the EURECOM
         Amphi.
       </p>
 
