@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>
       {% block title %}
-	Eurecom BDE
+	BDE EURECOM
       {% endblock %}
     </title> 
     <link rel="icon" type="image/png" href="{{STATIC_URL}}main/img/favicon.ico" >
@@ -13,7 +13,7 @@
   <body>
     <header>
       <h1>
-	Eurecom BDE
+	BDE EURECOM
       </h1>
       <nav>
 	<ul>
