@@ -6,29 +6,40 @@ Here are developped main apps of the EURECOM BDE Website, including housing app.
 Development
 -----------
 
-Install [virtualenv](https://virtualenv.pypa.io/en/latest/virtualenv.html) and set up a new virtualenv:
-    
-    $ virtualenv venv
+If you're working on a UNIX system, install [virtualenv here](https://virtualenv.pypa.io/en/latest/virtualenv.html)
 
-Activate the virtual environment before installing dependencies, you will have to activate it each time you need to run python to use Django for the website:
+In case you're using the Windows Powershell environment, follow these instructions:
+
+Install pip
     
-    $ . venv/bin/activate
+    $ python get-pip.py
+
+Install virtualenv for Powershell
+
+    $ pip install virtualenv
+    $ pip install virtualenvwrapper-powershell
+
+Then (on both systems), set up a new virtualenv:
+
+    $ virtualenv venv
+    $ .venv/Script/activate
+
 
 Install the dependencies:
-    
+
     $ pip install -r requirements.txt
 
 Setup the wsgi & manage files:
-    
+
     $ cp bde_eurecom/setup/wsgi.py bde_eurecom/
 
 Setup the dev database:
-    
+
     $ cd bde_eurecom/setup
-    $ ./setup.sh
+    $ sh ./setup.sh
 
 Start the devserver:
-    
+
     $ python manage.py runserver
 
 There's now a user called 'WTFO' with password 'company' you can use for development.
@@ -37,36 +48,22 @@ Test
 ----
 
 Install [virtualenv](https://virtualenv.pypa.io/en/latest/virtualenv.html) and set up a new virtualenv:
-    
-    $ virtualenv venv
 
-Activate the virtual environment before installing dependencies, you will have to activate it each time you need to run python to use Django for the website:
-    
+    $ virtualenv venv
     $ . venv/bin/activate
 
 Install the dependencies:
-    
+
     $ pip install -r requirements/test.txt
 
 Setup the dev database:
-    
+
     $ cd bde_eurecom/setup
     $ ./test.sh
 
 Start the devserver:
-    
+
     $ python manage.py runserver --settings=bde_eurecom.settings.test
     or 
     $ export DJANGO_SETTINGS_MODULE=bde_eurecom.settings.test
     $ python manage.py runserver
-
-Notes
------------
-The virtual environment is a way to install all the Python and Django dependencies in an special environment that is not changing with system updates, so improve compatibility and reduces OS updates problems.
-
-The difference between Development and Test installation is that : Development is using sqlite and Test is using mysql, but there are no problems to develop on the Test one.
-
-To use mysql for Test, you may have to install libmysqlclient-dev
-
-You may have to install libjpeg-dev jpeg decoder so that the PIL image library works properly.
-
