@@ -7,8 +7,8 @@
   {% if user.is_authenticated %}
     <h2>Welcome {{ user.username }} !</h2>
   {% else %}
-    <h4>Welcome on the Eurecom Housing website, aimed at helping new students to find an accomodation for the year.</h4>
-    <p>You need to log in to contribute or to see the content. If you are new and looking for an accomodation, ask your Eurecom contact how to obtain a guest login.</p>   
+    <h4>Welcome on the EURECOM Housing website, aimed at helping new students to find an accomodation for the year.</h4>
+    <p>You need to log in to contribute or to see the content. If you are new and looking for an accomodation, ask your EURECOM contact how to obtain a guest login.</p>   
 
     {% if error %}
     <p style="color: red"><i>Wrong username or password</i></p>
