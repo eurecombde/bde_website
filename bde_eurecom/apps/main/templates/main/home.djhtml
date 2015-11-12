@@ -3,7 +3,7 @@
 {% block main %}
 
   <h2>
-    Welcome to EURECOM BDE website!
+    Welcome to the EURECOM BDE website!
   </h2>
   <p>
     Here you can find the <a href="housing/">EURECOM Housing</a> application
