@@ -8,6 +8,7 @@ export async function load(): Promise<CalendarEvent[]> {
     const calendar = Calendar({version: 'v3', auth});
 
     try {
+        console.debug('Fetching calendar events from', CALENDAR_ID);
         const events = await calendar.events.list({
             calendarId: CALENDAR_ID,
             // timeMin: (new Date()).toISOString(), // From now to the future // todo: should this be from yesterday to show events that are happing now?
@@ -16,10 +17,12 @@ export async function load(): Promise<CalendarEvent[]> {
             orderBy: 'startTime',
         });
 
+        console.debug('Received events', events.data.items);
+
         if (!events.data.items) return [];
         return events.data.items.map((event: any) => event as CalendarEvent);
     } catch (err) {
-        console.error('The API returned an error: ' + err);
+        console.error('Google Calendar returned an error: ' + err);
         return []; // todo: +error.svelte & throw error(500,'fubar')
     }
 }
