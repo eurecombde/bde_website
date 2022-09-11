@@ -3,12 +3,12 @@
     export let index;
 
     const align = index % 2 === 0 ? 'left' : 'right';
-    const alignInverse = index % 2 === 0 ? 'right' : 'left';
+    const textAlign = index % 2 === 0 ? 'text-right' : 'text-left';
 </script>
 
 <div class="mb-8 flex justify-between items-center w-full {align}-timeline" class:flex-row-reverse={align==='left'}>
     <div class="order-1 w-5/12"></div>
-    <div class="order-1 w-5/12 px-1 py-4 text-{alignInverse}">
+    <div class="order-1 w-5/12 px-1 py-4 {textAlign}">
         {#if event.start.date}
             <p class="mb-3 text-base text-300">{event.start.date}</p> <!--todo: style this (1-6 May, 2021)-->
         {:else if event.start.dateTime}
