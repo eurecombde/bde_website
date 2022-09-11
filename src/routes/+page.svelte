@@ -2,7 +2,7 @@
     import Events from '../sections/events.svelte';
     import Header from '../sections/header.svelte';
 
-    /** @type {import('./$types').PageServerLoad} */
+    /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
     console.log(data)
     const {events, calendar, error} = data;

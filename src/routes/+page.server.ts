@@ -2,7 +2,7 @@ import {CALENDAR_ID, SCOPES, SERVICE_ACCOUNT_EMAIL, SERVICE_ACCOUNT_PRIVATE_KEY}
 import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
 import type {CalendarEvent} from "../types/calendar-event";
 
-/** @type {import('./$types').PageServerLoad} */
+/** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
 export async function load(): Promise<{ events:CalendarEvent[] ,calendar: string, error: string}> {
     const auth = new Auth.JWT(SERVICE_ACCOUNT_EMAIL, undefined, SERVICE_ACCOUNT_PRIVATE_KEY, SCOPES);
     const calendar = Calendar({version: 'v3', auth});
