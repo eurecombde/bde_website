@@ -1,11 +1,11 @@
-import {CALENDAR_ID, SCOPES, GOOGLE_API_CRED} from '$env/static/private';
+import {CALENDAR_ID, SCOPES, GOOGLE_API_CRED, API_KEY} from '$env/static/private';
 
 import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
 import type {CalendarEvent} from "../types/calendar-event";
 
 /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
 export async function load(): Promise<{ events:CalendarEvent[] ,calendar: string, error: string}> {
-    const auth = Auth.fromJSON(JSON.parse(GOOGLE_API_CRED));
+    const auth = Auth.fromAPIKey(API_KEY);
     const calendar = Calendar({version: 'v3', auth});
     try {
         const message = await auth.request({url: 'https://www.googleapis.com/calendar/v3/calendars/' + CALENDAR_ID + '/events'});
