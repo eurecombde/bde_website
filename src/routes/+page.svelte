@@ -5,12 +5,13 @@
     /** @type {import('./$types').PageServerLoad} */
     export let data;
     console.log(data)
-    const {events, calendar} = data;
+    const {events, calendar, error} = data;
 </script>
 
 
 <Header/>
-{calendar}
+{calendar} <br>
+{error} <br>
 <Events events={events}/>
 <!--Photos from events-->
 <!--Student Life: Resources about studying at eurecom, -->
