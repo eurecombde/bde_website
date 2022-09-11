@@ -2,7 +2,8 @@ import {CALENDAR_ID, SCOPES, SERVICE_ACCOUNT_EMAIL, SERVICE_ACCOUNT_PRIVATE_KEY}
 import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
 import type {CalendarEvent} from "../types/calendar-event";
 
-export async function load() {
+/** @type {import('./$types').PageServerLoad} */
+export async function load(): Promise<CalendarEvent[]> {
     const auth = new Auth.JWT(SERVICE_ACCOUNT_EMAIL, undefined, SERVICE_ACCOUNT_PRIVATE_KEY, SCOPES);
     const calendar = Calendar({version: 'v3', auth});
 
@@ -15,7 +16,8 @@ export async function load() {
             orderBy: 'startTime',
         });
 
-        return events.data.items?.map((event: any) => event as CalendarEvent);
+        if (!events.data.items) return [];
+        return events.data.items.map((event: any) => event as CalendarEvent);
     } catch (err) {
         console.error('The API returned an error: ' + err);
         return []; // todo: +error.svelte & throw error(500,'fubar')

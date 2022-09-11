@@ -1,5 +1,6 @@
 <script>
-    export let event, index;
+    export let event;
+    export let index;
 
     const align = index % 2 === 0 ? 'left' : 'right';
     const alignInverse = index % 2 === 1 ? 'left' : 'right';

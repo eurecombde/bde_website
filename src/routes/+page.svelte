@@ -2,6 +2,7 @@
     import Events from '../sections/events.svelte';
     import Header from '../sections/header.svelte';
 
+    /** @type {import('./$types').PageServerLoad} */
     export let data;
 </script>
 
