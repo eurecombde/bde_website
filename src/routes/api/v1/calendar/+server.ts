@@ -1,4 +1,4 @@
-import {CALENDAR_ID, SCOPES, SERVICE_ACCOUNT_EMAIL, SERVICE_ACCOUNT_PRIVATE_KEY, GOOGLE_API_CRED} from '$env/static/private';
+import {CALENDAR_ID, SCOPES, GOOGLE_API_CRED} from '$env/static/private';
 import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
 import type {CalendarEvent} from "../../../../types/calendar-event";
 import {json} from "@sveltejs/kit";
@@ -20,11 +20,11 @@ export async function GET() {
 
         console.debug('Received events', events.data.items);
 
-        if (!events.data.items) return json({events: [], calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: 'no items found'});
-        return json({events: events.data.items.map((event: any) => event as CalendarEvent), calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: ''});
+        if (!events.data.items) return json({events: [], calendar: CALENDAR_ID + ', ' + SCOPES, error: 'no items found'});
+        return json({events: events.data.items.map((event: any) => event as CalendarEvent), calendar: CALENDAR_ID + ', ' + SCOPES, error: ''});
     } catch (err) {
         console.error('Google Calendar returned an error: ' + err);
-        return json({events: [], calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: 'Google Calendar returned an error: ' + err}); // todo: +error.svelte & throw error(500,'fubar')
+        return json({events: [], calendar: CALENDAR_ID + ', ' + SCOPES, error: 'Google Calendar returned an error: ' + err}); // todo: +error.svelte & throw error(500,'fubar')
     }
 
 
