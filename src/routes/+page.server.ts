@@ -3,7 +3,7 @@ import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
 import type {CalendarEvent} from "../types/calendar-event";
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load(): Promise<CalendarEvent[]> {
+export async function load(): Promise<{ events:CalendarEvent[] ,calendar: string}> {
     const auth = new Auth.JWT(SERVICE_ACCOUNT_EMAIL, undefined, SERVICE_ACCOUNT_PRIVATE_KEY, SCOPES);
     const calendar = Calendar({version: 'v3', auth});
 
@@ -19,10 +19,10 @@ export async function load(): Promise<CalendarEvent[]> {
 
         console.debug('Received events', events.data.items);
 
-        if (!events.data.items) return [];
-        return events.data.items.map((event: any) => event as CalendarEvent);
+        if (!events.data.items) return {events: [], calendar: CALENDAR_ID};
+        return {events: events.data.items.map((event: any) => event as CalendarEvent), calendar: CALENDAR_ID};
     } catch (err) {
         console.error('Google Calendar returned an error: ' + err);
-        return []; // todo: +error.svelte & throw error(500,'fubar')
+        return {events: [], calendar: CALENDAR_ID}; // todo: +error.svelte & throw error(500,'fubar')
     }
 }

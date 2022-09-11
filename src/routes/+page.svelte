@@ -1,16 +1,17 @@
 <script>
-    import {CALENDAR_ID} from '$env/static/private';
     import Events from '../sections/events.svelte';
     import Header from '../sections/header.svelte';
 
     /** @type {import('./$types').PageServerLoad} */
     export let data;
+    console.log(data)
+    const {events, calendar} = data;
 </script>
 
 
 <Header/>
-<Events events={Object.values(data)}/>
-{CALENDAR_ID}
+{calendar}
+<Events events={events}/>
 <!--Photos from events-->
 <!--Student Life: Resources about studying at eurecom, -->
 <!--Getting around: tips on living in the area, transport, etc-->
