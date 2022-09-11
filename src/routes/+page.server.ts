@@ -25,4 +25,9 @@ export async function load(): Promise<{ events:CalendarEvent[] ,calendar: string
         console.error('Google Calendar returned an error: ' + err);
         return {events: [], calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: 'Google Calendar returned an error: ' + err}; // todo: +error.svelte & throw error(500,'fubar')
     }
+
+
+
+    return {events: [], calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: ''};
+
 }

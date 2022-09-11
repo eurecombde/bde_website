@@ -33,7 +33,6 @@
                             <Event event={event} index={index}/>
                         {/each}
                     </div>
-                    <img class="mx-auto -mt-36 md:-mt-36" src="https://user-images.githubusercontent.com/54521023/116968861-ef21a000-acd2-11eb-95ac-a34b5b490265.png" alt="Todo: Change this ilustration"/>
                 </div>
             </div>
         </div>
