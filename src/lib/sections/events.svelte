@@ -39,10 +39,10 @@
             </div>
             <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
                 <div class="container mx-auto w-full h-full">
-                    <div class="relative wrap overflow-hidden p-10 h-full">
-                        <div class="border-2-2 border-yellow-555 absolute h-full border dark:border-white border-gray-800 right-1/2 border-2 rounded-l-lg"></div>
-                        <div class="border-2-2 border-yellow-555 absolute h-full border dark:border-white border-gray-800 left-1/2 border-2 rounded-r-lg"></div>
-
+                    <div class="relative wrap p-10 h-full">
+                        <div class="absolute right-1/2 h-full">
+                            <div class="absolute h-full border dark:border-white border-gray-800 border-2 rounded-lg"></div>
+                        </div>
                         {#each events as event, index}
                             <Event event={event} index={index}/>
                         {/each}
