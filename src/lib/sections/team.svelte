@@ -1,7 +1,8 @@
 <script>
-    import Icon from 'svelte-awesome';
-    import {TEAM} from '$lib/constants/team.ts';
     const AVATAR_FALLBACK_URL = "https://ui-avatars.com/api/?font-size=0.2&name=";
+
+    import Icon from 'svelte-awesome';
+    import {team} from '$lib/constants/team.ts';
 
 </script>
 
@@ -17,9 +18,9 @@
                 </p>
             </div>
 
-            {#each TEAM as member}
+            {#each team as member}
                 <div class="flex flex-col items-center">
-                    <img class="object-cover w-full rounded-xl aspect-square" src={member.photo ?? AVATAR_FALLBACK_URL+member.name.replace(" ","+")} alt={member.name}>
+                    <img class="object-cover w-full rounded-xl aspect-square" src={member.photo ?? AVATAR_FALLBACK_URL+member.name.replaceAll(" ","+")} alt={member.name}>
                     <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">{member.name}</h1>
                     <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">{member.role}</p>
 

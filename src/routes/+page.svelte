@@ -2,7 +2,6 @@
     import Header from '$lib/sections/header.svelte';
     import Events from '$lib/sections/events.svelte';
     import Places from '$lib/sections/places.svelte';
-    import FAQ from '$lib/sections/faq.svelte';
 
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
@@ -15,7 +14,6 @@
 <Events events={events} ical={ical}/>
 <Places/>
 <!--<Tips/>-->
-<FAQ/>
 <!--<Team/>-->
 <!--Photos from events-->
 <!--Student Life: Resources about studying at eurecom, -->

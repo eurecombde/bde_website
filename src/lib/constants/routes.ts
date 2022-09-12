@@ -7,13 +7,19 @@ export const routes: Page[] = [
             {name: 'Upcoming events', tag: '#events'},
             {name: 'Places in the are', tag: '#places'},
             {name: 'Deals & Partners', tag: '#partners'},
-            {name: 'Frequent questions', tag: '#faq'}
         ]
     },
     {
         name: 'Student Life', path: '/student-life', sections: [
-            {name: 'Bars', tag: '#events'},
-            {name: 'What to expect', tag: '#expectations'}
+            {name: 'Student Guides', tag: '#guides'},
+            {name: 'Frequent questions', tag: '#faq'}
+
+        ]
+    },
+    {
+        name: 'Clubs', path: '/clubs', sections: [
+            {name: 'All', tag: '#all'},
+            {name: 'Featured', tag: '#featured'}
         ]
     },
     {
