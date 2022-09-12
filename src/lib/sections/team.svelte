@@ -1,12 +1,12 @@
 <script>
     const AVATAR_FALLBACK_URL = "https://ui-avatars.com/api/?font-size=0.2&name=";
-
+    import {fade} from 'svelte/transition';
     import Icon from 'svelte-awesome';
     import {team} from '$lib/constants/team.ts';
 
 </script>
 
-<section id="team">
+<section id="team" in:fade out:fade>
     <div class="container px-6 py-10 mx-auto">
         <div class="xl:flex xl:items-center xL:-mx-4">
         </div>

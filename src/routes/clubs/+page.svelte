@@ -1,4 +1,8 @@
-<section>
+<script>
+    import {fade} from 'svelte/transition';
+</script>
+
+<section in:fade out:fade>
     <div class="container px-6 py-12 mx-auto">
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Clubs</h1>
 

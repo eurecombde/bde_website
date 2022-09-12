@@ -1,9 +1,11 @@
 <script>
     import {Icon} from 'svelte-awesome';
     import {tripadvisor} from 'svelte-awesome/icons';
+    import {fade} from 'svelte/transition';
+
 </script>
 
-<section id="places">
+<section id="places" in:fade out:fade>
     <div class="relative flex">
         <div class="min-h-screen lg:w-1/3"></div>
         <div class="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>

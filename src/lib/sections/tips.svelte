@@ -1,4 +1,8 @@
-<section id="tips">
+<script>
+    import {fade} from 'svelte/transition';
+</script>
+
+<section id="tips" in:fade out:fade>
     <div class="container px-6 py-10 mx-auto">
         <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">explore our <br> awesome <span class="underline decoration-blue-500">deals & partners</span></h1>
 

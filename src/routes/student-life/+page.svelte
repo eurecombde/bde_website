@@ -2,9 +2,11 @@
     import FAQ from '$lib/sections/faq.svelte';
     import Tips from '$lib/sections/tips.svelte';
 
+    import {fade} from 'svelte/transition';
+
 </script>
 
-<section>
+<section in:fade out:fade>
     <div class="container px-6 py-10 mx-auto">
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Student Guides</h1>
 

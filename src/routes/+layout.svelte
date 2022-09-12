@@ -11,7 +11,8 @@
 
     $: activePath = $page.url.pathname;
     $: activeRoute = routes.find((route) => route.path === activePath);
-    $: title = activeRoute ?  `${contact.brand} | ${activeRoute.name} ${activeRoute.emoji ?? ''}`: contact.brand;
+    $: title = activeRoute ? `${contact.brand} | ${activeRoute.name} ${activeRoute.emoji ?? ''}` : contact.brand;
+    import {fade} from 'svelte/transition';
 
 </script>
 

@@ -1,4 +1,9 @@
-<header>
+<script>
+    import {fade} from 'svelte/transition';
+</script>
+
+
+<header in:fade out:fade>
     <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div class="flex justify-center order-2 mt-6 lg:mt-0 lg:space-y-3 lg:flex-col">
@@ -12,12 +17,9 @@
                 <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">The best a student can get</h1>
                 <p class="mt-4 text-gray-600 dark:text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.</p>
                 <div class="mt-6">
-
                     <a href="#events" class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
                         See what's happening
                     </a>
-<!--                    <a href="#" class="block px-3 py-2 font-semibold text-center text-white transition-colors duration-300 transform bg-blue-500 rounded-md lg:inline hover:bg-blue-400">-->
-<!--                    </a>-->
                 </div>
             </div>
         </div>
