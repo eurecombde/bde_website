@@ -7,11 +7,11 @@
                 <h1 class="text-xl font-semibold text-gray-800 dark:text-white">Categories</h1>
 
                 <div class="mt-4 space-y-4 lg:mt-8">
-                    <a href="#" class="block text-blue-500 dark:text-blue-400 hover:underline">Featured</a>
-                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">Sports</a>
-                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">Social</a>
-                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">Entertainment</a>
-                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">All</a>
+                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline pl-6">All</a>
+                    <a href="#" class="block text-blue-500 dark:text-blue-400 hover:underline">⭐️ Featured</a>
+                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">🧗‍ Sports</a>
+                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">🍷 Social</a>
+                    <a href="#" class="block text-gray-500 dark:text-gray-300 hover:underline">🎮 Entertainment</a>
                 </div>
             </div>
 

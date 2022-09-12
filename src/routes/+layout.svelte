@@ -9,25 +9,29 @@
     import {routes} from '$lib/constants/routes';
     import {contact} from '$lib/constants/team';
 
-    $:activeRoute = $page.url.pathname;
-
+    $: activePath = $page.url.pathname;
+    $: activeRoute = routes.find((route) => route.path === activePath);
+    $: title = activeRoute ?  `${contact.brand} | ${activeRoute.name} ${activeRoute.emoji ?? ''}`: contact.brand;
 
 </script>
+
+<svelte:head>
+    <title>{title}</title>
+</svelte:head>
 
 <nav>
     <div class="container p-6 mx-auto">
         <a class="block text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">BEDrock @ EURECOM</a>
         <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
             {#each routes as route}
-                <a class="{route.path === activeRoute ? ACTIVE_ROUTE_STYLE : INACTIVE_ROUTE_STYLE}" href={route.path}>{route.name}</a>
+                <a class="{route.path === activePath ? ACTIVE_ROUTE_STYLE : INACTIVE_ROUTE_STYLE}" href={route.path}>{route.name}</a>
             {/each}
 
-            <a href="https://www.facebook.com/groups/718500665824140" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
-                <Icon data={facebookSquare}/>
-            </a>
-            <a href="https://www.instagram.com/bedrock_bde/" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
-                <Icon data={instagram}/>
-            </a>
+            {#each contact.socials as social}
+                <a href={social.url} class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
+                    <Icon data={social.icon}/>
+                </a>
+            {/each}
         </div>
     </div>
 </nav>

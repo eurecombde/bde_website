@@ -15,8 +15,8 @@ export const contact = {
     ],
     eurecom: 'https://www.eurecom.fr/en/student-life/student-association',
     socials: [
-        {name: 'Facebook', url: 'https://www.eurecom.fr/en/student-life/student-association', icon: facebookSquare},
-        {name: 'Instagram', url: 'https://www.eurecom.fr/en/student-life/student-association', icon: instagram},
+        {name: 'Facebook', url: 'https://www.facebook.com/groups/718500665824140', icon: facebookSquare},
+        {name: 'Instagram', url: 'https://www.instagram.com/bedrock_bde', icon: instagram},
     ]
 }
 
