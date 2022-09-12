@@ -45,7 +45,7 @@ export const team = [
     },
     {
         name: "Eloïse Coupin",
-        role: "BDE/S Treasurer",
+        role: "Treasurer",
         socials: []
     },
     {
@@ -60,12 +60,49 @@ export const team = [
     },
     {
         name: "Zachari Thiry",
-        role: "BDE/S Events & Logistics",
+        role: "Events & Logistics",
+        socials: []
+    },
+
+
+    {
+        name: "Clara Yaiche",
+        role: "",
         socials: []
     },
     {
-        name: "I will add more late",
-        role: "BDE/S Officers",
+        name: "Titouan Cazin",
+        role: "",
+        socials: []
+    },
+    {
+        name: "Amit",
+        role: "",
+        socials: []
+    },
+    {
+        name: "Emerson",
+        role: "",
+        socials: []
+    },
+    {
+        name: "Marco",
+        role: "",
+        socials: []
+    },
+    {
+        name: "Sam",
+        role: "",
+        socials: []
+    },
+    {
+        name: "Vicky",
+        role: "",
+        socials: []
+    },
+    {
+        name: "Gauthier",
+        role: "",
         socials: []
     },
 ];

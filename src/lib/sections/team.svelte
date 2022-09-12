@@ -12,7 +12,7 @@
         </div>
         <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-5 sm:grid-cols-1">
             <div class="col-span-3 xl:mx-4 my-16">
-                <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Our Team</h1>
+                <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">The <span class="underline decoration-blue-500">Team</span></h1>
                 <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias, adipisci rem similique, at omnis eligendi optio eos harum.
                 </p>

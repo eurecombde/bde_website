@@ -23,8 +23,9 @@ export const routes: Page[] = [
         ]
     },
     {
-        name: 'Get in touch', path: '/get-in-touch', emoji: '📮',sections: [
-            {name: 'Our team', tag: '#team'},
+        name: 'About', path: '/about', emoji: '📮',sections: [
+            {name: 'The team', tag: '#team'},
+            {name: 'Partners', tag: '#partners'},
             {name: 'Contact us', tag: '#contact'}
         ]
     },
