@@ -1,5 +1,6 @@
 <script>
     import FAQ from '$lib/sections/faq.svelte';
+    import Tips from '$lib/sections/tips.svelte';
 
 </script>
 
@@ -8,8 +9,6 @@
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Student Guides</h1>
 
         <div class="mt-8 xl:mt-16 lg:flex lg:-mx-6 lg:flex">
-
-            <!--        <div class="lg:flex lg:-mx-6">-->
             <div class="lg:w-3/4 lg:px-6">
                 <img class="object-cover object-center w-full h-80 xl:h-[28rem] rounded-xl" src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
 
@@ -74,4 +73,5 @@
     </div>
 </section>
 
+<Tips/>
 <FAQ/>

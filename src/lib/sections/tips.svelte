@@ -1,6 +1,6 @@
 <section id="tips">
     <div class="container px-6 py-10 mx-auto">
-        <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">explore our <br> awesome <span class="underline decoration-blue-500">partners & deals</span></h1>
+        <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">explore our <br> awesome <span class="underline decoration-blue-500">deals & partners</span></h1>
 
         <p class="mt-4 text-gray-500 xl:mt-6 dark:text-gray-300">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum quam voluptatibus
