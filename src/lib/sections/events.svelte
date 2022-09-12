@@ -1,7 +1,9 @@
 <script>
-    import Event from './event.svelte';
+    import Event from '$lib/components/event.svelte';
 
-    export let events;
+    export let events, ical;
+
+    console.log('events',events, ical);
 </script>
 
 
@@ -15,7 +17,7 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut
                     aliquam tincidunt, nisl elit fermentum massa, nec luctus nunc ante ut dui.
                 </p>
-                <a href="/ical" class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
+                <a href={ical} class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
                     Keep me up to date
                 </a>
                 <hr class="my-8"/>

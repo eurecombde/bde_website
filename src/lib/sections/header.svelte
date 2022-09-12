@@ -1,28 +1,4 @@
-<script>
-    import {Icon} from 'svelte-awesome';
-    import {facebookSquare, instagram} from 'svelte-awesome/icons';
-</script>
 <header class="bg-white dark:bg-gray-900">
-    <nav class="bg-white dark:bg-gray-900">
-        <div class="container p-6 mx-auto">
-            <a class="block text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="#">BEDrock @ EURECOM</a>
-
-            <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
-                <a href="#" class="text-gray-800 dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6">home</a>
-                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">Student Life</a>
-                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">Geting around</a>
-                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">Get in touch</a>
-
-                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
-                    <Icon data={facebookSquare}/>
-                </a>
-                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
-                    <Icon data={instagram}/>
-                </a>
-            </div>
-        </div>
-    </nav>
-
     <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div class="flex justify-center order-2 mt-6 lg:mt-0 lg:space-y-3 lg:flex-col">

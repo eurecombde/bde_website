@@ -1,3 +1,5 @@
+export type CalendarDate = { date?: string, dateTime?: string, timeZone?: string };
+
 export type CalendarEvent = {
     readonly kind: string;
     readonly etag: string;
@@ -11,8 +13,8 @@ export type CalendarEvent = {
     readonly location?: string;
     readonly creator: { email: string, self: boolean };
     readonly organizer: { email: string, self: boolean };
-    readonly start: { date?: string, dateTime?: string, timeZone?: string };
-    readonly end?: { date?: string, dateTime?: string, timeZone?: string };
+    readonly start: CalendarDate;
+    readonly end: CalendarDate;
     readonly iCalUID: string;
     readonly sequence: number;
     readonly reminders: { useDefault: boolean };

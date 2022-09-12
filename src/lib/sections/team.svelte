@@ -1,0 +1,41 @@
+<script>
+    import Icon from 'svelte-awesome';
+    import {TEAM} from '$lib/constants/team.ts';
+    const AVATAR_FALLBACK_URL = "https://ui-avatars.com/api/?font-size=0.2&name=";
+
+</script>
+
+<section id="team" class="bg-white dark:bg-gray-900">
+    <div class="container px-6 py-10 mx-auto">
+        <div class="xl:flex xl:items-center xL:-mx-4">
+        </div>
+        <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-5 sm:grid-cols-1">
+            <div class="col-span-3 xl:mx-4 my-16">
+                <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Our Team</h1>
+                <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias, adipisci rem similique, at omnis eligendi optio eos harum.
+                </p>
+            </div>
+
+            {#each TEAM as member}
+                <div class="flex flex-col items-center">
+                    <img class="object-cover w-full rounded-xl aspect-square" src={member.photo ?? AVATAR_FALLBACK_URL+member.name.replace(" ","+")} alt={member.name}>
+                    <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">{member.name}</h1>
+                    <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">{member.role}</p>
+
+                    <div class="flex mt-3 -mx-2">
+                        {#each member.socials as social}
+                            <a href={social.link} class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label={social.name}>
+                                {#if social.icon}
+                                    <Icon data={social.icon}/>
+                                {:else}
+                                    {social.name}
+                                {/if}
+                            </a>
+                        {/each}
+                    </div>
+                </div>
+            {/each}
+        </div>
+    </div>
+</section>

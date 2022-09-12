@@ -1,24 +1,22 @@
 <script>
-    import Events from '../sections/events.svelte';
-    import Header from '../sections/header.svelte';
-    import Team from '../sections/team.svelte';
-    import Places from '../sections/places.svelte';
-    import Tips from '../sections/tips.svelte';
-    import FAQ from '../sections/faq.svelte';
+    import Header from '$lib/sections/header.svelte';
+    import Events from '$lib/sections/events.svelte';
+    import Places from '$lib/sections/places.svelte';
+    import FAQ from '$lib/sections/faq.svelte';
 
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
-    console.log(data)
-    const {events, calendar, error} = data;
+    const {events, ical, error} = data;
+    console.log('page', events, ical);
 </script>
 
 
 <Header/>
-<Events events={events}/>
+<Events events={events} ical={ical}/>
 <Places/>
-<Tips/>
+<!--<Tips/>-->
 <FAQ/>
-<Team/>
+<!--<Team/>-->
 <!--Photos from events-->
 <!--Student Life: Resources about studying at eurecom, -->
 <!--Getting around: tips on living in the area, transport, etc-->
