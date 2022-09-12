@@ -23,7 +23,7 @@ export const routes: Page[] = [
         ]
     },
     {
-        name: 'About', path: '/about', emoji: '📮',sections: [
+        name: 'About', path: '/about', emoji: '🏢',sections: [
             {name: 'The team', tag: '#team'},
             {name: 'Partners', tag: '#partners'},
             {name: 'Contact us', tag: '#contact'}

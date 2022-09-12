@@ -9,8 +9,8 @@
 
 <section id="events">
     <div class="py-8">
-        <div class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
-            <div class="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
+        <div class="container mx-auto flex flex-col items-start lg:flex-row my-12 md:my-24">
+            <div class="flex flex-col w-full lg:sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
                 <p class="text-300 uppercase tracking-loose dark:text-gray-400">Upcoming Events</p>
                 <p class="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Don't miss out</p>
                 <p class="text-sm md:text-base text-50 mb-4 dark:text-gray-400">
@@ -37,7 +37,7 @@
                     </div>
                 </form>
             </div>
-            <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
+            <div class="ml-0 lg:ml-12 lg:w-2/3 w-full lg:sticky">
                 <div class="container mx-auto w-full h-full">
                     <div class="relative wrap p-10 h-full">
                         <div class="absolute right-1/2 h-full">
