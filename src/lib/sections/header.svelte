@@ -1,4 +1,4 @@
-<header class="bg-white dark:bg-gray-900">
+<header>
     <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div class="flex justify-center order-2 mt-6 lg:mt-0 lg:space-y-3 lg:flex-col">

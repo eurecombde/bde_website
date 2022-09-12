@@ -3,7 +3,7 @@
 
 </script>
 
-<section class="bg-white dark:bg-gray-900">
+<section>
     <div class="container px-6 py-10 mx-auto">
     <div class="py-2">
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Student Guides</h1>
@@ -73,6 +73,5 @@
         </div>
     </div>
 </section>
-
 
 <FAQ/>

@@ -1,4 +1,4 @@
-<section id="faq"  class="bg-white dark:bg-gray-900">
+<section id="faq" >
     <div class="container px-6 py-12 mx-auto">
         <h1 class="text-2xl font-semibold text-center text-gray-800 lg:text-4xl dark:text-white">Have any Questions?</h1>
 

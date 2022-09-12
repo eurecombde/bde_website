@@ -6,7 +6,7 @@
 
 </script>
 
-<section id="team" class="bg-white dark:bg-gray-900">
+<section id="team">
     <div class="container px-6 py-10 mx-auto">
         <div class="xl:flex xl:items-center xL:-mx-4">
         </div>

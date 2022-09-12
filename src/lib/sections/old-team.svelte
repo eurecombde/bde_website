@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-gray-900">
+<section>
     <div class="container px-6 py-10 mx-auto">
         <div class="xl:flex xl:items-center xL:-mx-4">
             <div class="xl:w-1/2 xl:mx-4">

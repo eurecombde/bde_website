@@ -14,7 +14,7 @@
 
 </script>
 
-<nav class="bg-white dark:bg-gray-900">
+<nav>
     <div class="container p-6 mx-auto">
         <a class="block text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">BEDrock @ EURECOM</a>
         <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
@@ -34,7 +34,7 @@
 
 <slot/>
 
-<footer class="bg-white dark:bg-gray-900">
+<footer>
     <div class="container p-6 mx-auto">
         <div class="lg:flex">
             <div class="w-full -mx-6 lg:w-2/5">

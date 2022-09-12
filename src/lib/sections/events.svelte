@@ -3,7 +3,7 @@
 
     export let events, ical;
 
-    console.log('events',events, ical);
+    console.log('events', events, ical);
 </script>
 
 
@@ -11,9 +11,9 @@
     <div class="py-8">
         <div class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
             <div class="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
-                <p class=" text-300 uppercase tracking-loose">Upcoming Events</p>
+                <p class="text-300 uppercase tracking-loose dark:text-gray-400">Upcoming Events</p>
                 <p class="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Don't miss out</p>
-                <p class="text-sm md:text-base text-50 mb-4">
+                <p class="text-sm md:text-base text-50 mb-4 dark:text-gray-400">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut
                     aliquam tincidunt, nisl elit fermentum massa, nec luctus nunc ante ut dui.
                 </p>
@@ -40,8 +40,8 @@
             <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
                 <div class="container mx-auto w-full h-full">
                     <div class="relative wrap overflow-hidden p-10 h-full">
-                        <div class="border-2-2 border-yellow-555 absolute h-full border" style="right: 50%; border: 2px solid #333; border-radius: 1%;"></div>
-                        <div class="border-2-2 border-yellow-555 absolute h-full border" style="left: 50%; border: 2px solid #333; border-radius: 1%;"></div>
+                        <div class="border-2-2 border-yellow-555 absolute h-full border dark:border-white border-gray-800 right-1/2 border-2 rounded-l-lg"></div>
+                        <div class="border-2-2 border-yellow-555 absolute h-full border dark:border-white border-gray-800 left-1/2 border-2 rounded-r-lg"></div>
 
                         {#each events as event, index}
                             <Event event={event} index={index}/>

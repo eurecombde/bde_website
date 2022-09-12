@@ -3,7 +3,7 @@
     import {tripadvisor} from 'svelte-awesome/icons';
 </script>
 
-<section id="places" class="bg-white dark:bg-gray-900">
+<section id="places">
     <div class="relative flex">
         <div class="min-h-screen lg:w-1/3"></div>
         <div class="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
@@ -36,7 +36,7 @@
 
                     <a href="https://www.tripadvisor.com/Attraction_Review-g187222-d519886-Reviews-Le_Jardin_Exotique_d_Eze-Eze_French_Riviera_Cote_d_Azur_Provence_Alpes_Cote_d_Azur.html">
 
-                        <h3 class="mt-6 text-lg font-medium text--500">
+                        <h3 class="mt-6 text-lg font-medium text-gray-800 dark:text-white">
                             <Icon data={tripadvisor}/> Tripadvisor</h3>
                         <!--                    <p class="text-gray-600 dark:text-gray-300">Tripadvisor</p>-->
                     </a>
