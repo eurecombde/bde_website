@@ -1,7 +1,6 @@
 <script>
     import Header from '$lib/sections/header.svelte';
     import Events from '$lib/sections/events.svelte';
-    import Places from '$lib/sections/places.svelte';
 
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
@@ -12,7 +11,7 @@
 
 <Header/>
 <Events events={events} ical={ical}/>
-<Places/>
+<!--<Places/>-->
 <!--<Tips/>-->
 <!--<Team/>-->
 <!--Photos from events-->

@@ -5,6 +5,7 @@
     import Tips from '$lib/sections/tips.svelte';
 
     import {fade} from 'svelte/transition';
+    import Places from '$lib/sections/places.svelte';
 
     export let data;
     const {guides, error} = data;
@@ -86,4 +87,6 @@
 </section>
 
 <Tips/>
+<Places/>
+
 <FAQ/>
