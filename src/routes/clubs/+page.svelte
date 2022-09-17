@@ -6,7 +6,7 @@
     const id = "list"
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
 
-    $: filter = ($page.url.hash.replace("#", "") ?? "featured").toLowerCase();
+    $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
     $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
 </script>
 
@@ -18,10 +18,22 @@
                 <h1 class="text-xl font-semibold text-gray-800 dark:text-white">Categories</h1>
 
                 <div class="mt-4 space-y-4 lg:mt-8">
-                    <a href="#all" class="pl-6 block hover:underline text-gray-500 dark:text-gray-300" class:text-blue-500={filter==="all"}>All</a>
-                    <a href="#featured" class="block hover:underline text-gray-500 dark:text-gray-300" class:text-blue-500={filter==="featured"}>⭐️ Featured</a>
+                    <a href="#all" class="pl-6 block hover:underline text-gray-500 dark:text-gray-300"
+                       class:text-blue-500={filter==="all"}
+                       class:dark:text-blue-400={filter==="all"}>
+                        All
+                    </a>
+                    <a href="#featured" class="block hover:underline text-gray-500 dark:text-gray-300"
+                       class:text-blue-500={filter==="featured"}
+                       class:dark:text-blue-400={filter==="featured"}>
+                        ⭐️ Featured
+                    </a>
                     {#each categories as category}
-                        <a href="#{category.name.toLowerCase()}" class="block text-gray-500 dark:text-gray-300 hover:underline" class:text-blue-500={filter===category.name.toLowerCase()}>{category.emoji} {category.name}</a>
+                        <a href="#{category.name.toLowerCase()}"
+                           class="block text-gray-500 dark:text-gray-300 hover:underline"
+                           class:text-blue-500={filter===category.name.toLowerCase()}
+                           class:dark:text-blue-500={filter===category.name.toLowerCase()}>
+                            {category.emoji} {category.name}</a>
                     {/each}
                 </div>
             </div>
