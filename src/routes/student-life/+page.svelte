@@ -1,8 +1,13 @@
 <script>
+    import Markdown from 'svelte-markdown'
+
     import FAQ from '$lib/sections/faq.svelte';
     import Tips from '$lib/sections/tips.svelte';
 
     import {fade} from 'svelte/transition';
+
+    export let data;
+    const {guides, error} = data;
 
 </script>
 
@@ -19,6 +24,7 @@
 
                     <h1 class="max-w-lg mt-4 text-4xl font-semibold leading-tight text-gray-800 dark:text-white">
                         What do you want to know about UI
+                        <!--                        <Markdown source={readme}/>-->
                     </h1>
 
                     <div class="flex items-center mt-6">
@@ -31,45 +37,49 @@
                     </div>
                 </div>
             </div>
-
             <div class="mt-8 lg:w-1/4 lg:mt-0 lg:px-6">
-                <div>
-                    <h3 class="text-blue-500 capitalize">Design instument</h3>
+                <!--Guide list-->
 
-                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">
-                        How to raise $100k+ by using blox ui kit on your design
-                    </a>
-                </div>
+                {#each guides as guideAndMeta}
+                    <div>
+                        <h3 class="text-blue-500 capitalize">{guideAndMeta.metadata.category}</h3>
 
-                <hr class="my-6 border-gray-200 dark:border-gray-700">
+                        <a href="/student-life/{guideAndMeta.guide.path}" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">
+                            {guideAndMeta.metadata.title}
+                        </a>
+                    </div>
 
-                <div>
-                    <h3 class="text-blue-500 capitalize">UI Resource</h3>
+                    <hr class="my-6 border-gray-200 dark:border-gray-700">
+                {/each}
 
-                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">
-                        Should you creat UI Product by using Blox?
-                    </a>
-                </div>
 
-                <hr class="my-6 border-gray-200 dark:border-gray-700">
+                <!--                <div>-->
+                <!--                    <h3 class="text-blue-500 capitalize">UI Resource</h3>-->
 
-                <div>
-                    <h3 class="text-blue-500 capitalize">Premium Collection</h3>
+                <!--                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">-->
+                <!--                        Should you creat UI Product by using Blox?-->
+                <!--                    </a>-->
+                <!--                </div>-->
 
-                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">
-                        Top 10 Blocks you can get on Blox's collection.
-                    </a>
-                </div>
+                <!--                <hr class="my-6 border-gray-200 dark:border-gray-700">-->
 
-                <hr class="my-6 border-gray-200 dark:border-gray-700">
+                <!--                <div>-->
+                <!--                    <h3 class="text-blue-500 capitalize">Premium Collection</h3>-->
 
-                <div>
-                    <h3 class="text-blue-500 capitalize">Premium kits</h3>
+                <!--                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">-->
+                <!--                        Top 10 Blocks you can get on Blox's collection.-->
+                <!--                    </a>-->
+                <!--                </div>-->
 
-                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">
-                        Top 10 Ui kit you can get on Blox's collection.
-                    </a>
-                </div>
+                <!--                <hr class="my-6 border-gray-200 dark:border-gray-700">-->
+
+                <!--                <div>-->
+                <!--                    <h3 class="text-blue-500 capitalize">Premium kits</h3>-->
+
+                <!--                    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">-->
+                <!--                        Top 10 Ui kit you can get on Blox's collection.-->
+                <!--                    </a>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>

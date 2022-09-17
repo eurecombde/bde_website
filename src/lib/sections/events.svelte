@@ -3,8 +3,6 @@
     import {fade} from 'svelte/transition';
 
     export let events, ical;
-
-    console.log('events', events, ical);
 </script>
 
 
