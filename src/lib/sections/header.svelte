@@ -1,5 +1,15 @@
 <script>
     import {fade} from 'svelte/transition';
+    import {headers} from '$lib/constants/photos';
+
+    let page = 0;
+
+    function goto(index) {
+        page = Math.abs(index) % headers.length;
+    }
+
+    $: current = headers[page];
+
 </script>
 
 
@@ -7,10 +17,9 @@
     <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div class="flex justify-center order-2 mt-6 lg:mt-0 lg:space-y-3 lg:flex-col">
-                <button class="w-3 h-3 mx-2 bg-blue-500 rounded-full lg:mx-0 focus:outline-none"></button>
-                <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full lg:mx-0 focus:outline-none hover:bg-blue-500"></button>
-                <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full lg:mx-0 focus:outline-none hover:bg-blue-500"></button>
-                <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full lg:mx-0 focus:outline-none hover:bg-blue-500"></button>
+                {#each headers as _, i}
+                    <button class="w-3 h-3 mx-2 bg-blue-500 rounded-full lg:mx-0 focus:outline-none" on:click={() => goto(i)}></button>
+                {/each}
             </div>
 
             <div class="max-w-lg lg:mx-12 lg:order-2">
@@ -25,7 +34,7 @@
         </div>
 
         <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-            <img class="object-cover w-full h-full max-w-2xl rounded-md" src="images/hero1.jpeg" alt="apple watch photo">
+            <img class="object-cover w-full h-full max-w-2xl rounded-md" src="{current}"/>
         </div>
     </div>
 </header>
