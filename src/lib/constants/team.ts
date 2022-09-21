@@ -100,9 +100,4 @@ export const team = [
         role: "",
         socials: []
     },
-    {
-        name: "Gauthier",
-        role: "",
-        socials: []
-    },
 ];

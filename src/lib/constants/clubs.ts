@@ -7,5 +7,6 @@ const ENTERTAINMENT: Category = {name: "Entertainment", emoji: "🎮"};
 export const clubs: Club[] = [
     {name: "Climbing", category: SPORT, featured: true},
     {name: "Basketball", category: SPORT, featured: true},
-    {name: "Wine tasting", featured: true, category: SOCIAL},
+    {name: "Wine tasting", category: SOCIAL, featured: true},
+    {name: "Board Games", category: SOCIAL, featured: false},
 ];
