@@ -7,6 +7,13 @@
     const {events, ical, error} = data;
 </script>
 
+{#if error}
+    <div class="m-10 flex justify-center">
+        <div class="lg:w-1/2 p-4 text-red-700 border rounded border-red-900/10 bg-red-50 justify-center flex" role="alert">
+            <strong class="text-sm font-medium">❗️ {error} ❗️</strong>
+        </div>
+    </div>
+{/if}
 
 <Header/>
 <Events events={events} ical={ical}/>

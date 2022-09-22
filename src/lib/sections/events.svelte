@@ -1,7 +1,6 @@
 <script>
     import Event from '$lib/components/event.svelte';
     import {fade} from 'svelte/transition';
-    import Tooltip from '@fouita/tooltip'
 
     export let events, ical;
     let show = true
@@ -15,8 +14,7 @@
                 <p class="text-300 uppercase tracking-loose dark:text-gray-400">Upcoming Events</p>
                 <p class="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">Don't miss out</p>
                 <p class="text-sm md:text-base text-50 mb-4 dark:text-gray-400">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut
-                    aliquam tincidunt, nisl elit fermentum massa, nec luctus nunc ante ut dui.
+                    See the next events in the timeline
                 </p>
                 <a href={ical} class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
                     Keep me up to date
