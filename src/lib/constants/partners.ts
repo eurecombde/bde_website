@@ -18,6 +18,5 @@ export const offers: Offer[] = [
             "They provide bulks of beverages and equipment for reduced prices and in return we take pictures at our events with their cans.",
         url: "https://www.redbull.com"
     },
-    {name: "Tailor made suits", icon: shirtsinbulk, description: "", url: "penguin suits"},
-    {name: "Tailor made suits", icon: shirtsinbulk, description: "", url: "penguin suits"},
+    {name: "Tailor made suits", icon: shirtsinbulk, description: "", url: ""},
 ];
