@@ -14,7 +14,7 @@
             <div class="col-span-2 xl:mx-4 my-16">
                 <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">The <span class="underline decoration-blue-500">Team</span></h1>
                 <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias, adipisci rem similique, at omnis eligendi optio eos harum.
+                    We are all here doing our best to help make our student life the best we can. If there is something you are wondering about, feel free to ask here or any of our members 😊
                 </p>
             </div>
 

@@ -37,9 +37,9 @@ export const team = [
                 icon: linkedinSquare
             },
             {
-                name: "GitHub",
-                link: "https://github.com/roberthmoller/",
-                icon: githubSquare
+                name: "Facebok",
+                link: "https://www.facebook.com/profile.php?id=100001996573548",
+                icon: facebookSquare
             },
         ]
     },

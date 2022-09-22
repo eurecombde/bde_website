@@ -6,6 +6,7 @@
 
     import {fade} from 'svelte/transition';
     import Places from '$lib/sections/places.svelte';
+    // import {Info} from '$lib/components/info.svelte';
 
     export let data;
     const {guides, error} = data;
@@ -14,6 +15,8 @@
 
 <section in:fade out:fade>
     <div class="container px-6 py-10 mx-auto">
+<!--        <Info>This page is under development</Info>-->
+
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Student Guides</h1>
 
         <div class="mt-8 xl:mt-16 lg:flex lg:-mx-6 lg:flex">

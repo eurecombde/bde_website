@@ -5,7 +5,6 @@
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
     const {events, ical, error} = data;
-    console.log('page', events, ical);
 </script>
 
 

@@ -1,6 +1,7 @@
 <script>
     import {fade} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
+    import {Info} from '$lib/components/info';
     import {page} from '$app/stores';
 
     const id = "list"
@@ -12,6 +13,8 @@
 
 <section in:fade out:fade id>
     <div class="container px-6 py-12 mx-auto">
+        <Info>This page is under development</Info>
+
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Clubs</h1>
         <div class="mt-8 xl:mt-16 lg:flex lg:-mx-12">
             <div class="lg:mx-12">
