@@ -23,8 +23,8 @@ export async function load(): Promise<{ events: CalendarEvent[], ical: string, e
         if (!events.data.items) return {events: [], ical, error: 'No events found'};
         return {events: events.data.items.map((event: any) => event as CalendarEvent), ical};
     } catch (error) {
-        console.error('+page.server#load', 'Google Calendar returned an error');
+        console.error('+page.server#load', '|', 'Google Calendar returned an error');
         console.error(error)
-        return {events: [], ical, error};
+        return {events: [], ical, error: "We failed to fetch the events"};
     }
 }

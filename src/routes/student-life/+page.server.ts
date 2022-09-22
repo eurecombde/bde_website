@@ -40,6 +40,7 @@ class TextToStudentGuideMetadataTransformer {
             ?.replace(matcher, "$1");
     }
 }
+const ssr = true;
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load(): Promise<{ guides?: { guide: StudentGuide, metadata: StudentGuideMetadata }[], error?: any }> {
