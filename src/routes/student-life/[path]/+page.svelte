@@ -1,14 +1,14 @@
-<script>
-    import Markdown from 'svelte-markdown';
+<!--<script>-->
+<!--    import Markdown from 'svelte-markdown';-->
 
-    export let data;
-    const {source, history, error} = data;
-    console.log(history);
-</script>
+<!--    export let data;-->
+<!--    const {source, history, error} = data;-->
+<!--    console.log(history);-->
+<!--</script>-->
 
-{#each history as commit}
-    <p>{commit.author.name}</p>
-    <p>{commit.author.date}</p>
-{/each}
+<!--{#each history as commit}-->
+<!--    <p>{commit.author.name}</p>-->
+<!--    <p>{commit.author.date}</p>-->
+<!--{/each}-->
 
-<Markdown {source}/>
+<!--<Markdown {source}/>-->
