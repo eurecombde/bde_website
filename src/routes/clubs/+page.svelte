@@ -1,19 +1,21 @@
-<script>
+<script context="module">
     import {fade} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
-    import {Info} from '$lib/components/info';
     import {page} from '$app/stores';
+    import Alert from '$lib/components/alert.svelte';
+    import {INFO} from '$lib/components/alert-types';
 
-    const id = "list"
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
+</script>
 
+<script>
     $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
     $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
 </script>
 
 <section in:fade out:fade id>
     <div class="container px-6 py-12 mx-auto">
-        <Info>This page is under development</Info>
+        <Alert type={INFO}>This page is under development</Alert>
 
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Clubs</h1>
         <div class="mt-8 xl:mt-16 lg:flex lg:-mx-12">

@@ -1,13 +1,12 @@
 <script>
     import Event from '$lib/components/event.svelte';
-    import {fade} from 'svelte/transition';
+    import {fly} from 'svelte/transition';
 
     export let events, ical;
-    let show = true
 </script>
 
 
-<section id="events" in:fade out:fade>
+<section id="events" in:fly={{y: 100 ,duration: 250 , delay:500}} out:fly={{y: 100 ,duration: 250}}>
     <div class="py-8">
         <div class="container mx-auto flex flex-col items-start lg:flex-row my-12 md:my-24">
             <div class="flex flex-col w-full lg:sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">

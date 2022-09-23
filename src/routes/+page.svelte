@@ -5,16 +5,14 @@
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
     const {events, ical, error} = data;
+    import Alert from '$lib/components/alert.svelte';
+    import {ERROR} from '$lib/components/alert-types';
+
 </script>
 
 {#if error}
-    <div class="m-10 flex justify-center">
-        <div class="lg:w-1/2 p-4 text-red-700 border rounded border-red-900/10 bg-red-50 justify-center flex" role="alert">
-            <strong class="text-sm font-medium">❗️ {error} ❗️</strong>
-        </div>
-    </div>
+    <Alert type={ERROR}>{error}</Alert>
 {/if}
-
 <Header/>
 <Events events={events} ical={ical}/>
 <!--<Places/>-->

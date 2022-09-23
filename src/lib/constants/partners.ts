@@ -9,7 +9,7 @@ export const partners: Partner[] = [
 export type Offer = { name: string, icon: any, description: string, url: string }
 
 export const offers: Offer[] = [
-    {name: "ISIC", icon: ticket, description: "Student Discounts", url: "https://www.isic.org"},
+    {name: "ISIC", icon: ticket, description: "Student Discounts", url: "https://www.isic.fr"},
     {
         name: "Red Bull",
         icon: glass,

@@ -29,7 +29,7 @@ export const team = [
     {
         name: "Robert Moller",
         role: "BDE President",
-        photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
+        // photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
         socials: [
             {
                 name: "LinkedIn",

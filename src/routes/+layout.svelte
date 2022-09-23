@@ -8,6 +8,7 @@
     import {facebookSquare, instagram} from 'svelte-awesome/icons';
     import {routes} from '$lib/constants/routes';
     import {contact} from '$lib/constants/team';
+    import {fly, fade} from 'svelte/transition';
 
     $: activePath = $page.url.pathname;
     $: activeRoute = routes.find((route) => route.path === activePath);
@@ -20,7 +21,7 @@
     <title>{title}</title>
 </svelte:head>
 
-<nav>
+<nav in:fly={{y: 100 ,duration: 250}}>
     <div class="container p-6 mx-auto">
         <a class="block text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">BEDrock @ EURECOM</a>
         <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">

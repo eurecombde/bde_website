@@ -6,7 +6,7 @@
 
     import {fade} from 'svelte/transition';
     import Places from '$lib/sections/places.svelte';
-    // import {Info} from '$lib/components/info.svelte';
+    // import {Info} from '$lib/components/alert.svelte';
 
     export let data;
     const {guides, error} = data;
