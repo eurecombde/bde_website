@@ -9,7 +9,6 @@
     }
 
     $: current = headers[page];
-
 </script>
 
 
@@ -28,7 +27,7 @@
                 </div>
             {/if}
             <div class="max-w-lg lg:mx-12 lg:order-2">
-                <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">The best a student can get</h1>
+                <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">Student life in Cote d'Azur</h1>
                 <p class="mt-4 text-gray-600 dark:text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.</p>
                 <div class="mt-6">
                     <a href="#events" class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">

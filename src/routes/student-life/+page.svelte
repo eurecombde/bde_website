@@ -1,6 +1,4 @@
 <script>
-    import Markdown from 'svelte-markdown'
-
     import FAQ from '$lib/sections/faq.svelte';
     import Tips from '$lib/sections/tips.svelte';
 
