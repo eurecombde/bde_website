@@ -42,7 +42,7 @@
                         </div>
                     {/if}
                     <hr class="my-8"/>
-                    <form data-netlify="true" method="post" name="suggestion">
+                    <form name="suggestion" netlify>
                         <p class="text-sm md:text-base text-50 mb-4">
                             If you have any great ideas for events you would like to see, please let us know!
                         </p>
@@ -55,7 +55,9 @@
                         </div>
 
                         <div class="flex justify-end mt-6">
-                            <button disabled class="px-8 py-2.5 cursor-pointer leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Send it!</button>
+                            <button type="submit" class="px-8 py-2.5 cursor-pointer leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                                Send it!
+                            </button>
                         </div>
                     </form>
                 </div>
