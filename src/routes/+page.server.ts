@@ -1,28 +1,31 @@
-import {CALENDAR_ID, SCOPES, SERVICE_ACCOUNT_EMAIL, SERVICE_ACCOUNT_PRIVATE_KEY} from '$env/static/private';
-import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
-import type {CalendarEvent} from "../types/calendar-event";
+import {CALENDAR_ID, API_KEY} from '$env/static/private';
 
-/** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
-export async function load(): Promise<{ events:CalendarEvent[] ,calendar: string, error: string}> {
-    const auth = new Auth.JWT(SERVICE_ACCOUNT_EMAIL, undefined, SERVICE_ACCOUNT_PRIVATE_KEY, SCOPES);
-    const calendar = Calendar({version: 'v3', auth});
+import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
+import type {CalendarEvent} from "$lib/types/calendar-event";
+
+/** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[], ical: string, error: string}>>} */
+export async function load(): Promise<{ events: CalendarEvent[], ical: string, error?: any }> {
+    const ical = `https://calendar.google.com/calendar/ical/${CALENDAR_ID.replace("@", "%40")}/public/basic.ics`
+    const auth = Auth.fromAPIKey(API_KEY);
+    const calendar = Calendar({version: 'v3', auth: auth});
+
+    const today = new Date();
+    today.setHours(0);
 
     try {
-        console.debug('Fetching calendar events from', CALENDAR_ID);
         const events = await calendar.events.list({
             calendarId: CALENDAR_ID,
-            // timeMin: (new Date()).toISOString(), // From now to the future // todo: should this be from yesterday to show events that are happing now?
+            timeMin: today.toISOString(), // todo: should this be from yesterday to show events that are happing now?
             maxResults: 10,
             singleEvents: true,
             orderBy: 'startTime',
         });
-
-        console.debug('Received events', events.data.items);
-
-        if (!events.data.items) return {events: [], calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: 'no items found'};
-        return {events: events.data.items.map((event: any) => event as CalendarEvent), calendar: CALENDAR_ID+', '+ SCOPES+', '+ SERVICE_ACCOUNT_EMAIL+', '+ SERVICE_ACCOUNT_PRIVATE_KEY, error: ''};
-    } catch (err) {
-        console.error('Google Calendar returned an error: ' + err);
-        return {events: [], calendar: CALENDAR_ID + ', ' + SCOPES + ', ' + SERVICE_ACCOUNT_EMAIL + ', ' + SERVICE_ACCOUNT_PRIVATE_KEY, error: 'Google Calendar returned an error: ' + err}; // todo: +error.svelte & throw error(500,'fubar')
+        if (!events.data.items) return {events: [], ical, error: 'No events found'};
+        const events1 = events.data.items.map((event: any) => event as CalendarEvent);
+        return {events: events1, ical};
+    } catch (error) {
+        console.error('+page.server#load', '|', 'Google Calendar returned an error');
+        console.error(error)
+        return {events: [], ical, error: "We failed to fetch the events"};
     }
 }
