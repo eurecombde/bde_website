@@ -21,7 +21,8 @@ export async function load(): Promise<{ events: CalendarEvent[], ical: string, e
             orderBy: 'startTime',
         });
         if (!events.data.items) return {events: [], ical, error: 'No events found'};
-        return {events: events.data.items.map((event: any) => event as CalendarEvent), ical};
+        const events1 = events.data.items.map((event: any) => event as CalendarEvent);
+        return {events: events1, ical};
     } catch (error) {
         console.error('+page.server#load', '|', 'Google Calendar returned an error');
         console.error(error)

@@ -2,6 +2,7 @@
     import {fade, fly} from 'svelte/transition';
     import {headers} from '$lib/constants/photos';
 
+    export let events = [];
     let page = 0;
 
     function goto(index) {
@@ -27,13 +28,17 @@
                 </div>
             {/if}
             <div class="max-w-lg lg:mx-12 lg:order-2">
-                <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">Student life in Cote d'Azur</h1>
-                <p class="mt-4 text-gray-600 dark:text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.</p>
-                <div class="mt-6">
-                    <a href="#events" class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
-                        See what's happening
-                    </a>
-                </div>
+                <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">EURECOMs Student Association</h1>
+                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                    We are working on this website and we will post clubs, frequently asked questions and more shortly.
+                </p>
+                {#if events.length > 0}
+                    <div class="mt-6">
+                        <a href="#events" class="bg-transparent mr-auto text-black-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
+                            See what's happening
+                        </a>
+                    </div>
+                {/if}
             </div>
         </div>
 

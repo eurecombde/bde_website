@@ -5,7 +5,6 @@ export const routes: Page[] = [
     {
         name: 'Home', path: '/' ,sections: [
             {name: 'Upcoming events', tag: '#events'},
-            {name: 'Places in the area', tag: '#places'},
         ]
     },
     // {
@@ -13,7 +12,7 @@ export const routes: Page[] = [
     //         {name: 'Student Guides', tag: '#guides'},
     //         {name: 'Deals & Partners', tag: '#tips'},
     //         {name: 'Frequent questions', tag: '#faq'}
-    //
+    //         {name: 'Places in the area', tag: '#places'},
     //     ]
     // },
     // {
