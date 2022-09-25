@@ -57,7 +57,7 @@
                         class="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
                     <h1 class="text-lg font-medium text-gray-700">What do you want to ask</h1>
 
-                    <form class="mt-6" data-netlify="true" method="post" name="contact">
+                    <form class="mt-6" name="contact" netlify>
                     <!-- action="/about#contact?success">-->
                         <div class="flex-1">
                             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
@@ -76,7 +76,7 @@
                                       placeholder="Message"></textarea>
                         </div>
 
-                        <button class="cursor-pointer  w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        <button type="submit" class="cursor-pointer  w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                             get in touch
                         </button>
                         <!--{#if success}-->
