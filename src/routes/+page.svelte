@@ -1,18 +1,18 @@
 <script>
     import Header from '$lib/sections/header.svelte';
     import Events from '$lib/sections/events.svelte';
-    import Alert from '$lib/components/alert.svelte';
-    import {ERROR} from '$lib/components/alert-types';
+    import {addToast, ToastType} from '$lib/components/toast/store'
 
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
     const {events, ical, error} = data;
+
+    if (error) {
+        addToast({type: ToastType.ERROR, message: error});
+    }
 </script>
 
-{#if error}
-    <Alert type={ERROR}>{error}</Alert>
-{/if}
-<Header events={events}]/>
+<Header events={events}/>
 <Events events={events} ical={ical}/>
 
 <!--Photos from events-->

@@ -9,13 +9,29 @@
     import {routes} from '$lib/constants/routes';
     import {contact} from '$lib/constants/team';
     import {fly, fade} from 'svelte/transition';
+    import Toast from '$lib/components/toast/toast.svelte'
+    import {dismissToast, toasts} from '$lib/components/toast/store'
+
 
     $: activePath = $page.url.pathname;
     $: activeRoute = routes.find((route) => route.path === activePath);
     $: title = activeRoute ? `BDE | ${activeRoute.name} ${activeRoute.emoji ?? ''}` : contact.brand;
 </script>
 
-<style></style>
+<style lang="postcss">
+    section#toasts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        margin-top: 1rem;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 1000;
+    }
+</style>
 
 <svelte:head>
     <title>{title}</title>
@@ -38,6 +54,19 @@
         </div>
     </div>
 </nav>
+
+{#if $toasts}
+    <section id="toasts">
+        {#each $toasts as toast (toast.id)}
+            <Toast
+                    type={toast.type}
+                    dismissible={toast.dismissible}
+                    on:dismiss={() => dismissToast(toast.id)}>
+                {toast.message}
+            </Toast>
+        {/each}
+    </section>
+{/if}
 
 <slot/>
 
