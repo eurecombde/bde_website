@@ -60,6 +60,6 @@
 </section>
 
 <Tips/>
-<Places/>
+<!--<Places/>-->
 
 <FAQ/>
