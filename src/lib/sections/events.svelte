@@ -42,7 +42,8 @@
                         </div>
                     {/if}
                     <hr class="my-8"/>
-                    <form name="suggestion" netlify>
+                    <form name="suggestion" netlify method="POST" netlify-honeypot="bot-field" data-netlify="true">
+                        <input type="hidden" name="form-name" value="suggestion"/>
                         <p class="text-sm md:text-base text-50 mb-4">
                             If you have any great ideas for events you would like to see, please let us know!
                         </p>
