@@ -1,8 +1,9 @@
 import {writable} from 'svelte/store'
 
 export enum ToastType {
-    Success = 'success',
-    Info = 'info',
+    SUCCESS = 'success',
+    INFO = 'info',
+    ERROR = 'error',
 }
 
 export type Toast = {
@@ -35,7 +36,7 @@ export const addToast = (toast: ToastParameters) => {
     // Setup some sensible defaults for a toast.
     const t: Toast = Object.assign({
         id,
-        type: ToastType.Info,
+        type: ToastType.INFO,
         dismissible: true,
         timeout: 3000,
     }, toast);
