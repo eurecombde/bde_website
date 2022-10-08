@@ -15,12 +15,12 @@ export const routes: Page[] = [
     //         {name: 'Places in the area', tag: '#places'},
     //     ]
     // },
-    // {
-    //     name: 'Clubs', path: '/clubs', emoji: '🍷',sections: [
-    //         {name: 'All', tag: '#all'},
-    //         {name: 'Featured', tag: '#featured'}
-    //     ]
-    // },
+    {
+        name: 'Clubs', path: '/clubs', emoji: '🍷',sections: [
+            {name: 'All', tag: '#all'},
+            {name: 'Featured', tag: '#featured'}
+        ]
+    },
     {
         name: 'About', path: '/about', emoji: '🏢',sections: [
             {name: 'The team', tag: '#team'},
