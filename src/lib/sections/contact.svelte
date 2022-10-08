@@ -73,7 +73,7 @@
                         class="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
                     <h1 class="text-lg font-medium text-gray-700">What do you want to ask</h1>
 
-                    <form class="mt-6" name="contact" netlify-honeypot="bot-field" data-netlify="true" on:submit|preventDefault={contactUs}>
+                    <form class="mt-6" name="contact" netlify netlify-honeypot="bot-field" data-netlify="true" on:submit|preventDefault={contactUs}>
                         <input type="hidden" name="form-name" value="contact"/>
                         <!-- action="/about#contact?success">-->
                         <div class="flex-1">
