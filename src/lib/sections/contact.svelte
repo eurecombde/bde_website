@@ -57,19 +57,19 @@
                         <input type="hidden" name="form-name" value="contact"/>
                         <div class="flex-1">
                             <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
-                            <input required type="text" name="name" placeholder="John Doe"
+                            <input required type="text" name="name" id="name" placeholder="John Doe"
                                    class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
                         </div>
 
                         <div class="flex-1 mt-6">
                             <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
-                            <input required type="email" name="email" placeholder="johndoe@example.com"
+                            <input required type="email" name="email" id="email" placeholder="johndoe@example.com"
                                    class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
                         </div>
 
                         <div class="w-full mt-6">
                             <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
-                            <textarea required name="message" placeholder="Message"
+                            <textarea required name="message" id="message" placeholder="Message"
                                       class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"></textarea>
                         </div>
 
