@@ -12,7 +12,7 @@
     function contactUs(event) {
         const body = new URLSearchParams(new FormData(event.target)).toString();
         console.log(body)
-        fetch('https://bde.eurecom.fr/about', {
+        fetch('/', {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: body,
