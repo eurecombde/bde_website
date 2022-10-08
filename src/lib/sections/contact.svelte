@@ -10,7 +10,7 @@
     let name, email, message;
 
     function contactUs(event) {
-        fetch('/contact', {
+        fetch('/about', {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: new URLSearchParams(new FormData(event.target)).toString(),
@@ -71,7 +71,7 @@
                         class="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
                     <h1 class="text-lg font-medium text-gray-700">What do you want to ask</h1>
 
-                    <form class="mt-6" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+                    <form class="mt-6" name="contact" netlify-honeypot="bot-field" data-netlify="true" on:submit|preventDefault={contactUs}>
                         <input type="hidden" name="form-name" value="contact"/>
                         <!-- action="/about#contact?success">-->
                         <div class="flex-1">
