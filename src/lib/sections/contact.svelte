@@ -10,10 +10,12 @@
     let name, email, message;
 
     function contactUs(event) {
-        fetch('/about', {
+        const body = new URLSearchParams(new FormData(event.target)).toString();
+        console.log(body)
+        fetch('https://bde.eurecom.fr/about', {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: new URLSearchParams(new FormData(event.target)).toString(),
+            body: body,
         })
             .then(() => addToast({type: ToastType.SUCCESS, message: `Thank you ${name} for contacting us! We'll get back to you as soon as possible.`}))
             .catch(() => addToast({type: ToastType.ERROR, message: `We're sorry ${name}, something went wrong. Please send us an email instead`}))

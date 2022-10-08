@@ -7,11 +7,11 @@
     export let events = [], ical = '';
 
     function copySuccessfully() {
-        addToast({type: ToastType.Success, message: 'iCal link copied to clipboard'});
+        addToast({type: ToastType.SUCCESS, message: 'iCal link copied to clipboard'});
     }
 
     function downloadStarted() {
-        addToast({type: ToastType.Success, message: 'Download started'});
+        addToast({type: ToastType.SUCCESS, message: 'Download started'});
     }
 </script>
 
