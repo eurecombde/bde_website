@@ -1,26 +1,6 @@
-<script>
+<script context="module">
     import {contact} from '$lib/constants/team';
     import {GOOGLE_MAPS_QUERY} from '$lib/constants/links';
-    import {page} from '$app/stores';
-    import {addToast, ToastType} from '$lib/components/toast/store'
-
-    $: search = $page.url.search.replace("?", "") ?? "";
-    $: success = search.includes("success");
-
-    let name, email, message;
-
-    function contactUs(event) {
-        const body = new URLSearchParams(new FormData(event.target)).toString();
-        console.log(body)
-        fetch('/', {
-            method: "POST",
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: body,
-        })
-            .then(() => addToast({type: ToastType.SUCCESS, message: `Thank you ${name} for contacting us! We'll get back to you as soon as possible.`}))
-            .catch(() => addToast({type: ToastType.ERROR, message: `We're sorry ${name}, something went wrong. Please send us an email instead`}))
-            .finally(() => event.target.reset());
-    }
 </script>
 
 <section id="contact">
@@ -73,32 +53,28 @@
                         class="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
                     <h1 class="text-lg font-medium text-gray-700">What do you want to ask</h1>
 
-                    <form class="mt-6" name="contact" netlify netlify-honeypot="bot-field" data-netlify="true" on:submit|preventDefault={contactUs}>
+                    <form class="mt-6" name="contact" netlify method="POST" netlify-honeypot="bot-field" data-netlify="true">
                         <input type="hidden" name="form-name" value="contact"/>
                         <div class="flex-1">
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name
-                                <input required type="text" name="name" placeholder="John Doe" bind:value={name}
-                                       class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
-                            </label>
+                            <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
+                            <input required type="text" name="name" placeholder="John Doe"
+                                   class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
                         </div>
 
                         <div class="flex-1 mt-6">
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address
-                                <input required type="email" name="email" placeholder="johndoe@example.com" bind:value={email}
-                                       class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
-                            </label>
+                            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
+                            <input required type="email" name="email" placeholder="johndoe@example.com"
+                                   class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"/>
                         </div>
 
                         <div class="w-full mt-6">
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message
-                                <textarea required name="message" placeholder="Message" bind:value={message}
-                                          class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"></textarea>
-                            </label>
+                            <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
+                            <textarea required name="message" placeholder="Message"
+                                      class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"></textarea>
                         </div>
 
-                        <button type="submit" class="cursor-pointer  w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                            get in touch
-                        </button>
+                        <input type="submit" value="Get in touch"
+                               class="cursor-pointer w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"/>
                     </form>
                 </div>
             </div>
