@@ -1,9 +1,7 @@
 <script context="module">
-    import {fade} from 'svelte/transition';
+    import {fly} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
     import {page} from '$app/stores';
-    import Alert from '$lib/components/alert.svelte';
-    import {INFO} from '$lib/components/alert-types';
 
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
 </script>
@@ -13,10 +11,8 @@
     $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
 </script>
 
-<section in:fade out:fade id>
+<section in:fly={{y: 100 ,duration: 250, delay:250}} out:fly={{y: 100 ,duration: 250}} id>
     <div class="container px-6 py-12 mx-auto">
-        <Alert type={INFO}>This page is under development</Alert>
-
         <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">Clubs</h1>
         <div class="mt-8 xl:mt-16 lg:flex lg:-mx-12">
             <div class="lg:mx-12">
@@ -42,8 +38,8 @@
 
             <div class="flex-1 mt-8 lg:mx-12 lg:mt-0">
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 ">
-                    {#each filteredClubs as club}
-                        <div in:fade out:fade id={club.name}>
+                    {#each filteredClubs as club, index}
+                        <div in:fly={{ x: 100, duration: 250, delay: 250+ index * 100}} id={club.name}>
                             {#if club.photo}
                                 <img class="object-cover w-full rounded-lg h-52" alt={club.name}
                                      src={club.photo}>
