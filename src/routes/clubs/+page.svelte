@@ -49,7 +49,7 @@
                                      src={club.photo}>
                             {:else }
                                 <img class="object-cover w-full rounded-lg h-52" alt={club.name}
-                                     src="https://source.unsplash.com/1080x720/?{club.name.replace(' ', ',')}">
+                                     src="https://source.unsplash.com/1080x720/?{club.name.replace(' ', '-')}">
                             {/if}
                             <div class="flex row items-baseline w-full justify-between">
                                 <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">{club.name}</h2>
