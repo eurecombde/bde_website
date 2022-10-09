@@ -48,12 +48,14 @@
                     {#each filteredClubs as club}
                         <div in:fade out:fade id={club.name}>
                             {#if club.photo}
-                                <img class="object-cover w-full rounded-lg h-96 "
-                                     src="https://images.unsplash.com/photo-1621111848501-8d3634f82336?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1565&q=80"
-                                     alt="">
+                                <img class="object-cover w-full rounded-lg h-52" alt={club.name}
+                                     src={club.photo}>
+                            {:else }
+                                <img class="object-cover w-full rounded-lg h-52" alt={club.name}
+                                     src="https://source.unsplash.com/1080x720/?{club.name.replace(' ', ',')}">
                             {/if}
                             <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">{club.name}</h2>
-                            <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 ">Club Group</p>
+                            <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 "> Group</p>
                         </div>
                     {/each}
                 </div>
