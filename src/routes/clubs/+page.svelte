@@ -24,21 +24,18 @@
 
                 <div class="mt-4 space-y-4 lg:mt-8">
                     <a href="#all" class="pl-6 block hover:underline text-gray-500 dark:text-gray-300"
-                       class:text-blue-500={filter==="all"}
-                       class:dark:text-blue-400={filter==="all"}>
+                       class:text-blue-500={filter==="all"} class:dark:text-blue-400={filter==="all"}>
                         All
                     </a>
                     <a href="#featured" class="block hover:underline text-gray-500 dark:text-gray-300"
-                       class:text-blue-500={filter==="featured"}
-                       class:dark:text-blue-400={filter==="featured"}>
+                       class:text-blue-500={filter==="featured"} class:dark:text-blue-400={filter==="featured"}>
                         ⭐️ Featured
                     </a>
                     {#each categories as category}
-                        <a href="#{category.name.toLowerCase()}"
-                           class="block text-gray-500 dark:text-gray-300 hover:underline"
-                           class:text-blue-500={filter===category.name.toLowerCase()}
-                           class:dark:text-blue-500={filter===category.name.toLowerCase()}>
-                            {category.emoji} {category.name}</a>
+                        <a href="#{category.name.toLowerCase()}" class="block text-gray-500 dark:text-gray-300 hover:underline"
+                           class:text-blue-500={filter===category.name.toLowerCase()} class:dark:text-blue-500={filter===category.name.toLowerCase()}>
+                            {category.emoji} {category.name}
+                        </a>
                     {/each}
                 </div>
             </div>
@@ -54,8 +51,13 @@
                                 <img class="object-cover w-full rounded-lg h-52" alt={club.name}
                                      src="https://source.unsplash.com/1080x720/?{club.name.replace(' ', ',')}">
                             {/if}
-                            <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">{club.name}</h2>
-                            <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 "> Group</p>
+                            <div class="flex row items-baseline w-full justify-between">
+                                <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">{club.name}</h2>
+                                <p class="mb-2 text-gray-600 dark:text-gray-300">{club.category.name} {club.category.emoji}</p>
+                            </div>
+                            {#if club.groupLink}
+                                <a href="" class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400 "> See more</a>
+                            {/if}
                         </div>
                     {/each}
                 </div>
