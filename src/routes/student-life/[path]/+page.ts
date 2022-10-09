@@ -1,4 +1,4 @@
-// export const prerender = true;
+export const prerender = true;
 //
 // type Commit = {
 //     author: { name: string, email: string, date: string },
@@ -34,3 +34,13 @@
 //         return {error};
 //     }
 // }
+import {guides} from '$lib/constants/student-guides';
+import type {Guide} from '$lib/constants/student-guides';
+
+/** @type {import('./$types').PageLoad} */
+export async function load({params}): Guide {
+    const guide = guides.find(guide => guide.slug === params.path);
+    if (!guide) throw Error("No guide found");
+    guide.content = guide.content.replace(/\n */, "\n")
+    return guide;
+}
