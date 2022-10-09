@@ -3,7 +3,7 @@
     import {createEventDispatcher} from 'svelte'
     import {close, check, stop, info} from 'svelte-awesome/icons';
     import {fade, fly} from 'svelte/transition'
-
+    import {ToastType} from './store';
     const dispatch = createEventDispatcher()
 
     export let type = 'error'
@@ -11,11 +11,11 @@
 </script>
 
 <article class={type} role="alert" transition:fly={{y: -200, duration: 300}}>
-    {#if type === 'success'}
+    {#if type === ToastType.SUCCESS}
         <Icon data={check}/>
-    {:else if type === 'error'}
+    {:else if type === ToastType.ERROR}
         <Icon data={stop}/>
-    {:else}
+    {:else if type === ToastType.INFO}
         <Icon data={info}/>
     {/if}
 
