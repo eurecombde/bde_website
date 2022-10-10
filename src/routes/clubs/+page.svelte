@@ -52,7 +52,7 @@
                                 <p class="mb-2 text-gray-600 dark:text-gray-300">{club.category.name} {club.category.emoji}</p>
                             </div>
                             {#if club.groupLink}
-                                <a href="" class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400 "> See more</a>
+                                <a href={club.groupLink} class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400 "> See more</a>
                             {/if}
                         </div>
                     {/each}
