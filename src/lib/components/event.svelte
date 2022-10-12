@@ -21,7 +21,7 @@
         <p class="mb-3 text-base text-300">{localeDate}</p>
         <h4 class=" font-bold text-lg md:text-2xl">{event.summary}</h4>
         {#if event.location}
-            <a href="{GOOGLE_MAPS_QUERY}{event.location}" class="">
+            <a href="{GOOGLE_MAPS_QUERY}{event.location}">
                 <p class="text-sm md:text-base leading-snug text-gray-500 hover:text-blue-500 mb-3 flex w-full {align} -timeline" class:flex-row-reverse={align === 'left'}>
                     <span>@</span>
                     <span class="mx-1">{event.location.split(',')[0]}</span>
