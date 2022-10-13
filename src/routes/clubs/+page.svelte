@@ -13,48 +13,51 @@
 
     export let data;
     const {weekEvents, ical, error} = data;
-
+    const hasEvents = weekEvents.find((event) => event.events.length > 0) != undefined ;
     $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
     $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
 </script>
 
-<section>
-    <div class="container px-6 pt-12 mx-auto">
-        <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white mb-6">Next Week</h1>
-        <div class="grid md:grid-cols-7 md:grid-flow-col grid-rows-[1fr_24px]">
-            {#each weekEvents as day, index}
-                <ul class="mb-2">
-                    {#each day.events as event, index}
-                        <div class="py-2">
-                            <i></i>
-                            {#if event.time !== null}
-                                <p class="mb-0 text-base text-300">{asDateTime(event.start).toLocaleTimeString("en-FR", {hour: "2-digit", minute: "2-digit"})}</p>
-                            {/if}
-                            <h4 class="font-bold text-lg md:text-2xl">{event.summary}</h4>
-                            {#if event.description}
-                                <h4 class="text-gray-600 dark:text-gray-300">{event.description}</h4>
-                            {/if}
-                            {#if event.location}
-                                <a href="{GOOGLE_MAPS_QUERY}{event.location}">
-                                    <p class="text-sm md:text-base leading-snug text-gray-500 hover:text-blue-500 mb-3 flex w-full -timeline">
-                                        <span>@</span>
-                                        <span class="mx-1">{event.location?.split(',')[0]}</span>
-                                    </p>
-                                </a>
-                            {/if}
-                        </div>
-                    {/each}
-                </ul>
-                <h1 class="text-center text-gray-400 border-t-2 border-gray-400 relative py-2 uppercase">
-                    <span class="absolute text-center left-0 right-0 -top-3.5 text-gray-400">●</span>
-<!--                    <span class="absolute text-center left-0 right-0 -top-3.5 text-gray-400">♦︎</span>-->
-                    {day.name}
-                </h1>
-            {/each}
+{#if hasEvents}
+    <section>
+        <div class="container px-6 pt-12 mx-auto">
+            <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white mb-6">Events</h1>
+            <div class="grid md:grid-cols-7 md:grid-flow-col grid-rows-[1fr_24px] ">
+                {#each weekEvents as day, index}
+                    <div class="flex flex-col-reverse">
+                    <ul class="mb-2 flex flex-col">
+                        {#each day.events as event, index}
+                            <div class="py-2">
+                                <i></i>
+                                {#if event.time !== null}
+                                    <p class="mb-0 text-base text-300">{asDateTime(event.start).toLocaleTimeString("en-FR", {hour: "2-digit", minute: "2-digit"})}</p>
+                                {/if}
+                                <h4 class="font-bold text-lg md:text-2xl">{event.summary}</h4>
+                                {#if event.description}
+                                    <h4 class="text-gray-600 dark:text-gray-300">{event.description}</h4>
+                                {/if}
+                                {#if event.location}
+                                    <a href="{GOOGLE_MAPS_QUERY}{event.location}">
+                                        <p class="text-sm md:text-base leading-snug text-gray-500 hover:text-blue-500 mb-3 flex w-full -timeline">
+                                            <span>@</span>
+                                            <span class="mx-1">{event.location?.split(',')[0]}</span>
+                                        </p>
+                                    </a>
+                                {/if}
+                            </div>
+                        {/each}
+                    </ul>
+                    </div>
+                    <h1 class="text-center text-gray-400 border-t-2 border-gray-400 relative py-2 uppercase">
+                        <span class="absolute text-center left-0 right-0 -top-3.5 text-gray-400">●</span>
+                        <!--                    <span class="absolute text-center left-0 right-0 -top-3.5 text-gray-400">♦︎</span>-->
+                        {day.name}
+                    </h1>
+                {/each}
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
+{/if}
 
 <section in:fly={{y: 100 ,duration: 250, delay:250}} out:fly={{y: 100 ,duration: 250}} id>
     <div class="container px-6 py-12 mx-auto">
