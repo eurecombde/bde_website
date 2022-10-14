@@ -3,6 +3,11 @@
     import {clubs} from '$lib/constants/clubs';
     import {page} from '$app/stores';
     import {GOOGLE_MAPS_QUERY} from "$lib/constants/links";
+    import Icon from 'svelte-awesome';
+
+    import { whatsapp,  facebookSquare }from 'svelte-awesome/icons';
+
+
 
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
 
@@ -102,10 +107,15 @@
                             {#if club.vicePresident}
                             <p class="mb-2 text-gray-600 dark:text-gray-300">✨ {club.vicePresident}</p>
                             {/if}
-                            {#if club.groupLink}
-                                <a href={club.groupLink} class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400">
-                                    <span>🔗</span>
-                                    See more
+                            {#if club.facebook}
+                                <a href={club.facebook} class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400">
+                                    <Icon data={facebookSquare} class="mb-1 mr-2"/> <span>Join the group</span>
+                                </a>
+                            {/if}
+
+                            {#if club.whatsapp}
+                                <a href={club.whatsapp} class="mt-2 text-lg tracking-wider text-green-500 dark:text-green-400 flex align-center">
+                                    <Icon data={whatsapp} class="mt-1.5 mr-3"/> <span>Join the chat</span>
                                 </a>
                             {/if}
                         </div>
