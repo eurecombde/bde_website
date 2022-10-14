@@ -1,3 +1,7 @@
+<svelte:head>
+    <meta name="theme-color" content="#6A0136"/>
+</svelte:head>
+
 <script>
     import Team from '$lib/sections/team.svelte';
     import Contact from '$lib/sections/contact.svelte';

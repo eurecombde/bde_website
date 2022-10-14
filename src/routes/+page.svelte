@@ -12,6 +12,7 @@
     }
 </script>
 
+
 <Header events={events}/>
 <Events events={events} ical={ical}/>
 

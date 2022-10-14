@@ -1,3 +1,7 @@
+<svelte:head>
+    <meta name="theme-color" content="#055864"/>
+</svelte:head>
+
 <script context="module">
     import {fly} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
