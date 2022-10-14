@@ -22,7 +22,7 @@ export const clubs: Club[] = [
         category: SPORT,
         featured: true,
         facebook: "https://www.facebook.com/groups/630853144645799/",
-        whatsapp: "https://www.facebook.com/groups/630853144645799/",
+        whatsapp: "https://chat.whatsapp.com/KkWIvKknHEu3Vm89TvRM7t",
         photo: "https://scontent-mrs2-2.xx.fbcdn.net/v/t39.30808-6/277218931_4642730475854492_2665717225685857469_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8631f5&_nc_ohc=EhQ1RgNjypsAX8zrUEq&_nc_ht=scontent-mrs2-2.xx&oh=00_AT__HoQB6weFM_Optvmuxu6kb6AP4ikrHThdVsLSYs_jJg&oe=6349D766"
     },
     {
