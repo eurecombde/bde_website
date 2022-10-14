@@ -13,7 +13,7 @@
 
     export let data;
     const {weekEvents, ical, error} = data;
-    const hasEvents = weekEvents.find((event) => event.events.length > 0) != undefined ;
+    const hasEvents = weekEvents.find((event) => event.events.length > 0) != undefined;
     $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
     $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
 </script>
@@ -25,32 +25,31 @@
             <div class="grid md:grid-cols-7 md:grid-flow-col grid-rows-[1fr_24px] ">
                 {#each weekEvents as day, index}
                     <div class="flex flex-col-reverse">
-                    <ul class="mb-2 flex flex-col">
-                        {#each day.events as event, index}
-                            <div class="py-2">
-                                <i></i>
-                                {#if event.time !== null}
-                                    <p class="mb-0 text-base text-300">{asDateTime(event.start).toLocaleTimeString("en-FR", {hour: "2-digit", minute: "2-digit"})}</p>
-                                {/if}
-                                <h4 class="font-bold text-lg md:text-2xl">{event.summary}</h4>
-                                {#if event.description}
-                                    <h4 class="text-gray-600 dark:text-gray-300">{event.description}</h4>
-                                {/if}
-                                {#if event.location}
-                                    <a href="{GOOGLE_MAPS_QUERY}{event.location}">
-                                        <p class="text-sm md:text-base leading-snug text-gray-500 hover:text-blue-500 mb-3 flex w-full -timeline">
-                                            <span>@</span>
-                                            <span class="mx-1">{event.location?.split(',')[0]}</span>
-                                        </p>
-                                    </a>
-                                {/if}
-                            </div>
-                        {/each}
-                    </ul>
+                        <ul class="mb-2 flex flex-col">
+                            {#each day.events as event, index}
+                                <div class="py-2">
+                                    <i></i>
+                                    {#if event.time !== null}
+                                        <p class="mb-0 text-base text-300">{asDateTime(event.start).toLocaleTimeString("en-FR", {hour: "2-digit", minute: "2-digit"})}</p>
+                                    {/if}
+                                    <h4 class="font-bold text-lg md:text-2xl">{event.summary}</h4>
+                                    {#if event.description}
+                                        <h4 class="text-gray-600 dark:text-gray-300">{event.description}</h4>
+                                    {/if}
+                                    {#if event.location}
+                                        <a href="{GOOGLE_MAPS_QUERY}{event.location}">
+                                            <p class="text-sm md:text-base leading-snug text-gray-500 hover:text-blue-500 mb-3 flex w-full -timeline">
+                                                <span>@</span>
+                                                <span class="mx-1">{event.location?.split(',')[0]}</span>
+                                            </p>
+                                        </a>
+                                    {/if}
+                                </div>
+                            {/each}
+                        </ul>
                     </div>
                     <h1 class="text-center text-gray-400 border-t-2 border-gray-400 relative py-2 uppercase">
                         <span class="absolute text-center left-0 right-0 -top-3.5 text-gray-400">●</span>
-                        <!--                    <span class="absolute text-center left-0 right-0 -top-3.5 text-gray-400">♦︎</span>-->
                         {day.name}
                     </h1>
                 {/each}
@@ -99,6 +98,10 @@
                                 <h2 class="mt-4 text-2xl font-semibold text-gray-800 capitalize dark:text-white">{club.name}</h2>
                                 <p class="mb-2 text-gray-600 dark:text-gray-300">{club.category.name} {club.category.emoji}</p>
                             </div>
+                            <p class="mb-2 text-gray-600 dark:text-gray-300">⭐️ {club.president}</p>
+                            {#if club.vicePresident}
+                            <p class="mb-2 text-gray-600 dark:text-gray-300">✨ {club.vicePresident}</p>
+                            {/if}
                             {#if club.groupLink}
                                 <a href={club.groupLink} class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400 "> See more</a>
                             {/if}
