@@ -1,17 +1,10 @@
-<svelte:head>
-    <meta name="theme-color" content="#055864"/>
-</svelte:head>
-
 <script context="module">
-    import {fly} from 'svelte/transition';
+    import {fly, fade} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
     import {page} from '$app/stores';
     import {GOOGLE_MAPS_QUERY} from "$lib/constants/links";
     import Icon from 'svelte-awesome';
-
     import { whatsapp,  facebookSquare }from 'svelte-awesome/icons';
-
-
 
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
 
@@ -22,21 +15,21 @@
 
     export let data;
     const {weekEvents, ical, error} = data;
-    const hasEvents = weekEvents.find((event) => event.events.length > 0) != undefined;
+    const hasEvents = weekEvents.find((event) => event.events.length > 0) !== undefined;
     $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
     $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
 </script>
 
 {#if hasEvents}
-    <section>
+    <section in:fly={{y: 100 ,duration: 250, delay:250}} out:fly={{y: 100 ,duration: 250}}>
         <div class="container px-6 pt-12 mx-auto">
             <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white mb-6">Events</h1>
             <div class="grid md:grid-cols-7 md:grid-flow-col grid-rows-[1fr_24px] ">
-                {#each weekEvents as day, index}
+                {#each weekEvents as day, weekdayIndex}
                     <div class="flex flex-col-reverse">
                         <ul class="mb-2 flex flex-col">
-                            {#each day.events as event, index}
-                                <div class="py-2">
+                            {#each day.events as event, eventIndex}
+                                <div class="py-2" in:fly={{y: 100, duration: 250, delay: 250 + (weekdayIndex * 100) + (eventIndex * 100)}}>
                                     <i></i>
                                     {#if event.time !== null}
                                         <p class="mb-0 text-base text-300">{asDateTime(event.start).toLocaleTimeString("en-FR", {hour: "2-digit", minute: "2-digit"})}</p>
@@ -95,7 +88,7 @@
             <div class="flex-1 mt-8 lg:mx-12 lg:mt-0">
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 ">
                     {#each filteredClubs as club, index}
-                        <div in:fly={{ x: 100, duration: 250, delay: 250+ index * 100}} id={club.name}>
+                        <div in:fly={{ y: 100, duration: 250, delay: 250+ index * 100}} id={club.name}>
                             {#if club.photo}
                                 <img class="object-cover w-full rounded-lg h-52" alt={club.name}
                                      src={club.photo}>
