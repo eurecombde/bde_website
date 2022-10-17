@@ -42,10 +42,14 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-            <img class="object-cover w-full h-full max-w-2xl rounded-md"
-                 transition:fade
-                 src={current}/>
+        <div class="relative w-full h-96 lg:w-1/2">
+            {#each headers as header, i}
+                {#if i === page}
+                    <img class="absolute object-cover w-full h-full max-w-2xl rounded-md"
+                         transition:fade
+                         src={header}/>
+                {/if}
+            {/each}
         </div>
     </div>
 </header>
