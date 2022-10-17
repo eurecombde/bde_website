@@ -19,7 +19,7 @@
             </div>
 
             {#each team as member, index}
-                <div class="flex flex-col items-center" in:fly={{ x: 100, duration: 250, delay: 250+ index * 100}} >
+                <div class="flex flex-col items-center" in:fly={{ y: 100, duration: 250, delay: 250+ index * 100}} >
                     <img class="object-cover w-full rounded-xl aspect-square" src={member.photo ?? AVATAR_FALLBACK_URL+member.name.replaceAll(" ","+")} alt={member.name}>
                     <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white text-center">{member.name}</h1>
                     <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">{member.role}</p>

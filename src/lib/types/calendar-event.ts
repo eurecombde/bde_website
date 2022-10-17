@@ -1,5 +1,14 @@
 export type CalendarDate = { date?: string, dateTime?: string, timeZone?: string };
 
+export function asDate(calendarDate: CalendarDate) {
+    return new Date(calendarDate?.date ?? calendarDate?.dateTime ?? "");
+}
+
+export function asDateTime(calendarDate: CalendarDate) {
+    return new Date(calendarDate?.dateTime ?? "");
+}
+
+
 export type CalendarEvent = {
     readonly kind: string;
     readonly etag: string;
