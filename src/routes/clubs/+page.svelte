@@ -109,15 +109,15 @@
                                 <p class="mb-2 text-gray-600 dark:text-gray-300">✨ {club.vicePresident}</p>
                             {/if}
                             {#if club.facebook}
-                                <a href={club.facebook} class="mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400">
-                                    <Icon data={facebookSquare} class="mb-1 mr-2"/>
+                                <a href={club.facebook} class="ml-1.5 mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400">
+                                    <Icon data={facebookSquare} class="mb-1 mr-0.5"/>
                                     <span>Join the group</span>
                                 </a>
                             {/if}
 
-                            {#if club.whatsapp}
-                                <a href={club.whatsapp} class="mt-2 text-lg tracking-wider text-green-500 dark:text-green-400 flex align-center">
-                                    <Icon data={whatsapp} class="mt-1.5 mr-3"/>
+                            {#if club.whatsapp}xx
+                                <a href={club.whatsapp} class="ml-1.5 mt-2 text-lg tracking-wider text-green-500 dark:text-green-400 flex align-center">
+                                    <Icon data={whatsapp} class="mt-1.5 mr-2"/>
                                     <span>Join the chat</span>
                                 </a>
                             {/if}
