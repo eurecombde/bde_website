@@ -115,7 +115,7 @@
                                 </a>
                             {/if}
 
-                            {#if club.whatsapp}xx
+                            {#if club.whatsapp}
                                 <a href={club.whatsapp} class="ml-1.5 mt-2 text-lg tracking-wider text-green-500 dark:text-green-400 flex align-center">
                                     <Icon data={whatsapp} class="mt-1.5 mr-2"/>
                                     <span>Join the chat</span>
