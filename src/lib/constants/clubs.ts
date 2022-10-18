@@ -42,6 +42,7 @@ export const clubs: Club[] = [
         vicePresident: "Marco Klepatzky",
         name: "Swimming",
         category: SPORT,
+        photo: "/images/clubs/swimming.jpg",
     },
     {
         president: "Dario Ferrero",
@@ -100,13 +101,15 @@ export const clubs: Club[] = [
         president: "Anis Amor",
         vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
         name: "Scuba Diving/Snorkling",
-        category: SPORT
+        category: SPORT,
+        photo: "/images/clubs/scubadiving.jpg",
     },
     {
         president: "Malek Sfaxi",
         vicePresident: "Marwa Essalehi",
         name: "SAP",
-        category: EDUCATIONAL
+        category: EDUCATIONAL,
+        photo: "/images/clubs/sap.png",
     },
     {
         president: "Emerson Cardoso",
