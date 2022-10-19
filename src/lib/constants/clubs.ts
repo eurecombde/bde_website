@@ -73,7 +73,7 @@ export const clubs: Club[] = [
     whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
-    name: "Foot",
+    name: "Football",
     president: "Mohd Aamir",
     category: SPORT,
     featured: true,
