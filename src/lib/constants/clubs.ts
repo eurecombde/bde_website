@@ -143,6 +143,6 @@ export const clubs: Club[] = [
     president: "Gaëtan Plisson",
     vicePresident: "Zachari Thiry",
     category: SPORT,
-    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   }
 ];
