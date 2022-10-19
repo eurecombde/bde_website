@@ -67,10 +67,10 @@ export const clubs: Club[] = [
   },
   {
     name: "Skiing",
-    president: "Clara Léonet",
-    vicePresident: "Zachari Thiry",
+    president: "Zachari Thiry",
+    vicePresident: "Benjamin Salon",
     category: SPORT,
-    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
     name: "Foot",
@@ -93,6 +93,7 @@ export const clubs: Club[] = [
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
     facebook: "https://www.facebook.com/groups/1283501492485473/",
+    photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&dl=lily-banse--YHSwy6uqvk-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
   },
   {
     name: "EURESound",
@@ -101,6 +102,7 @@ export const clubs: Club[] = [
     category: ENTERTAINMENT,
     featured: true,
     facebook: "https://www.facebook.com/groups/388572802698498/",
+    photo: "https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-4.0.3&dl=modesta-zemgulyte-wMkqe4JCaAw-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
   },
   {
     name: "Beach Volley",
@@ -109,7 +111,7 @@ export const clubs: Club[] = [
     category: SPORT,
     featured: true,
     photo: "/images/clubs/beachvolley.jpg",
-    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
     name: "Scuba Diving/Snorkling",
@@ -117,7 +119,7 @@ export const clubs: Club[] = [
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
     category: SPORT,
     photo: "/images/clubs/scubadiving.jpg",
-    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
     name: "SAP Club",
