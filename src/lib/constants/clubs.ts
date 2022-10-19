@@ -90,6 +90,7 @@ export const clubs: Club[] = [
     vicePresident: "Marwa Essalehi",
     name: "EureFood",
     category: SOCIAL,
+    photo: "/images/clubs/internationalfood.jpg",
     whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
   },
   {
@@ -120,7 +121,7 @@ export const clubs: Club[] = [
     vicePresident: "Marwa Essalehi",
     name: "SAP Club",
     category: EDUCATIONAL,
-    photo: "/images/clubs/sap.png",
+    photo: "/images/clubs/sap-temp.jpg",
     whatsapp: "https://chat.whatsapp.com/BPZBoNaIeMLBAoMvCyFOcC",
     facebook: "https://www.facebook.com/groups/811759806816033/?ref=share",
   },
