@@ -1,5 +1,5 @@
 
 export const headers = [
-    "images/hero1.jpeg",
-    // "images/place1.jpg",
+    "images/hero1.jpg",
+    "images/hero2.jpg",
 ];

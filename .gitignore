@@ -1,4 +1,12 @@
 # Local Netlify folder
 .netlify
+.env*
+.svelte-kit
+.idea
 
+# Node
 node_modules
+package-lock.json
+
+# Svelte
+build
