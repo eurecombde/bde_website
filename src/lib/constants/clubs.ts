@@ -47,7 +47,7 @@ export const clubs: Club[] = [
     category: SPORT,
     photo: "/images/clubs/swimming.jpg",
     whatsapp: "https://chat.whatsapp.com/Hde618dU9C5FoNCw7Zt6Df",
-    facebook: "https://www.facebook.com/groups/448112157213407/?ref=share"
+    facebook: "https://www.facebook.com/groups/448112157213407/"
   },
   {
     president: "Dario Ferrero",
@@ -70,13 +70,15 @@ export const clubs: Club[] = [
     president: "Clara Léonet",
     vicePresident: "Zachari Thiry",
     name: "Skiing",
-    category: SPORT
+    category: SPORT,
+    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
     president: "Mohd Aamir",
-    name: "Football",
+    name: "Foot",
     category: SPORT,
-    featured: true
+    featured: true,
+    facebook: "https://www.facebook.com/groups/242499421236490/",
   },
   {
     president: "Alberto Sánchez Pérez",
@@ -91,14 +93,15 @@ export const clubs: Club[] = [
     name: "EureFood",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
+    facebook: "https://www.facebook.com/groups/1283501492485473/",
   },
   {
     president: "Marco Klepatzky",
     vicePresident: "Julie Schult",
-    name: "DJing",
+    name: "EURESound",
     category: ENTERTAINMENT,
     featured: true,
-    facebook: "https://www.facebook.com/groups/388572802698498/?ref=share_group_link",
+    facebook: "https://www.facebook.com/groups/388572802698498/",
   },
   {
     president: "Anis Amor",
@@ -107,13 +110,15 @@ export const clubs: Club[] = [
     category: SPORT,
     featured: true,
     photo: "/images/clubs/beachvolley.jpg",
+    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
     president: "Anis Amor",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
     name: "Scuba Diving/Snorkling",
     category: SPORT,
-    photo: "/images/clubs/scubadiving.jpg"
+    photo: "/images/clubs/scubadiving.jpg",
+    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
     president: "Malek Sfaxi",
@@ -122,7 +127,7 @@ export const clubs: Club[] = [
     category: EDUCATIONAL,
     photo: "/images/clubs/sap.png",
     whatsapp: "https://chat.whatsapp.com/BPZBoNaIeMLBAoMvCyFOcC",
-    facebook: "https://www.facebook.com/groups/811759806816033/?ref=share",
+    facebook: "https://www.facebook.com/groups/811759806816033/",
   },
   {
     president: "Emerson Cardoso",
@@ -136,6 +141,7 @@ export const clubs: Club[] = [
     president: "Gaëtan Plisson",
     vicePresident: "Zachari Thiry",
     name: "Sailing",
-    category: SPORT
+    category: SPORT,
+    // whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   }
 ];
