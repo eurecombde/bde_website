@@ -97,7 +97,8 @@ export const clubs: Club[] = [
     vicePresident: "Julie Schult",
     name: "DJing",
     category: ENTERTAINMENT,
-    featured: true
+    featured: true,
+    facebook: "https://www.facebook.com/groups/388572802698498/?ref=share_group_link",
   },
   {
     president: "Anis Amor",
