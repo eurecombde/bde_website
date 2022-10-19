@@ -8,17 +8,17 @@ const EDUCATIONAL: Category = { name: "Educational", emoji: "📚" };
 
 export const clubs: Club[] = [
   {
-    president: "Zachari Thiry",
     name: "EUREClimb 🧗",
+    president: "Zachari Thiry",
     category: SPORT,
     featured: true,
     facebook: "https://www.facebook.com/groups/338295291434407/",
     photo: "/images/clubs/climbing.jpg"
   },
   {
+    name: "BasketBall 🏀",
     president: "Dario Ferrero",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
-    name: "BasketBall 🏀",
     category: SPORT,
     featured: true,
     facebook: "https://www.facebook.com/groups/630853144645799/",
@@ -26,117 +26,124 @@ export const clubs: Club[] = [
     photo: "/images/clubs/basketball.jpg"
   },
   {
+    name: "EureHik 🥾",
     president: "Baptiste Masson",
     vicePresident: "Enguerran de Larocque Latour",
-    name: "EureHik 🥾",
     category: SPORT,
     whatsapp: "https://chat.whatsapp.com/LUX7JH9BpEfDvb598sEOyG"
   },
   {
+    name: "Tennis 😎",
     president: "Rajiv Philip Venkatraman Mohan Doss Ravi",
     vicePresident: "Marwa Essalehi",
-    name: "Tennis 😎",
     category: SPORT,
     whatsapp: "https://chat.whatsapp.com/JitLAVkrv9X6x4wfCqzw5q",
-
   },
   {
+    name: "EURESwim",
     president: "Julie Schult",
     vicePresident: "Marco Klepatzky",
-    name: "EURESwim",
     category: SPORT,
     photo: "/images/clubs/swimming.jpg",
     whatsapp: "https://chat.whatsapp.com/Hde618dU9C5FoNCw7Zt6Df",
-    facebook: "https://www.facebook.com/groups/448112157213407/?ref=share"
+    facebook: "https://www.facebook.com/groups/448112157213407/"
   },
   {
+    name: "TastEUR",
     president: "Dario Ferrero",
     vicePresident: "Emerson Cardoso",
-    name: "TastEUR",
     category: SOCIAL,
     featured: true,
     facebook: "https://www.facebook.com/groups/1360827391047825/",
     photo: "/images/clubs/wineandbeertasting.jpg"
   },
   {
+    name: "EURObOARD Club 🃏🎲♣️",
     president: "Emerson Cardoso",
     vicePresident: "Marwa Essalehi",
-    name: "EURObOARD Club 🃏🎲♣️",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/CyfjC3TWSOvF7cjOcEHvAk",
     photo: "/images/clubs/boardgames.jpg",
   },
   {
-    president: "Clara Léonet",
-    vicePresident: "Zachari Thiry",
     name: "Skiing",
-    category: SPORT
-  },
-  {
-    president: "Mohd Aamir",
-    name: "Football",
+    president: "Zachari Thiry",
+    vicePresident: "Benjamin Salon",
     category: SPORT,
-    featured: true
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
+    name: "Football",
+    president: "Mohd Aamir",
+    category: SPORT,
+    featured: true,
+    facebook: "https://www.facebook.com/groups/242499421236490/",
+  },
+  {
+    name: "Sunset Club",
     president: "Alberto Sánchez Pérez",
     vicePresident: "Marwa Essalehi",
-    name: "Sunset Club",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/KwWbOWORxINBpLm2HXBd1V"
   },
   {
+    name: "EureFood",
     president: "Fredrik Sveen",
     vicePresident: "Marwa Essalehi",
-    name: "EureFood",
     category: SOCIAL,
     photo: "/images/clubs/internationalfood.jpg",
     whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
+    facebook: "https://www.facebook.com/groups/1283501492485473/",
+    photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&dl=lily-banse--YHSwy6uqvk-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
   },
   {
+    name: "EURESound",
     president: "Marco Klepatzky",
     vicePresident: "Julie Schult",
-    name: "DJing",
     category: ENTERTAINMENT,
     featured: true,
-    facebook: "https://www.facebook.com/groups/388572802698498/?ref=share_group_link",
+    facebook: "https://www.facebook.com/groups/388572802698498/",
+    photo: "https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-4.0.3&dl=modesta-zemgulyte-wMkqe4JCaAw-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
   },
   {
+    name: "Beach Volley",
     president: "Anis Amor",
     vicePresident: "Enguerran de Larocque Latour",
-    name: "Beach Volley",
     category: SPORT,
     featured: true,
     photo: "/images/clubs/beachvolley.jpg",
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
+    name: "Scuba Diving/Snorkling",
     president: "Anis Amor",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
-    name: "Scuba Diving/Snorkling",
     category: SPORT,
-    photo: "/images/clubs/scubadiving.jpg"
+    photo: "/images/clubs/scubadiving.jpg",
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
   {
+    name: "SAP Club",
     president: "Malek Sfaxi",
     vicePresident: "Marwa Essalehi",
-    name: "SAP Club",
     category: EDUCATIONAL,
     photo: "/images/clubs/sap-temp.jpg",
     whatsapp: "https://chat.whatsapp.com/BPZBoNaIeMLBAoMvCyFOcC",
-    facebook: "https://www.facebook.com/groups/811759806816033/?ref=share",
+    facebook: "https://www.facebook.com/groups/811759806816033/",
   },
   {
+    name: "CINEURO Club 🍿🎥 ",
     president: "Emerson Cardoso",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
-    name: "CINEURO Club 🍿🎥 ",
     category: ENTERTAINMENT,
     photo: "/images/clubs/moviesseries.jpg",
     whatsapp: "https://chat.whatsapp.com/IWgSjoHMHY54ha5wLfcQVd",
   },
   {
+    name: "Sailing",
     president: "Gaëtan Plisson",
     vicePresident: "Zachari Thiry",
-    name: "Sailing",
-    category: SPORT
+    category: SPORT,
+    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   }
 ];
