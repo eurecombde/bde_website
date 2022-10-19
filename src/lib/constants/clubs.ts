@@ -9,7 +9,7 @@ const EDUCATIONAL: Category = { name: "Educational", emoji: "📚" };
 export const clubs: Club[] = [
   {
     president: "Zachari Thiry",
-    name: "Climbing",
+    name: "EUREClimb 🧗",
     category: SPORT,
     featured: true,
     facebook: "https://www.facebook.com/groups/338295291434407/",
@@ -18,7 +18,7 @@ export const clubs: Club[] = [
   {
     president: "Dario Ferrero",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
-    name: "Basketball",
+    name: "BasketBall 🏀",
     category: SPORT,
     featured: true,
     facebook: "https://www.facebook.com/groups/630853144645799/",
@@ -28,14 +28,14 @@ export const clubs: Club[] = [
   {
     president: "Baptiste Masson",
     vicePresident: "Enguerran de Larocque Latour",
-    name: "Hiking / Promenade",
+    name: "EureHik 🥾",
     category: SPORT,
     whatsapp: "https://chat.whatsapp.com/LUX7JH9BpEfDvb598sEOyG"
   },
   {
     president: "Rajiv Philip Venkatraman Mohan Doss Ravi",
     vicePresident: "Marwa Essalehi",
-    name: "Tennis",
+    name: "Tennis 😎",
     category: SPORT,
     whatsapp: "https://chat.whatsapp.com/JitLAVkrv9X6x4wfCqzw5q",
 
@@ -43,7 +43,7 @@ export const clubs: Club[] = [
   {
     president: "Julie Schult",
     vicePresident: "Marco Klepatzky",
-    name: "Swimming",
+    name: "EURESwim",
     category: SPORT,
     photo: "/images/clubs/swimming.jpg",
     whatsapp: "https://chat.whatsapp.com/Hde618dU9C5FoNCw7Zt6Df",
@@ -52,7 +52,7 @@ export const clubs: Club[] = [
   {
     president: "Dario Ferrero",
     vicePresident: "Emerson Cardoso",
-    name: "Wine / Beer Tasting",
+    name: "TastEUR",
     category: SOCIAL,
     featured: true,
     facebook: "https://www.facebook.com/groups/1360827391047825/",
@@ -61,7 +61,7 @@ export const clubs: Club[] = [
   {
     president: "Emerson Cardoso",
     vicePresident: "Marwa Essalehi",
-    name: "Board Games",
+    name: "EURObOARD Club 🃏🎲♣️",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/CyfjC3TWSOvF7cjOcEHvAk",
     photo: "/images/clubs/boardgames.jpg",
@@ -81,15 +81,16 @@ export const clubs: Club[] = [
   {
     president: "Alberto Sánchez Pérez",
     vicePresident: "Marwa Essalehi",
-    name: "Sunset (Art) Club",
+    name: "Sunset Club",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/KwWbOWORxINBpLm2HXBd1V"
   },
   {
     president: "Fredrik Sveen",
     vicePresident: "Marwa Essalehi",
-    name: "International Food",
-    category: SOCIAL
+    name: "EureFood",
+    category: SOCIAL,
+    whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
   },
   {
     president: "Marco Klepatzky",
@@ -116,7 +117,7 @@ export const clubs: Club[] = [
   {
     president: "Malek Sfaxi",
     vicePresident: "Marwa Essalehi",
-    name: "SAP",
+    name: "SAP Club",
     category: EDUCATIONAL,
     photo: "/images/clubs/sap.png",
     whatsapp: "https://chat.whatsapp.com/BPZBoNaIeMLBAoMvCyFOcC",
@@ -125,7 +126,7 @@ export const clubs: Club[] = [
   {
     president: "Emerson Cardoso",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
-    name: "Movies / Series",
+    name: "CINEURO Club 🍿🎥 ",
     category: ENTERTAINMENT,
     photo: "/images/clubs/moviesseries.jpg",
     whatsapp: "https://chat.whatsapp.com/IWgSjoHMHY54ha5wLfcQVd",
