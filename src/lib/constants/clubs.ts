@@ -70,7 +70,7 @@ export const clubs: Club[] = [
     president: "Zachari Thiry",
     vicePresident: "Benjamin Salon",
     category: SPORT,
-    whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
+    whatsapp: "https://chat.whatsapp.com/BeA7KVXDeRjBLNNKtixbos",
   },
   {
     name: "Football",
@@ -94,7 +94,6 @@ export const clubs: Club[] = [
     photo: "/images/clubs/internationalfood.jpg",
     whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
     facebook: "https://www.facebook.com/groups/1283501492485473/",
-    photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&dl=lily-banse--YHSwy6uqvk-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
   },
   {
     name: "EURESound",
