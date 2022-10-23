@@ -17,14 +17,13 @@
 
   const preview = event.attachments && event?.attachments[0].mimeType == "image/jpeg" ? event?.attachments[0] : undefined; // todo: change to get the first image/png/jpeg/jpg
   const attachments = preview ? event.attachments.slice(1) : event.attachments; // todo: change to all except the preview
-  console.log("preview", preview);
-  console.log("attachments", attachments);
 </script>
 
 <style lang="scss">
-    p.description a {
-        color: red !important;
-
+    :global(.description a) {
+        $blue: #2563eb;
+        color: $blue;
+        text-decoration: $blue underline ;
     }
 </style>
 
@@ -61,21 +60,20 @@
 
     {#if attachments}
 
-      <div class="flex mt-2 flex-col"
-      class:items-start={align === 'left'}
-      class:items-end={align === 'left'}
-      >
-        {#each attachments as attachment}
-        <a
-          class="bg-red-900 mb-2 flex flex-row items-center px-4 py-2 font-medium tracking-wide text-white transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
-          href="{attachment.fileUrl}">
-          <img class="w-4 h-4 mr-2 rounded" src="{attachment.iconLink}/">
-          <span class="mx-1 text-xs truncate">{attachment.title}</span>
-        </a>
-        {/each}
-      </div>
-
-    {/if}
-
+    <div class="flex mt-2 flex-col"
+         class:items-start={align === 'left'}
+    class:items-end={align === 'left'}>
+    {#each attachments as attachment}
+    <a
+      class="bg-red-900 mb-2 flex flex-row items-center px-4 py-2 font-medium tracking-wide text-white transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+      href="{attachment.fileUrl}">
+      <img class="w-4 h-4 mr-2 rounded" src="{attachment.iconLink}/">
+      <span class="mx-1 text-xs truncate">{attachment.title}</span>
+    </a>
+    {/each}
   </div>
+
+  {/if}
+
+</div>
 </div>
