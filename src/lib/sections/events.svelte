@@ -27,7 +27,7 @@
                             Download our calendar to follow all the <span class="underline decoration-blue-500">current events</span> events we have planned. Alternatively, you can subscribe to stay up to date with <span class="underline decoration-blue-500">future events</span> as well, using your favourite calendar app.
                         </p>
                         <div class="flex">
-                            <a href={ical} on:click={downloadStarted} class="shrink ml-auto mr-2 bg-transparent ml-auto text-black-300 hover:text-white text-center rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
+                        <a href={ical} on:click={downloadStarted} class="shrink ml-auto mr-2 bg-transparent ml-auto hover:text-black text-black-300 text-center rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-white">
                                 Current events
                             </a>
 
@@ -35,7 +35,7 @@
                                     text={ical}
                                     let:copy
                                     on:copy={copySuccessfully}>
-                                <button on:click={copy} class="mr-auto ml-2 bg-black mr-auto text-white hover:text-black hover:bg-white text-center rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black hover:bg-black">
+                            <button on:click={copy} class="mr-auto ml-2 mr-auto hover:text-black hover:bg-white text-center rounded shadow hover:shadow-lg py-2 px-4 border border-black-300 hover:border-black">
                                     Future events
                                 </button>
                             </Clipboard>
