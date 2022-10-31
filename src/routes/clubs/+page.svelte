@@ -1,11 +1,17 @@
 <script context="module">
+    import Meta from '$lib/components/meta/meta.svelte';
+    import {metaOf} from '$lib/components/meta/meta';
     import {fly, fade} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
     import {page} from '$app/stores';
     import {GOOGLE_MAPS_QUERY} from "$lib/constants/links";
     import Icon from 'svelte-awesome';
     import {whatsapp, facebookSquare} from 'svelte-awesome/icons';
-
+    const meta = metaOf({
+        title: "Clubs", 
+        image: {url:"/images/logo_white.jpg", alt:"BDE Logo"}, 
+        description: "Discover the clubs of EURECOM and follow their events and activities."
+    });
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
 
 </script>
@@ -22,6 +28,7 @@
         : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase());
 </script>
 
+<Meta {meta}/>
 
 <section in:fly={{y: 100 ,duration: 250, delay:250}} out:fly={{y: 100 ,duration: 250}}>
     <div class="container px-6 pt-12 mx-auto">
