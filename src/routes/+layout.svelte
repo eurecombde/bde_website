@@ -41,11 +41,11 @@
     <div class="container p-6 mx-auto">
         <div class="flex flex-row justify-between items-center text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl">
             <a class="dark:bg-gray-500 rounded-lg px-2 py-1" href="/about">
-                <img class="h-16" src="images/logo_black.png" alt="BED ROCK logo">
+                <img class="h-16" src="images/logo_black.png" alt="BedRock logo">
             </a>
             <a class="hover:text-gray-700 dark:hover:text-gray-300" href="/">EURECOM BDE</a>
             <a class="dark:bg-gray-500 rounded-lg px-2 py-1" href="https://eurecom.fr">
-                <img class="h-16 object-contain" src="/images/eurecom.png" alt="EURECOM logo"/>
+                <img class="h-16" src="/images/eurecom.png" alt="EURECOM logo"/>
             </a>
         </div>
         <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
