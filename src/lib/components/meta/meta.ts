@@ -17,9 +17,9 @@ export const defaultMeta: OpenGraphMeta = {
     title: "EURECOM BDE",
     description: "EURECOM Student Union",
     locale: "en_FR",
-    icon: "%sveltekit.assets%/favicon.png",
+    icon: "/favicon.png",
     image: {
-        url: "%sveltekit.assets%/images/logo.png",
+        url: "/images/logo.png",
         alt: "EURECOM BDE Logo",
     },
     url: "https://bde.eurecom.fr",

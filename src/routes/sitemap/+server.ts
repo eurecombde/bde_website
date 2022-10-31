@@ -1,6 +1,7 @@
 import { ChangeFrequency, type Page, type Section } from '$lib/constants/routes';
 import { routes, domain } from '$lib/constants/routes';
 
+export const prerender = false;
 
 export function GET() {
     function httpsOf(path: string, tag?: string): string {

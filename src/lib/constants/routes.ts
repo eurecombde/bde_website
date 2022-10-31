@@ -11,7 +11,7 @@ export const domain = 'bde.eurecom.fr';
 export const routes: Page[] = [
     {
         name: 'Home', path: '/', priorty: 1, changefequency: ChangeFrequency.DAILY, sections: [
-            { name: 'Upcoming events', tag: '#events' , priorty: 1, changefequency: ChangeFrequency.DAILY, },
+            { name: 'Upcoming events', tag: '#events', priorty: 1, changefequency: ChangeFrequency.DAILY, },
         ]
     },
     // {
