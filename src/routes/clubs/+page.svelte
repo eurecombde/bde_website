@@ -9,7 +9,7 @@
     import {whatsapp, facebookSquare} from 'svelte-awesome/icons';
     const meta = metaOf({
         title: "Clubs", 
-        image: {url:"/images/logo_white.jpg", alt:"BDE Logo"}, 
+        image: {url:"/images/clubs/internationalfood.jpg", alt:"Students eating together"}, 
         description: "Discover the clubs of EURECOM and follow their events and activities."
     });
     const categories = Array.from(new Set(clubs.map((club) => club.category)));

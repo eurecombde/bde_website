@@ -7,7 +7,7 @@
 
     const meta = metaOf({
         title: "Home", 
-        image: {url:"/images/logo_white.jpg", alt:"BDE Logo"}, 
+        image: {url:"/images/hero3.jpg", alt:"Students of EURECOM"}, 
         description: "See what the BDE is up to and what events we are organising."
     });
 
