@@ -8,9 +8,7 @@
     const meta = metaOf({
         title: "About us",
         image: { url: "/images/hero1.jpg", alt: "Photo of the team" },
-        description:
-            "We are all here doing our best to help make our student life the best we can." +
-            "If there is something you are wondering about, feel free to ask here or any of our members 😊",
+        description: "Meet the team behind the BDE and learn more about the association.",
     });
 </script>
 

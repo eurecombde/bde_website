@@ -15,12 +15,12 @@ export type OpenGraphMeta = {
 
 export const defaultMeta: OpenGraphMeta = {
     title: "EURECOM BDE",
-    description: "EURECOM Student Union",
+    description: "EURECOM Student Union - BDE",
     locale: "en_FR",
     icon: "/favicon.png",
     image: {
-        url: "/images/logo.png",
-        alt: "EURECOM BDE Logo",
+        url: "/images/hero1.jpg",
+        alt: "Photo of the members in the EURECOM BDE",
     },
     url: "https://bde.eurecom.fr",
     domain: "bde.eurecom.fr",
