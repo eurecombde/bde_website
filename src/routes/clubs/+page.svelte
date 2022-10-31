@@ -16,8 +16,10 @@
     export let data;
     const {weekEvents, ical, error} = data;
     const hasEvents = weekEvents.find((event) => event.events.length > 0) !== undefined;
-    $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
-    $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
+    $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "all").toLowerCase();
+    $: filteredClubs = filter === "all" 
+        ? clubs 
+        : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase());
 </script>
 
 
@@ -72,13 +74,9 @@
                 <h2 class="text-2xl lg:text-4xl font-semibold text-gray-800 dark:text-white">Categories</h2>
 
                 <div class="mt-4 space-y-4 lg:mt-8">
-                    <a href="#all" class="pl-6 block hover:underline text-gray-500 dark:text-gray-300"
+                    <a href="#all" class="block hover:underline text-gray-500 dark:text-gray-300"
                        class:text-blue-500={filter==="all"} class:dark:text-blue-400={filter==="all"}>
-                        All
-                    </a>
-                    <a href="#featured" class="block hover:underline text-gray-500 dark:text-gray-300"
-                       class:text-blue-500={filter==="featured"} class:dark:text-blue-400={filter==="featured"}>
-                        ⭐️ Featured
+                        ✨ All
                     </a>
                     {#each categories as category}
                         <a href="#{category.name.toLowerCase()}" class="block text-gray-500 dark:text-gray-300 hover:underline"

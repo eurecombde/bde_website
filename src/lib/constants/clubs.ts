@@ -1,5 +1,5 @@
 export type Category = { name: string, emoji: string };
-export type Club = { name: string, category: Category, facebook?: string, whatsapp?: string, photo?: string, featured?: boolean, president: string, vicePresident?: string };
+export type Club = { name: string, category: Category, facebook?: string, whatsapp?: string, photo?: string, president: string, vicePresident?: string };
 
 const SPORT: Category = { name: "Sport", emoji: "🧗‍" };
 const SOCIAL: Category = { name: "Social", emoji: "🍷" };
@@ -11,7 +11,6 @@ export const clubs: Club[] = [
     name: "EUREClimb 🧗",
     president: "Zachari Thiry",
     category: SPORT,
-    featured: true,
     facebook: "https://www.facebook.com/groups/338295291434407/",
     photo: "/images/clubs/climbing.jpg"
   },
@@ -20,7 +19,6 @@ export const clubs: Club[] = [
     president: "Dario Ferrero",
     vicePresident: "Leonardo Zadkiel Mosqueda Hernández",
     category: SPORT,
-    featured: true,
     facebook: "https://www.facebook.com/groups/630853144645799/",
     whatsapp: "https://chat.whatsapp.com/KkWIvKknHEu3Vm89TvRM7t",
     photo: "/images/clubs/basketball.jpg"
@@ -53,7 +51,6 @@ export const clubs: Club[] = [
     president: "Dario Ferrero",
     vicePresident: "Emerson Cardoso",
     category: SOCIAL,
-    featured: true,
     facebook: "https://www.facebook.com/groups/1360827391047825/",
     photo: "/images/clubs/wineandbeertasting.jpg"
   },
@@ -76,7 +73,6 @@ export const clubs: Club[] = [
     name: "Football",
     president: "Mohd Aamir",
     category: SPORT,
-    featured: true,
     facebook: "https://www.facebook.com/groups/242499421236490/",
   },
   {
@@ -100,7 +96,6 @@ export const clubs: Club[] = [
     president: "Marco Klepatzky",
     vicePresident: "Julie Schult",
     category: ENTERTAINMENT,
-    featured: true,
     facebook: "https://www.facebook.com/groups/388572802698498/",
     photo: "https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-4.0.3&dl=modesta-zemgulyte-wMkqe4JCaAw-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
   },
@@ -109,7 +104,6 @@ export const clubs: Club[] = [
     president: "Anis Amor",
     vicePresident: "Enguerran de Larocque Latour",
     category: SPORT,
-    featured: true,
     photo: "/images/clubs/beachvolley.jpg",
     whatsapp: "https://www.youtube.com/watch?v=lH1m5zOImJU",
   },
