@@ -60,7 +60,6 @@ export const clubs: Club[] = [
   {
     name: "EURObOARD Club 🃏🎲♣️",
     president: "Emerson Cardoso",
-    vicePresident: "Marwa Essalehi",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/CyfjC3TWSOvF7cjOcEHvAk",
     photo: "/images/clubs/boardgames.jpg",
@@ -82,7 +81,6 @@ export const clubs: Club[] = [
   {
     name: "Sunset Club",
     president: "Alberto Sánchez Pérez",
-    vicePresident: "Marwa Essalehi",
     category: SOCIAL,
     whatsapp: "https://chat.whatsapp.com/KwWbOWORxINBpLm2HXBd1V"
   },
@@ -124,7 +122,6 @@ export const clubs: Club[] = [
   {
     name: "SAP Club",
     president: "Malek Sfaxi",
-    vicePresident: "Marwa Essalehi",
     category: EDUCATIONAL,
     photo: "/images/clubs/sap-temp.jpg",
     whatsapp: "https://chat.whatsapp.com/BPZBoNaIeMLBAoMvCyFOcC",
