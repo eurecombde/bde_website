@@ -3,6 +3,8 @@ import {CALENDAR_ID, API_KEY} from '$env/static/private';
 import {auth as Auth, calendar as Calendar} from "@googleapis/calendar";
 import type {CalendarEvent} from "$lib/types/calendar-event";
 
+export const prerender = false;
+
 /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[], ical: string, error: string}>>} */
 export async function load(): Promise<{ events: CalendarEvent[], ical: string, error?: any }> {
     const ical = `https://calendar.google.com/calendar/ical/${CALENDAR_ID.replace("@", "%40")}/public/basic.ics`
