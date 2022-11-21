@@ -1,11 +1,17 @@
 <script context="module">
+    import Meta from '$lib/components/meta/meta.svelte';
+    import {metaOf} from '$lib/components/meta/meta';
     import {fly, fade} from 'svelte/transition';
     import {clubs} from '$lib/constants/clubs';
     import {page} from '$app/stores';
     import {GOOGLE_MAPS_QUERY} from "$lib/constants/links";
     import Icon from 'svelte-awesome';
     import {whatsapp, facebookSquare} from 'svelte-awesome/icons';
-
+    const meta = metaOf({
+        title: "Clubs", 
+        image: {url:"/images/clubs/internationalfood.jpg", alt:"Students eating together"}, 
+        description: "Discover the clubs of EURECOM and follow their events and activities."
+    });
     const categories = Array.from(new Set(clubs.map((club) => club.category)));
 
 </script>
@@ -16,10 +22,13 @@
     export let data;
     const {weekEvents, ical, error} = data;
     const hasEvents = weekEvents.find((event) => event.events.length > 0) !== undefined;
-    $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "featured").toLowerCase();
-    $: filteredClubs = filter === "all" ? clubs : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase() || (filter === "featured" && club.featured));
+    $: filter = ($page.url.hash.length > 0 ? $page.url.hash.replace("#", "") : "all").toLowerCase();
+    $: filteredClubs = filter === "all" 
+        ? clubs 
+        : clubs.filter((club) => club.category.name.toLowerCase() === filter.toLowerCase());
 </script>
 
+<Meta {meta}/>
 
 <section in:fly={{y: 100 ,duration: 250, delay:250}} out:fly={{y: 100 ,duration: 250}}>
     <div class="container px-6 pt-12 mx-auto">
@@ -72,13 +81,9 @@
                 <h2 class="text-2xl lg:text-4xl font-semibold text-gray-800 dark:text-white">Categories</h2>
 
                 <div class="mt-4 space-y-4 lg:mt-8">
-                    <a href="#all" class="pl-6 block hover:underline text-gray-500 dark:text-gray-300"
+                    <a href="#all" class="block hover:underline text-gray-500 dark:text-gray-300"
                        class:text-blue-500={filter==="all"} class:dark:text-blue-400={filter==="all"}>
-                        All
-                    </a>
-                    <a href="#featured" class="block hover:underline text-gray-500 dark:text-gray-300"
-                       class:text-blue-500={filter==="featured"} class:dark:text-blue-400={filter==="featured"}>
-                        ⭐️ Featured
+                        ✨ All
                     </a>
                     {#each categories as category}
                         <a href="#{category.name.toLowerCase()}" class="block text-gray-500 dark:text-gray-300 hover:underline"

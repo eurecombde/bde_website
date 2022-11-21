@@ -39,8 +39,17 @@
 
 <nav in:fly={{y: 100 ,duration: 250}}>
     <div class="container p-6 mx-auto">
-        <!--<img src="images/logo_white.png" alt="BED ROCK" width="200" class="mb-6 mx-auto">--> <!--How to change based on dark mode?-->
-        <a class="block text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="/">BedRock @ EURECOM</a>
+        <div class="flex flex-col justify-between items-center text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl">
+            <div class="flex flex-row">
+                <a class="px-2" href="/about">
+                    <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="images/BDE_official@small.jpg" alt="EURECOM BDE logo">
+                </a>
+                <a class="px-2 " href="https://eurecom.fr">
+                    <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="/images/logo_black.png" alt="EURECOM logo"/>
+                </a>
+            </div>
+            <a class="hover:text-gray-700 dark:hover:text-gray-300 mt-2 " href="/"><span class="text-blue-400">BedRock</span> Student Union</a>
+        </div>
         <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
             {#each routes as route}
                 <a class="{route.path === activePath ? ACTIVE_ROUTE_STYLE : INACTIVE_ROUTE_STYLE}" href={route.path}>{route.name}</a>

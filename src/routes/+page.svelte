@@ -2,6 +2,14 @@
     import Header from '$lib/sections/header.svelte';
     import Events from '$lib/sections/events.svelte';
     import {addToast, ToastType} from '$lib/components/toast/store'
+    import Meta from '$lib/components/meta/meta.svelte';
+    import {metaOf} from '$lib/components/meta/meta';
+
+    const meta = metaOf({
+        title: "Home", 
+        image: {url:"/images/hero3.jpg", alt:"Students of EURECOM"}, 
+        description: "See what the BDE is up to and what events we are organising."
+    });
 
     /** @type {import('./$types').PageServerLoad<Promise<{ events:CalendarEvent[] ,calendar: string, error: string}>>} */
     export let data;
@@ -12,7 +20,7 @@
     }
 </script>
 
-
+<Meta {meta} /> 
 <Header events={events}/>
 <Events events={events} ical={ical}/>
 

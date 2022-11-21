@@ -16,7 +16,7 @@ export const contact = {
   eurecom: "https://www.eurecom.fr/en/student-life/student-association",
   socials: [
     { name: "Facebook", url: "https://www.facebook.com/groups/718500665824140", icon: facebookSquare },
-    { name: "Instagram", url: "https://www.instagram.com/bedrock_bde", icon: instagram }
+    { name: "Instagram", url: "https://www.instagram.com/eurecom_bde", icon: instagram }
   ]
 };
 
@@ -37,7 +37,7 @@ export const team = [
         icon: linkedinSquare
       },
       {
-        name: "Facebok",
+        name: "Facebook",
         link: "https://www.facebook.com/profile.php?id=100001996573548",
         icon: facebookSquare
       }
