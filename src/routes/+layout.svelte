@@ -41,11 +41,11 @@
     <div class="container p-6 mx-auto">
         <div class="flex flex-col justify-between items-center text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl">
             <div class="flex flex-row">
-                <a class="px-2" href="/about">
+                <a class="px-2" href="https://www.eurecom.fr/en/student-life/student-association">
                     <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="images/BDE_official@small.jpg" alt="EURECOM BDE logo">
                 </a>
-                <a class="px-2 " href="https://eurecom.fr">
-                    <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="/images/logo_black.png" alt="EURECOM logo"/>
+                <a class="px-2 " href="/">
+                    <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="/images/logo_black.png" alt="BedRock logo"/>
                 </a>
             </div>
             <a class="hover:text-gray-700 dark:hover:text-gray-300 mt-2 " href="/"><span class="text-blue-400">BedRock</span> Student Union</a>
