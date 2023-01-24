@@ -1,7 +1,7 @@
 import { linkedinSquare, githubSquare, facebookSquare, instagram } from "svelte-awesome/icons";
 
 export const contact = {
-  brand: "BEDrock",
+  brand: "Broken BED",
   university: "EURECOM",
   tagline: "EURECOM student association since 2021",
   address:
