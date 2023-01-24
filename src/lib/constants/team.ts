@@ -3,7 +3,7 @@ import { linkedinSquare, githubSquare, facebookSquare, instagram } from "svelte-
 export const contact = {
   brand: "Broken BED",
   university: "EURECOM",
-  tagline: "EURECOM student association since 2021",
+  tagline: "EURECOM student association since 2023",
   address:
     "BDE EURECOM\n" +
     "CS 50193 - 450 Route des Chappes\n" +
