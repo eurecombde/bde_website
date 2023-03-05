@@ -24,7 +24,8 @@ export const team = [
   {
     name: "Lorenzo Pisanò",
     role: "BDS President",
-    socials: []
+    socials: [],
+    photo: "/images/IMG_7729.JPG.jpg"
   },
   {
     name: "Robert Moller",
