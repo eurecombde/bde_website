@@ -90,7 +90,7 @@ export const team = [
   {
     name: "Lenia Malki",
     role: "Communications Member & Website Responsible",
-    photo: "/images/BDE2023Members/Lenia.JPG",
+    photo: "/images/BDE2023Members/Lenia.jpg",
     socials: [{
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/lenia-malki/",
