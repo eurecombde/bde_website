@@ -22,83 +22,121 @@ export const contact = {
 
 export const team = [
   {
-    name: "Test",
-    role: "BDS President",
-    socials: [],
-    photo: "/images/IMG_7729.JPG"
-  },
-  {
-    name: "Robert Moller",
+    name: "Victoire",
     role: "BDE President",
-    // photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
-    socials: [
-      {
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/roberthmoller/",
-        icon: linkedinSquare
-      },
-      {
-        name: "Facebook",
-        link: "https://www.facebook.com/profile.php?id=100001996573548",
-        icon: facebookSquare
-      }
-    ]
+    socials: [],
+    photo: "/images/BDE2023Members/Victoire.JPG"
   },
   {
-    name: "Eloïse Coupin",
+    name: "Barth",
+    role: "Vice-président",
+    socials: [],
+    photo: "/images/BDE2023Members/Barth.JPG"
+  },
+  {
+    name: "Davesne Gabin",
     role: "Treasurer",
-    socials: []
+    photo: "/images/BDE2023Members/Gabin.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/gabin-davesne-1a8424266/",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Clara Leonet",
+    name: "Sahra",
     role: "BDE Secretary",
-    socials: []
+    socials: [],
+    photo: "/images/BDE2023Members/Sahra.JPG",
   },
   {
-    name: "Lucas Georget",
-    role: "BDS Secretary",
-    socials: []
+    name: "Alan",
+    role: "BDE Secretary",
+    photo: "/images/BDE2023Members/Alan.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/abdea",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Zachari Thiry",
-    role: "Events & Logistics",
-    socials: []
+    name: "Anni",
+    role: "Events Member",
+    photo: "/images/BDE2023Members/Anni.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/anni-ranta-lassila/",
+        icon: linkedinSquare
+      }]
   },
 
 
   {
-    name: "Clara Yaiche",
-    role: "",
-    socials: []
+    name: "Cindy",
+    role: "Communications Member",
+    photo: "/images/BDE2023Members/Cindy.jpg",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/cindy-do-637343244/",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Titouan Cazin",
-    role: "",
-    socials: []
+    name: "Emilie",
+    role: "WES Responsible",
+    socials: [],
+    photo: "/images/BDE2023Members/Emilie.JPG",
   },
   {
-    name: "Amit",
-    role: "",
-    socials: []
+    name: "Lenia Malki",
+    role: "Communications Member & Website Responsible",
+    photo: "/images/BDE2023Members/Lenia.jpg",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/lenia-malki/",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Emerson",
-    role: "",
-    socials: []
+    name: "Lina",
+    role: "Events Responsible",
+    photo: "/images/BDE2023Members/Lina.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/lina-chiadmi-EURECOMstudent/",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Marco",
-    role: "",
-    socials: []
+    name: "Madleen",
+    role: "Business Officer - PromoTrip Responsible",
+    socials: [],
+    photo: "/images/BDE2023Members/Madleen.JPG",
   },
   {
-    name: "Sam",
-    role: "",
-    socials: []
+    name: "Marwa B",
+    role: "Communications Responsible - Club Officer",
+    photo: "/images/BDE2023Members/MarwaB.jpg",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/marwa-boulaich-811439261",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Vicky",
-    role: "",
-    socials: []
+    name: "Marwa E",
+    socials: [],
+    photo: "/images/BDE2023Members/MarwaE.jpg",
+    role: "Communications Member",
+  },
+  {
+    name: "Meriem",
+    role: "Events Member",
+    photo: "/images/BDE2023Members/Meriem.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/meriem-driss-383452254",
+        icon: linkedinSquare
+      }]
   }
 ];

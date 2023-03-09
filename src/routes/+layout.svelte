@@ -45,7 +45,7 @@
                     <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="images/BDE_official@small.jpg" alt="EURECOM BDE logo">
                 </a>
                 <a class="px-2 " href="https://eurecom.fr">
-                    <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="/images/logo_black.png" alt="EURECOM logo"/>
+                    <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="/images/BDE2023Members/bdelogo2023.png" alt="EURECOM logo"/>
                 </a>
             </div>
             <a class="hover:text-gray-700 dark:hover:text-gray-300 mt-2 " href="/"><span class="text-blue-400">BedRock</span> Student Union</a>
