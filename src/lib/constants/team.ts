@@ -28,21 +28,22 @@ export const team = [
     photo: "/images/IMG_7729.JPG"
   },
   {
-    name: "Robert Moller",
+    name: "Victoir Bouquet",
     role: "BDE President",
-    // photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
-    socials: [
-      {
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/roberthmoller/",
-        icon: linkedinSquare
-      },
-      {
-        name: "Facebook",
-        link: "https://www.facebook.com/profile.php?id=100001996573548",
-        icon: facebookSquare
-      }
-    ]
+    socials: [],
+//     photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
+//     socials: [
+//       {
+//         name: "LinkedIn",
+//         link: "https://www.linkedin.com/in/roberthmoller/",
+//         icon: linkedinSquare
+//       },
+//       {
+//         name: "Facebook",
+//         link: "https://www.facebook.com/profile.php?id=100001996573548",
+//         icon: facebookSquare
+//       }
+    //]
   },
   {
     name: "Eloïse Coupin",
@@ -50,9 +51,10 @@ export const team = [
     socials: []
   },
   {
-    name: "Clara Leonet",
-    role: "BDE Secretary",
-    socials: []
+    name: "Lenia Malki",
+    role: "BDE Communication Member",
+    photo: "/images/IMG_8027.jpg",
+    socials: [],
   },
   {
     name: "Lucas Georget",
