@@ -74,7 +74,7 @@ export const team = [
   {
     name: "Cindy",
     role: "Communications Member",
-    photo: "/images/BDE2023Members/Cindy.JPG",
+    photo: "/images/BDE2023Members/Cindy.jpg",
     socials: [{
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/cindy-do-637343244/",
