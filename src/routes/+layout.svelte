@@ -48,7 +48,7 @@
                     <img class="p-2 h-[5rem] rounded-lg bg-white object-contain" src="/images/BDE2023Members/bdelogo2023.png" alt="EURECOM logo"/>
                 </a>
             </div>
-            <a class="hover:text-gray-700 dark:hover:text-gray-300 mt-2 " href="/"><span class="text-blue-400">BedRock</span> Student Union</a>
+            <a class="hover:text-gray-700 dark:hover:text-gray-300 mt-2 " href="/"><span class="text-blue-400">Broken BED</span> Student Union</a>
         </div>
         <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
             {#each routes as route}
