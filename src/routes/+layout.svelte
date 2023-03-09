@@ -5,10 +5,9 @@
     import "../app.css";
     import {page} from '$app/stores';
     import Icon from 'svelte-awesome';
-    import {facebookSquare, instagram} from 'svelte-awesome/icons';
     import {routes} from '$lib/constants/routes';
     import {contact} from '$lib/constants/team';
-    import {fly, fade} from 'svelte/transition';
+    import {fly} from 'svelte/transition';
     import Toast from '$lib/components/toast/toast.svelte'
     import {dismissToast, toasts} from '$lib/components/toast/store'
 
@@ -89,16 +88,17 @@
                     </div>
 
                     <p class="max-w-sm mt-2 text-gray-500 dark:text-gray-400">{contact.tagline}</p>
-
-                    <div class="flex mt-6 -mx-2">
-                        {#each contact.socials as social}
-                            <a href={social.url}
-                               class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-                               aria-label={social.name}>
-                                <Icon data={social.icon}/>
-                            </a>
-                        {/each}
-                    </div>
+                    {#if contact.socials}
+                        <div class="flex mt-6 -mx-2">
+                            {#each contact.socials as social}
+                                <a href={social.url}
+                                   class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                                   aria-label={social.name}>
+                                    <Icon data={social.icon}/>
+                                </a>
+                            {/each}
+                        </div>
+                    {/if}
                 </div>
             </div>
 

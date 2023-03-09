@@ -30,6 +30,7 @@ export const team = [
   {
     name: "Victoir Bouquet",
     role: "BDE President",
+    socials: [],
 //     photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
 //     socials: [
 //       {
@@ -52,8 +53,8 @@ export const team = [
   {
     name: "Lenia Malki",
     role: "BDE Communication Member",
-    socials: [],
     photo: "/images/IMG_8027.jpg",
+    socials: [],
   },
   {
     name: "Lucas Georget",
