@@ -30,6 +30,7 @@ export const team = [
   {
     name: "Barth",
     role: "Vice-président",
+    socials: [],
     photo: "/images/BDE2023Members/Barth.JPG"
   },
   {
@@ -45,8 +46,8 @@ export const team = [
   {
     name: "Sahra",
     role: "BDE Secretary",
+    socials: [],
     photo: "/images/BDE2023Members/Sahra.JPG",
-    socials: []
   },
   {
     name: "Alan",
@@ -83,8 +84,8 @@ export const team = [
   {
     name: "Emilie",
     role: "WES Responsible",
+    socials: [],
     photo: "/images/BDE2023Members/Emilie.JPG",
-    socials: []
   },
   {
     name: "Lenia Malki",
@@ -109,8 +110,8 @@ export const team = [
   {
     name: "Madleen",
     role: "Business Officer - PromoTrip Responsible",
+    socials: [],
     photo: "/images/BDE2023Members/Madleen.JPG",
-    socials: []
   },
   {
     name: "Marwa B",
@@ -124,8 +125,8 @@ export const team = [
   },
   {
     name: "Marwa E",
+    socials: [],
     role: "Communications Member",
-    socials: []
   },
   {
     name: "Meriem",
