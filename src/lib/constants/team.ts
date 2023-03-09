@@ -55,7 +55,7 @@ export const team = [
     photo: "/images/BDE2023Members/Alan.JPG",
     socials: [{
         name: "LinkedIn",
-        link: "www.linkedin.com/in/abdea",
+        link: "https://www.linkedin.com/in/abdea",
         icon: linkedinSquare
       }]
   },
@@ -134,7 +134,7 @@ export const team = [
     photo: "/images/BDE2023Members/Meriem.jpg",
     socials: [{
         name: "LinkedIn",
-        link: "www.linkedin.com/in/meriem-driss-383452254",
+        link: "https://www.linkedin.com/in/meriem-driss-383452254",
         icon: linkedinSquare
       }]
   }
