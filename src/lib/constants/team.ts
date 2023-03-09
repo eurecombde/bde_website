@@ -22,7 +22,7 @@ export const contact = {
 
 export const team = [
   {
-    name: "Lorenzo Pisanò",
+    name: "Test",
     role: "BDS President",
     socials: [],
     photo: "/images/IMG_7729.JPG.jpg"
