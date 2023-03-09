@@ -126,6 +126,7 @@ export const team = [
   {
     name: "Marwa E",
     socials: [],
+    photo: "/images/BDE2023Members/MarwaE.jpg",
     role: "Communications Member",
   },
   {
