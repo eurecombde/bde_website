@@ -39,7 +39,7 @@ export const team = [
     photo: "/images/BDE2023Members/Gabin.JPG",
     socials: [{
         name: "LinkedIn",
-        link: "http://linkedin.com/in/gabin-davesne-1a8424266",
+        link: "https://www.linkedin.com/in/gabin-davesne-1a8424266/",
         icon: linkedinSquare
       }]
   },
@@ -103,7 +103,7 @@ export const team = [
     photo: "/images/BDE2023Members/Lina.JPG",
     socials: [{
         name: "LinkedIn",
-        link: "http://www.linkedin.com/in/lina-chiadmi-EURECOMstudent",
+        link: "https://www.linkedin.com/in/lina-chiadmi-EURECOMstudent/",
         icon: linkedinSquare
       }]
   },
@@ -131,7 +131,7 @@ export const team = [
   {
     name: "Meriem",
     role: "Events Member",
-    photo: "/images/BDE2023Members/Meriem.jpg",
+    photo: "/images/BDE2023Members/Meriem.JPG",
     socials: [{
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/meriem-driss-383452254",
