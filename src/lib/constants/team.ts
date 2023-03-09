@@ -23,7 +23,7 @@ export const contact = {
 export const team = [
   {
     name: "Victoire",
-    role: "BDS President",
+    role: "BDE President",
     socials: [],
     photo: "/images/BDE2023Members/Victoire.JPG"
   },
@@ -51,7 +51,7 @@ export const team = [
   },
   {
     name: "Alan",
-    role: "BDS Secretary",
+    role: "BDE Secretary",
     photo: "/images/BDE2023Members/Alan.JPG",
     socials: [{
         name: "LinkedIn",
