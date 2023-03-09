@@ -51,7 +51,7 @@ export const team = [
   },
   {
     name: "Alan",
-    role: "BDE Secretary",
+    role: "BDE Vice-Secretary",
     photo: "/images/BDE2023Members/Alan.JPG",
     socials: [{
         name: "LinkedIn",
