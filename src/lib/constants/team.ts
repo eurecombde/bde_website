@@ -22,83 +22,119 @@ export const contact = {
 
 export const team = [
   {
-    name: "Test",
+    name: "Victoire",
     role: "BDS President",
     socials: [],
-    photo: "/images/IMG_7729.JPG"
+    photo: "/images/BDE2023Members/Victoire.JPG"
   },
   {
-    name: "Robert Moller",
-    role: "BDE President",
-    // photo: "https://avatars.githubusercontent.com/u/33206528?v=4",
-    socials: [
-      {
-        name: "LinkedIn",
-        link: "https://www.linkedin.com/in/roberthmoller/",
-        icon: linkedinSquare
-      },
-      {
-        name: "Facebook",
-        link: "https://www.facebook.com/profile.php?id=100001996573548",
-        icon: facebookSquare
-      }
-    ]
+    name: "Barth",
+    role: "Vice-président",
+    photo: "/images/BDE2023Members/Barth.JPG"
   },
   {
-    name: "Eloïse Coupin",
+    name: "Davesne Gabin",
     role: "Treasurer",
-    socials: []
+    photo: "/images/BDE2023Members/Gabin.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "http://linkedin.com/in/gabin-davesne-1a8424266",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Clara Leonet",
+    name: "Sahra",
     role: "BDE Secretary",
+    photo: "/images/BDE2023Members/Sahra.JPG",
     socials: []
   },
   {
-    name: "Lucas Georget",
+    name: "Alan",
     role: "BDS Secretary",
-    socials: []
+    photo: "/images/BDE2023Members/Alan.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "www.linkedin.com/in/abdea",
+        icon: linkedinSquare
+      }]
   },
   {
-    name: "Zachari Thiry",
-    role: "Events & Logistics",
-    socials: []
+    name: "Anni",
+    role: "Events Member",
+    photo: "/images/BDE2023Members/Anni.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/anni-ranta-lassila/",
+        icon: linkedinSquare
+      }]
   },
 
 
   {
-    name: "Clara Yaiche",
-    role: "",
+    name: "Cindy",
+    role: "Communications Member",
+    photo: "/images/BDE2023Members/Cindy.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/cindy-do-637343244/",
+        icon: linkedinSquare
+      }]
+  },
+  {
+    name: "Emilie",
+    role: "WES Responsible",
+    photo: "/images/BDE2023Members/Emilie.JPG",
     socials: []
   },
   {
-    name: "Titouan Cazin",
-    role: "",
+    name: "Lenia Malki",
+    role: "Communications Member & Website Responsible",
+    photo: "/images/BDE2023Members/Lenia.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/lenia-malki/",
+        icon: linkedinSquare
+      }]
+  },
+  {
+    name: "Lina",
+    role: "Events Responsible",
+    photo: "/images/BDE2023Members/Lina.JPG",
+    socials: [{
+        name: "LinkedIn",
+        link: "http://www.linkedin.com/in/lina-chiadmi-EURECOMstudent",
+        icon: linkedinSquare
+      }]
+  },
+  {
+    name: "Madleen",
+    role: "Business Officer - PromoTrip Responsible",
+    photo: "/images/BDE2023Members/Madleen.JPG",
     socials: []
   },
   {
-    name: "Amit",
-    role: "",
+    name: "Marwa B",
+    role: "Communications Responsible - Club Officer",
+    photo: "/images/BDE2023Members/MarwaB.jpg",
+    socials: [{
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/marwa-boulaich-811439261",
+        icon: linkedinSquare
+      }]
+  },
+  {
+    name: "Marwa E",
+    role: "Communications Member",
     socials: []
   },
   {
-    name: "Emerson",
-    role: "",
-    socials: []
-  },
-  {
-    name: "Marco",
-    role: "",
-    socials: []
-  },
-  {
-    name: "Sam",
-    role: "",
-    socials: []
-  },
-  {
-    name: "Vicky",
-    role: "",
-    socials: []
+    name: "Meriem",
+    role: "Events Member",
+    photo: "/images/BDE2023Members/Meriem.jpg",
+    socials: [{
+        name: "LinkedIn",
+        link: "www.linkedin.com/in/meriem-driss-383452254",
+        icon: linkedinSquare
+      }]
   }
 ];
