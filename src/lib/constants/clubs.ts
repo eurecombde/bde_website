@@ -1,5 +1,5 @@
 export type Category = { name: string, emoji: string };
-export type Club = { name: string, category: Category, facebook?: string, whatsapp?: string, photo?: string, president: string, vicePresident?: string };
+export type Club = { name: string, category: Category, facebook?: string, instagram?: string, whatsapp?: string, photo?: string, president: string, vicePresident?: string };
 
 const SPORT: Category = { name: "Sport", emoji: "🧗‍" };
 const SOCIAL: Category = { name: "Social", emoji: "🍷" };
@@ -88,6 +88,15 @@ export const clubs: Club[] = [
     photo: "/images/clubs/internationalfood.jpg",
     whatsapp: "https://chat.whatsapp.com/Iw4EYYBEcXK1lD8CEFJnI9",
     facebook: "https://www.facebook.com/groups/1283501492485473/",
+  },
+   {
+    name: "Music",
+    president: "Lou Marze",
+    vicePresident: "Guillaume Ung",
+    category: ENTERTAINMENT,
+    photo: "/images/clubs/music.jpg",
+    whatsapp: "https://chat.whatsapp.com/CY9EiqSeTpQAgHWQIyGnuu",
+    instagram: "https://instagram.com/eu_rock_om?igshid=YmMyMTA2M2Y=",
   },
   {
     name: "EURESound",
