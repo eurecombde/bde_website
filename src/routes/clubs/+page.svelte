@@ -129,7 +129,7 @@
                             
                             {#if club.instagram}
                                 <a href={club.instagram} class="ml-1.5 mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400">
-                                    <Icon data={"instagram"} class="mb-1 mr-0.5"/>
+                                    <Icon data={instagram} class="mb-1 mr-0.5"/>
                                     <span>Follow us on Instagram</span>
                                 </a>
                             {/if}
