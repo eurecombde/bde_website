@@ -90,7 +90,7 @@ export const clubs: Club[] = [
     facebook: "https://www.facebook.com/groups/1283501492485473/",
   },
    {
-    name: "Music",
+    name: "EuROCKom",
     president: "Lou Marze",
     vicePresident: "Guillaume Ung",
     category: ENTERTAINMENT,
