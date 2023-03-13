@@ -6,7 +6,7 @@
     import {page} from '$app/stores';
     import {GOOGLE_MAPS_QUERY} from "$lib/constants/links";
     import Icon from 'svelte-awesome';
-    import {whatsapp, facebookSquare} from 'svelte-awesome/icons';
+    import {whatsapp, facebookSquare, instagram} from 'svelte-awesome/icons';
     const meta = metaOf({
         title: "Clubs", 
         image: {url:"/images/clubs/internationalfood.jpg", alt:"Students eating together"}, 
@@ -124,6 +124,13 @@
                                 <a href={club.whatsapp} class="ml-1.5 mt-2 text-lg tracking-wider text-green-500 dark:text-green-400 flex align-center">
                                     <Icon data={whatsapp} class="mt-1.5 mr-2"/>
                                     <span>Join the chat</span>
+                                </a>
+                            {/if}
+                            
+                            {#if club.instagram}
+                                <a href={club.instagram} class="ml-1.5 mt-2 text-lg tracking-wider text-blue-500 dark:text-blue-400">
+                                    <Icon data={instagram} class="mb-1 mr-0.5"/>
+                                    <span>Follow us on Instagram</span>
                                 </a>
                             {/if}
                         </div>
