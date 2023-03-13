@@ -6,7 +6,7 @@
     import {page} from '$app/stores';
     import {GOOGLE_MAPS_QUERY} from "$lib/constants/links";
     import Icon from 'svelte-awesome';
-    import {whatsapp, facebookSquare} from 'svelte-awesome/icons';
+    import {whatsapp, facebookSquare, instagram} from 'svelte-awesome/icons';
     const meta = metaOf({
         title: "Clubs", 
         image: {url:"/images/clubs/internationalfood.jpg", alt:"Students eating together"}, 
