@@ -88,7 +88,7 @@ export const team = [
     photo: "/images/BDE2023Members/Emilie.JPG",
   },
   {
-    name: "Lenia Malki",
+    name: "Lenia",
     role: "Communications Member & Website Responsible",
     photo: "/images/BDE2023Members/Lenia.jpg",
     socials: [{
